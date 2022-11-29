@@ -1,0 +1,18 @@
+<div class="container">
+
+  <% if current_user && current_user.avatar.attached? %>
+    <%= image_tag current_user.avatar, class: "rounded-circle img-thumbnail mx-auto d-block my-4", width: 95 %>
+  <% else %>
+    <%= image_tag "avatar.png", class: "rounded-circle img-thumbnail mx-auto d-block my-4", width: 100 %>
+  <% end %>
+
+  <%= simple_form_for(@user, url: avatar_update_path, data: {turbo: false}, html: { novalidate: false }) do |f| %>
+    <div class="input-group bg-white rounded p-3 shadow">
+      <%= f.error_notification %>
+
+        <%= f.file_field :avatar, class: "form-control", required: true %>
+        <%= f.button :submit, "Upload Photo", class: "btn btn-outline-secondary" %>
+    </div>
+  <% end %>
+
+</div>
