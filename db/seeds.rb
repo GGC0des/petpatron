@@ -74,6 +74,7 @@ Shelter.all.each do |shelter|
   print "x"
 end
 
+puts ""
 puts "#{Animal.all.size} animals created."
 
 puts "Creating emergencies"
@@ -93,6 +94,7 @@ Animal.all.each do |animal|
   print "x"
 end
 
+puts ""
 puts "#{Emergency.all.size} emergencies created."
 
 puts "Creating donations"
@@ -109,6 +111,7 @@ Emergency.all.each do |emergency|
   print "x"
 end
 
+puts ""
 puts "#{Donation.all.size} donations created."
 
 puts "Creating caretakings"
@@ -123,4 +126,5 @@ puts "Creating caretakings"
   print "x"
 end
 
+puts ""
 puts "#{Caretaking.all.size} caretakings created."
