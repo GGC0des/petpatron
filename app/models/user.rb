@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :shelter, dependent: :destroy
-  has_many :animals, through: :shelter, dependent: :destroy
+  has_many :animals, through: :shelter
   has_many :donations, dependent: :destroy
   has_many :caretakings, dependent: :destroy
+
+  has_one_attached :avatar
 end
