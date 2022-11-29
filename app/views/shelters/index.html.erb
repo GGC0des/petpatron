@@ -1,0 +1,18 @@
+<div>
+  <div class="intro-banner bg-success">
+    <div class="intro-copy">
+      <h2> Shelters</h2>
+      <p> hgdkfhgjdh kgfdhfjgklfd gkfjdgkljfdk gjldf kjgklfdjg kldfjgkl djfkgljdfl</p>
+    </div>
+  </div>
+
+  <div><% @shelters.each do |shelter| %>
+    <div>
+    <h3> <%= shelter.name %></h3>
+    <p>description of the shelter</p>
+    <p><strong><%= link_to shelter.name, shelter_path(shelter), class: 'shelter-link'%></strong></p>
+    <div class="shelter-card-picture"><%= cl_image_tag(shelter.photos[0].key)%></div>
+    </div>
+  <% end %>
+  </div>
+</div>
