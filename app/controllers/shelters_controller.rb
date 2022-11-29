@@ -2,7 +2,7 @@ class SheltersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @shelter = Shelter.all
+    @shelters = Shelter.all
   end
 
   def show
@@ -12,6 +12,6 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:name, :location, :phone_number, :email) #photos: [] add this with Cloudinary !
+    params.require(:shelter).permit(:name, :location, :phone_number, :email, photos: [])
   end
 end
