@@ -1,21 +1,24 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "Paw_Logo.svg" %>
     <% end %>
     <ul class="navbar-nav me-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Emergencies", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Caretaking", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Shelters", "#", class: "nav-link" %>
+        </li>
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Emergencies", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Caretaking", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Shelters", "#", class: "nav-link" %>
+            <%= link_to "Dashboard", "#", class: "nav-link" %>
           </li>
         <% end %>
     </ul>
