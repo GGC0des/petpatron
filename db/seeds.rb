@@ -100,12 +100,12 @@ puts "#{Emergency.all.size} emergencies created."
 puts "Creating donations"
 
 Emergency.all.each do |emergency|
-  rand(0..10).times do
+  rand(0..7).times do
     Donation.create!(
       donation_amount: rand(5..100),
       comment: Faker::Lorem.paragraph(sentence_count: rand(1..5)),
       user_id: User.all.sample.id,
-      emergency_id: Emergency.all.sample.id
+      emergency_id: emergency.id
     )
   end
   print "x"
