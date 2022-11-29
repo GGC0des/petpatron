@@ -10,9 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_154440) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_162229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animals", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "sex"
+    t.string "size"
+    t.string "species"
+    t.bigint "shelter_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shelter_id"], name: "index_animals_on_shelter_id"
+  end
+
+  create_table "caretakings", force: :cascade do |t|
+    t.date "date"
+    t.datetime "start_time"
+    t.string "volunteer_type"
+    t.bigint "animal_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["animal_id"], name: "index_caretakings_on_animal_id"
+    t.index ["user_id"], name: "index_caretakings_on_user_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.integer "donation_amount"
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.bigint "emergency_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emergency_id"], name: "index_donations_on_emergency_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "emergencies", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "fundraising_goal"
+    t.bigint "animal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["animal_id"], name: "index_emergencies_on_animal_id"
+  end
+
+  create_table "shelters", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "phone_number"
+    t.string "email"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shelters_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +82,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_154440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "animals", "shelters"
+  add_foreign_key "caretakings", "animals"
+  add_foreign_key "caretakings", "users"
+  add_foreign_key "donations", "emergencies"
+  add_foreign_key "donations", "users"
+  add_foreign_key "emergencies", "animals"
+  add_foreign_key "shelters", "users"
 end
