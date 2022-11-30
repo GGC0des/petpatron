@@ -1,0 +1,20 @@
+
+<% if @myshelter.present? %>
+  <h1><%= @myshelter.name %></h1>
+  <%# add cloudinary image etc %>
+  <% else %>
+  <%= link_to "Add shelter", new_shelter_path %>
+<% end %>
+
+<% if @myshelter.present? %>
+  <% @shelter_animals.each do |animal| %>
+    <%= animal.name %>
+  <% end %>
+<% end %>
+
+@shelter_animals <%= @shelter_animals.count %>
+@shelter_caretakings <%= @shelter_caretakings.count %>
+@user_caretakings <%= @user_caretakings.count %>
+@shelter_emergencies <%= @shelter_emergencies.count %>
+@shelter_donations <%= @shelter_donations.count %>
+@user_donations <%= @user_donations.count %>
