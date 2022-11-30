@@ -13,7 +13,7 @@ Emergency.destroy_all
 Shelter.destroy_all
 User.destroy_all
 
-puts "Creating users .."
+puts "Creating users that are animal lovers .."
 
 User.create!(
   first_name: "Peter",
@@ -36,16 +36,22 @@ User.create!(
 
 puts "#{User.all.size} users created."
 
-puts "Creating shelters .."
+puts "Creating shelters owners and shelters .."
 
 21.times do
+  user = User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "lewagon"
+  )
   file = URI.open(Faker::LoremFlickr.image(search_terms: ['animal', 'shelter']))
   shelter = Shelter.new(
     name: Faker::Company.name,
     location: Faker::Address.full_address,
     phone_number: Faker::PhoneNumber.phone_number_with_country_code,
     email: Faker::Internet.email,
-    user_id: User.all.sample.id
+    user_id: user.id
   )
   shelter.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
   shelter.save!
