@@ -18,7 +18,7 @@ class AnimalsController < ApplicationController
 
   def create
     if user_signed_in?
-      @animal = Animal.new(castle_params)
+      @animal = Animal.new(animal_params)
       @animal.shelter = Shelter.where(user: current_user).first
       if @animal.save
         redirect_to dashboard_path
@@ -33,9 +33,9 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    @shelter = Shelter.find(params[:id])
-    if @shelter.update(shelter_params)
-      redirect_to shelter_path(@shelter)
+    @animal = Animal.find(params[:id])
+    if @animal.update(animal_params)
+      redirect_to animal_path(@animal)
     else
       render :update, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class AnimalsController < ApplicationController
 
   private
 
-  def castle_params
-    params.require(:castle).permit(:name, :location, :description, :price, photos: [])
+  def animal_params
+    params.require(:animal).permit(:name, :description, :sex, :size, :species, photos: [])
   end
 end
