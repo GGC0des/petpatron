@@ -1,11 +1,25 @@
-<div>
-  <div class="intro-banner bg-success">
-    <div class="intro-copy">
-      <h2> Shelters</h2>
-      <p> hgdkfhgjdh kgfdhfjgklfd gkfjdgkljfdk gjldf kjgklfdjg kldfjgkl djfkgljdfl</p>
+<div class="intro-banner" style="background-image: url(<%= image_path("shelters_banner.jpg") %>)">
+  <div class="intro-copy">
+    <h2 class="n-head"> Shelters</h2>
+    <p class="n-sub">Not sure if subline is needed; maybe just some short explanation</p>
+    <a href="/" class="c-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
+  </div>
+</div>
+
+<div class="pet-container">
+  <div class="container-top">
+    <div class="c-top-copy">
+      <h2 class="n-head"> Shelters</h2>
+      <p class="n-sub">Not sure if subline is needed; maybe just some short explanation</p>
+      <form class="input-group right-align c-top-search" role="search">
+        <input class="form-control location_search" id="query" name="query" type="search" placeholder="Your location" aria-label="Search">
+        <button type="submit" class="btn btn-outline-secondary find-castles">Search</button>
+      </form>
+    </div>
+    <div class="c-top-map">
+      <%= image_tag("dummy_map.png") %>
     </div>
   </div>
-
   <div><% @shelters.each do |shelter| %>
     <div>
     <h3> <%= shelter.name %></h3>
