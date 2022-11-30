@@ -2,7 +2,7 @@
   <div class="intro-banner bg-success">
     <div class="intro-copy">
       <h2> Shelters</h2>
-      <p> hgdkfhgjdh kgfdhfjgklfd gkfjdgkljfdk gjldf kjgklfdjg kldfjgkl djfkgljdfl</p>
+      <p> hgdkfhgjdh kgfdhfjgklfd gjldf kjgklfdjg kldfjgkl djfkgljdfl</p>
     </div>
   </div>
 
@@ -11,7 +11,10 @@
     <h3> <%= shelter.name %></h3>
     <p>description of the shelter</p>
     <p><strong><%= link_to shelter.name, shelter_path(shelter), class: 'shelter-link'%></strong></p>
-    <div class="shelter-card-picture"><%= cl_image_tag(shelter.photos[0].key)%></div>
+    <% if shelter.photos.attached? %>
+    <div class="shelter-card-picture"><%= image_tag(shelter.photos[0])%></div>
+    <% end %>
+    <%= link_to "Edit Shelter" ,edit_shelter_path(shelter) %>
     </div>
   <% end %>
   </div>
