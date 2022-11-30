@@ -1,5 +1,10 @@
-<div class="container">
+<div class="container w-50">
   <div class="bg-white rounded p-3 shadow m-5">
+    <h1 class="text-center">Log in</h1>
+    <% if !user_signed_in? && !current_page?(new_user_registration_path) %>
+       <p class="text-center">New to this site? <%= link_to "Register", new_user_registration_path %></p>
+    <% end %>
+
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
         data: {turbo: false}) do |f| %>
 
@@ -14,11 +19,14 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions d-grid gap-2">
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "link-secondary" %><br />
+  <% end %>
+
+      <div class="form-actions d-grid gap-2 py-1">
         <%= f.button :submit, "Log in", class: "btn btn-primary fw-semibold login" %>
       </div>
     <% end %>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>
