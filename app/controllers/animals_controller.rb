@@ -11,15 +11,18 @@ class AnimalsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
+    if user_signed_in? && current_user.shelter.present?
       @animal = Animal.new
+    else
+      flash[:warning] = "Sorry, you are not a shelter owner"
+      redirect_to dashboard_path
     end
   end
 
   def create
     if user_signed_in?
       @animal = Animal.new(animal_params)
-      @animal.shelter = Shelter.where(user: current_user).first
+      @animal.shelter = current_user.shelter
       if @animal.save
         redirect_to dashboard_path
       else
