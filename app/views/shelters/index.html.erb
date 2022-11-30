@@ -1,32 +1,37 @@
 <div class="intro-banner" style="background-image: url(<%= image_path("shelters_banner.jpg") %>)">
   <div class="intro-copy">
-    <h2 class="n-head"> Shelters</h2>
-    <p class="n-sub">Not sure if subline is needed; maybe just some short explanation</p>
-    <a href="/" class="c-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
+    <h2 class="normal-head"> Shelters</h2>
+    <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+    <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
   </div>
 </div>
 
-<div class="pet-container">
+<div class="shelter-container">
   <div class="container-top">
-    <div class="c-top-copy">
-      <h2 class="n-head"> Shelters</h2>
-      <p class="n-sub">Not sure if subline is needed; maybe just some short explanation</p>
-      <form class="input-group right-align c-top-search" role="search">
-        <input class="form-control location_search" id="query" name="query" type="search" placeholder="Your location" aria-label="Search">
-        <button type="submit" class="btn btn-outline-secondary find-castles">Search</button>
+    <div class="container-top-copy">
+      <h2 class="normal-head"> Shelters</h2>
+      <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+      <form class="input-group right-align container-top-search" role="search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Enter your location" aria-label="Search">
+        <button type="submit" class="btn border bg-white">Search</button>
       </form>
     </div>
-    <div class="c-top-map">
+    <div class="container-top-map">
       <%= image_tag("dummy_map.png") %>
     </div>
   </div>
-  <div><% @shelters.each do |shelter| %>
-    <div>
-    <h3> <%= shelter.name %></h3>
-    <p>description of the shelter</p>
-    <p><strong><%= link_to shelter.name, shelter_path(shelter), class: 'shelter-link'%></strong></p>
-    <div class="shelter-card-picture"><%= cl_image_tag(shelter.photos[0].key)%></div>
+  <div class="container-bottom">
+    <% @shelters.each do |shelter| %>
+    <div class="shelter-card">
+      <div class="shelter-card-text shelter-card-element">
+        <h5 class="card-head"><%= shelter.name %></h5>
+        <p class="card-sub txt-limit-3"><%= shelter.description %></p>
+        <p><strong><%= link_to "See more info", shelter_path(shelter), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
+      </div>
+      <div class="shelter-card-image">
+         <%= cl_image_tag(shelter.photos[0].key) %>
+      </div>
     </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

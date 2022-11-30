@@ -42,6 +42,7 @@ puts "Creating shelters .."
   file = URI.open(Faker::LoremFlickr.image(search_terms: ['animal', 'shelter']))
   shelter = Shelter.new(
     name: Faker::Company.name,
+    description: Faker::Lorem.paragraph(sentence_count: rand(3..7)),
     location: Faker::Address.full_address,
     phone_number: Faker::PhoneNumber.phone_number_with_country_code,
     email: Faker::Internet.email,
