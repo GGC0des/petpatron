@@ -7,6 +7,8 @@
 <% end %>
 
 <% if @myshelter.present? %>
+  <h1> <%= @myshelter.name %>'s Animals </h1>
+  <%= link_to "Add animal", new_animal_path %>
   <% @shelter_animals.each do |animal| %>
     <%= animal.name %>
   <% end %>
