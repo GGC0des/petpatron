@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'dashboard', to: 'pages#dashboard'
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :shelters
 
   resources :animals do
