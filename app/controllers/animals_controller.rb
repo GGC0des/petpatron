@@ -34,6 +34,7 @@ class AnimalsController < ApplicationController
       redirect_to shelter_path(@shelter)
     else
       render :update, status: :unprocessable_entity
+    end
   end
 
   private
@@ -41,5 +42,4 @@ class AnimalsController < ApplicationController
   def castle_params
     params.require(:castle).permit(:name, :location, :description, :price, photos: [])
   end
-
 end

@@ -17,7 +17,7 @@ class SheltersController < ApplicationController
     shelter = Shelter.new(shelter_params)
     shelter.user = current_user if user_signed_in?
     if shelter.save
-      redirect_to dashboard_path
+    redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,6 +33,7 @@ class SheltersController < ApplicationController
       redirect_to shelter_path(@shelter)
     else
       render :update, status: :unprocessable_entity
+    end
   end
 
   def destroy
