@@ -32,7 +32,9 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find(params[:id]) # only owner can edit !
+    if user_signed_in? && current_user.shelter.present?
+    @animal = Animal.find(params[:id])
+    end
   end
 
   def update
