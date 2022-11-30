@@ -6,7 +6,7 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    @castle = Castle.find(params[:id])
+    @animal = Animal.find(params[:id])
     @caretaking = Caretaking.new
   end
 
@@ -16,8 +16,25 @@ class AnimalsController < ApplicationController
 
   def create
     animal = Animal.new(castle_params)
+    shelter.user = current_user if user_signed_in?
+    if shelter.save
+      redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
+  def edit
+    @shelter = Shelter.find(params[:id]) # only owner can edit !
+  end
+
+  def update
+    @shelter = Shelter.find(params[:id])
+    if @shelter.update(shelter_params)
+      redirect_to shelter_path(@shelter)
+    else
+      render :update, status: :unprocessable_entity
+  end
 
   private
 

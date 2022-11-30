@@ -10,14 +10,14 @@ class SheltersController < ApplicationController
   end
 
   def new
-    @castle = Castle.new
+    @shelter = Shelter.new
   end
 
   def create
     shelter = Shelter.new(shelter_params)
     shelter.user = current_user if user_signed_in?
     if shelter.save
-      redirect_to castle_path(castle) # make sure this is the correct path we want !
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,8 +29,10 @@ class SheltersController < ApplicationController
 
   def update
     @shelter = Shelter.find(params[:id])
-    @shelter.update(shelter_params)
-    redirect_to shelter_path(@shelter) # redirect where?
+    if @shelter.update(shelter_params)
+      redirect_to shelter_path(@shelter)
+    else
+      render :update, status: :unprocessable_entity
   end
 
   def destroy
