@@ -11,8 +11,6 @@
     <div class="container-top-copy">
       <h2 class="normal-head"> Shelters</h2>
       <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
-      <%= link_to "Create Shelter", new_shelter_path, class: "dropdown-item px-3 text-muted" %>
-
       <form class="input-group right-align container-top-search" role="search">
         <input class="form-control" id="query" name="query" type="search" placeholder="Enter your location" aria-label="Search">
         <button type="submit" class="btn border bg-white">Search</button>
@@ -35,7 +33,6 @@
          <%= image_tag(shelter.photos[0]) %>
       <% end %>
       </div>
-      <%= link_to "Edit Shelter" ,edit_shelter_path(shelter) %>
     </div>
     <% end %>
   </div>
