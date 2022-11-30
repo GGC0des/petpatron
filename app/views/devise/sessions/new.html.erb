@@ -1,9 +1,8 @@
 <div class="container w-50">
   <div class="bg-white rounded p-3 shadow m-5">
     <h1 class="text-center">Log in</h1>
-    <% if !user_signed_in? && !current_page?(new_user_registration_path) %>
-       <p class="text-center">New to this site? <%= link_to "Register", new_user_registration_path %></p>
-    <% end %>
+    <p class="text-center">New to this site? <%= link_to "Register", new_user_registration_path %></p>
+
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
         data: {turbo: false}) do |f| %>
