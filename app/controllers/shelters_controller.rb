@@ -29,10 +29,12 @@ class SheltersController < ApplicationController
 
   def update
     @shelter = Shelter.find(params[:id])
-    if @shelter.update(shelter_params)
+    if current_user.shelter.present?
+      @shelter.update(shelter_params)
       redirect_to shelter_path(@shelter)
     else
       render :update, status: :unprocessable_entity
+    end
   end
 
   def destroy
