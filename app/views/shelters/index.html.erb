@@ -3,6 +3,7 @@
     <div class="intro-copy">
       <h2> Shelters</h2>
       <p> hgdkfhgjdh kgfdhfjgklfd gjldf kjgklfdjg kldfjgkl djfkgljdfl</p>
+      <%= link_to "Create Shelter", new_shelter_path, class: "dropdown-item px-3 text-muted" %>
     </div>
   </div>
 
@@ -14,8 +15,8 @@
     <% if shelter.photos.attached? %>
     <div class="shelter-card-picture"><%= image_tag(shelter.photos[0])%></div>
     <% end %>
-    <%= link_to "Edit Shelter" ,edit_shelter_path(shelter) %>
     </div>
+    <%= link_to "Edit Shelter" ,edit_shelter_path(shelter) %>
   <% end %>
   </div>
 </div>
