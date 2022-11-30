@@ -1,0 +1,50 @@
+.shelter-card {
+  background-color: white;
+  background: #FFFFFF;
+  box-shadow: -5px -12px 24px #EFFFFD, 8px 8px 25px #81BABC;
+  border-radius: 16px;
+  height:400px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow:hidden;
+
+}
+
+.shelter-card-text {
+  padding: 32px 28px;
+}
+
+.shelter-card-element {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-between;
+  height:200px;
+}
+
+.shelter-card-image{
+	// border-bottom-left-radius: 16px;
+	// border-bottom-right-radius: 16px;
+  height:200px;
+}
+
+.shelter-card img {
+  object-fit: cover;
+  height:200px;
+  width:100%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // align-items: center;
+  // align-content: space-between;
+}
+
+// Limit text to show to number of allowed lines
+.txt-limit-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+          line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
