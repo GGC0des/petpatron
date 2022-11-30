@@ -1,20 +1,21 @@
-class SheltersController < ApplicationController
+class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @shelters = Shelter.all
+    @animals = Animals.all
   end
 
   def show
-    @shelter = Shelter.find(params[:id])
+    @animal = Animal.find(params[:id])
+    @caretaking = Caretaking.new
   end
 
   def new
-    @shelter = Shelter.new
+    @animal = Animal.new
   end
 
   def create
-    shelter = Shelter.new(shelter_params)
+    animal = Animal.new(castle_params)
     shelter.user = current_user if user_signed_in?
     if shelter.save
       redirect_to dashboard_path
@@ -35,15 +36,10 @@ class SheltersController < ApplicationController
       render :update, status: :unprocessable_entity
   end
 
-  def destroy
-    shelter = Shelter.find(params[:id])
-    shelter.destroy
-    redirect_to dashboard_path
-  end
-
   private
 
-  def shelter_params
-    params.require(:shelter).permit(:name, :location, :phone_number, :email, photos: [])
+  def castle_params
+    params.require(:castle).permit(:name, :location, :description, :price, photos: [])
   end
+
 end
