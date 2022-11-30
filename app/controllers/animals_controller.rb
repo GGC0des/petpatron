@@ -11,21 +11,25 @@ class AnimalsController < ApplicationController
   end
 
   def new
-    @animal = Animal.new
+    if user_signed_in?
+      @animal = Animal.new
+    end
   end
 
   def create
-    animal = Animal.new(castle_params)
-    shelter.user = current_user if user_signed_in?
-    if shelter.save
-      redirect_to dashboard_path
-    else
-      render :new, status: :unprocessable_entity
+    if user_signed_in?
+      @animal = Animal.new(castle_params)
+      @animal.shelter = Shelter.where(user: current_user).first
+      if @animal.save
+        redirect_to dashboard_path
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
   def edit
-    @shelter = Shelter.find(params[:id]) # only owner can edit !
+    @animal = Animal.find(params[:id]) # only owner can edit !
   end
 
   def update
@@ -34,6 +38,7 @@ class AnimalsController < ApplicationController
       redirect_to shelter_path(@shelter)
     else
       render :update, status: :unprocessable_entity
+    end
   end
 
   private
@@ -41,5 +46,4 @@ class AnimalsController < ApplicationController
   def castle_params
     params.require(:castle).permit(:name, :location, :description, :price, photos: [])
   end
-
 end
