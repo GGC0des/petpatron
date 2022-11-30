@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'avatars/edit', as: :avatar_edit
-  patch 'avatars/update', as: :avatar_update
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
