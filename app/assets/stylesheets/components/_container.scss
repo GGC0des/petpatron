@@ -1,4 +1,4 @@
-.pet-container {
+.shelter-container {
   margin: 80px;
   border-radius: 16px;
   background-image: linear-gradient(#DEFFFB, #81D5D9)
@@ -8,4 +8,11 @@
   height: 300px;
   display: flex;
   justify-content: space-between;
+}
+
+.container-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 32px;
+  grid-gap: 32px;
 }
