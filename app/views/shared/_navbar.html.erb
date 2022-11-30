@@ -41,12 +41,16 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
-          </li>
+          <% if !user_signed_in? && !current_page?(new_user_session_path) %>
+            <li class="nav-item">
+              <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if !user_signed_in? && !current_page?(new_user_registration_path) %>
+            <li class="nav-item">
+              <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
