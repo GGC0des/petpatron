@@ -33,7 +33,9 @@ class AnimalsController < ApplicationController
 
   def edit
     if user_signed_in? && current_user.shelter.present?
-    @animal = Animal.find(params[:id])
+      @animal = Animal.find(params[:id])
+    else
+      flash[:warning] = "Sorry, you are not a shelter owner"
     end
   end
 
