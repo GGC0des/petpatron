@@ -17,9 +17,11 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
+    <div style="min-height: 70vh">
       <%= yield %>
+    </div>
 
-    <div class="container fixed-bottom">
+    <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-5 border-top">
         <div class="col-md-4 d-flex align-items-center">
           <%= link_to root_path, class: "navbar-brand px-2" do %>
