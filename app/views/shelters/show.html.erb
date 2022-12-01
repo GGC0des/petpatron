@@ -7,7 +7,9 @@
       <li><%= @shelter.email %></li>
       <li><%= @shelter.location %></li>
       </ul>
-      <%= cl_image_tag(@shelter.photos[0].key) %>
+      <% if @shelter.photos.attached? %>
+        <%= image_tag(@shelter.photos[0]) %>
+      <% end %>
     </div>
     </div>
   </div>
