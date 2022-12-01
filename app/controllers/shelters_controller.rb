@@ -33,6 +33,7 @@ class SheltersController < ApplicationController
       redirect_to shelter_path(@shelter)
     else
       render :update, status: :unprocessable_entity
+    end
   end
 
   def destroy
