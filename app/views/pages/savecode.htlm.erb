@@ -1,0 +1,43 @@
+ <div> <h3> <%= @shelter_caretakings.count %> Caretaking booking in your shelter </h3>
+        <% if @shelter_caretakings.any? { |b| b.accepted == false } %>
+          <h3 class="my-5">Pending volunteer slots</h3>
+          <% end %>
+          <% @shelter_caretakings.each do |caretaking| %>
+            <% if caretaking.accepted == false %>
+              <div class="notification shadow">
+                <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
+                <div class="notification-content">
+                  <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
+                  <p><%= caretaking.comment %></p>
+                </div>
+                <div>
+                  <%= link_to "Decline", caretakings_path(caretaking), data: { "turbo-method": :delete }, class: "btn btn-danger" %>
+                  <%= link_to "Confirm", confirm_booking_path(booking), data: { turbo_method: :put, turbo_confirm: "Are you sure you want to confirm this booking?"}, class: "btn btn-success" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if @incomming_bookings.any? { |b| b.accepted } %>
+            <h3 class="my-5">Accepted bookings</h3>
+          <% end %>
+          <% @incomming_bookings.each do |booking| %>
+            <% if booking.accepted %>
+              <div class="notification shadow">
+                <% if booking.user.avatar.key %>
+                  <%= image_tag booking.user.avatar, class: "avatar-large" %>
+                <% else %>
+                  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+                <% end %>
+                <div class="notification-content">
+                  <p><small><%= booking.date_from %></small> to <small><%= booking.date_to %></small> for <small><%= booking.castle.name %></small></p>
+                  <p><%= booking.comment %></p>
+                </div>
+                <p class="btn btn-success disabled">Confirmed</p>
+              </div>
+            <% end %>
+          <% end %>
+
+
+
+      </div>

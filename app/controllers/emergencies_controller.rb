@@ -13,7 +13,8 @@ class EmergenciesController < ApplicationController
 
   def new
     if user_signed_in? && current_user.shelter.present?
-      @emergency = Emergency.new
+      @animal = Animal.find(params[:format])
+      @emergency = Emergency.new(animal: @animal)
     else
       flash[:warning] = "Sorry, you are not a shelter owner"
       redirect_to dashboard_path
@@ -22,9 +23,9 @@ class EmergenciesController < ApplicationController
 
   def create
     if user_signed_in?
-      @animal = Animal.new(animal_params)
+      @emergency = Emergency.new(animal: @animal)
       @animal.shelter = current_user.shelter
-      if @animal.save
+      if @emergency.save
         redirect_to dashboard_path
       else
         render :new, status: :unprocessable_entity
@@ -34,24 +35,24 @@ class EmergenciesController < ApplicationController
 
   def edit
     if user_signed_in? && current_user.shelter.present?
-      @animal = Animal.find(params[:id])
+      @emergency = Emergency.find(params[:id])
     else
       flash[:warning] = "Sorry, you are not a shelter owner"
     end
   end
 
   def update
-    @animal = Animal.find(params[:id])
-    if @animal.update(animal_params)
-      redirect_to animal_path(@animal)
+    @emergency = Emergency.find(params[:id])
+    if @emergency.update(emergency_params)
+      redirect_to emergency_path(@emergency)
     else
       render :update, status: :unprocessable_entity
     end
   end
 
   def destroy
-    animal = Animal.find(params[:id])
-    animal.destroy
+    emergency = Emergency.find(params[:id])
+    emergency.destroy
     redirect_to dashboard_path
   end
 
