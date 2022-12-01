@@ -6,11 +6,14 @@
       <li><%= @shelter.phone_number %></li>
       <li><%= @shelter.email %></li>
       <li><%= @shelter.location %></li>
+      <li> <%= @shelter.description %></li>
       </ul>
       <% if @shelter.photos.attached? %>
         <%= image_tag(@shelter.photos[0]) %>
       <% end %>
-    </div>
+      <% if @shelter.user == current_user %>
+        <%= link_to "Edit my shelter", edit_shelter_path %>
+      <% end %>
     </div>
   </div>
 </div>
