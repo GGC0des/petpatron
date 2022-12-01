@@ -3,7 +3,11 @@
 
   <% if @myshelter.present? %>
     <h1><%= @myshelter.name %></h1>
-    <%= cl_image_tag(@myshelter.photos[0].key)%>
+      <% if @myshelter.photos.attached? %>
+        <%= image_tag(@myshelter.photos[0])%>
+      <% else %>
+        <%= image_tag "defult-shelter.png", width: 500%>
+      <% end %>
     <% else %>
     <%= link_to "Add shelter", new_shelter_path %>
   <% end %>
@@ -31,28 +35,6 @@
               </div>
             <% end %>
           <% end %>
-
-          <% if @incomming_bookings.any? { |b| b.accepted } %>
-            <h3 class="my-5">Accepted bookings</h3>
-          <% end %>
-          <% @incomming_bookings.each do |booking| %>
-            <% if booking.accepted %>
-              <div class="notification shadow">
-                <% if booking.user.avatar.key %>
-                  <%= image_tag booking.user.avatar, class: "avatar-large" %>
-                <% else %>
-                  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-                <% end %>
-                <div class="notification-content">
-                  <p><small><%= booking.date_from %></small> to <small><%= booking.date_to %></small> for <small><%= booking.castle.name %></small></p>
-                  <p><%= booking.comment %></p>
-                </div>
-                <p class="btn btn-success disabled">Confirmed</p>
-              </div>
-            <% end %>
-          <% end %>
-
-
 
       </div>
       <div> <h3> <%= @myshelter.name %>'s Animals </h3>
