@@ -31,7 +31,7 @@
 }
 
 .hero-eyecatcher {
-  background-image: url("test_EC");
+  background-image: url("Homepage_Eyecatcher");
   background-size: cover;
   width: 240px;
   height: 250px;
@@ -41,7 +41,7 @@
 }
 
 .hero-eyecatcher:hover {
-  background-image: url("test_ECAFTER");
+  background-image: url("Homepage_Eyecatcher_Hover");
   filter: saturate(1.5)
 }
 
