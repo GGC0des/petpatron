@@ -15,7 +15,7 @@ class EmergenciesController < ApplicationController
 
   def new
     if user_signed_in? && current_user.shelter.present?
-      @animal = Animal.find(params[:format])
+      @animal = Animal.find(params[:animal_id])
       @emergency = Emergency.new(animal: @animal)
     else
       flash[:warning] = "Sorry, you are not a shelter owner"
@@ -25,8 +25,9 @@ class EmergenciesController < ApplicationController
 
   def create
     if user_signed_in?
-      @emergency = Emergency.new(animal: @animal)
-      @animal.shelter = current_user.shelter
+      @animal = Animal.find(params[:animal_id])
+      @emergency = Emergency.new(emergency_params)
+      @emergency.animal = @animal
       if @emergency.save
         redirect_to dashboard_path
       else

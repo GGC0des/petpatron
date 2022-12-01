@@ -12,7 +12,7 @@
     <% if @myshelter.present? %>
       <h2> <%= @myshelter.name %>'s Dashboard</h2>
 
-     
+
       <div> <h3> <%= @myshelter.name %>'s Animals </h3>
         <%= link_to "Add animal", new_animal_path %>
           <div class="row">
@@ -29,7 +29,7 @@
                     <div class="d-flex justify-content-between">
                     <%= link_to "Delete", animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
                     <%= link_to "Edit", edit_animal_path(animal), class: "text-primary" %>
-                    <%= link_to "+ Add Emergency", new_emergency_path(animal) %>
+                    <%= link_to "+ Add Emergency", new_animal_emergency_path(animal) %>
                     </div>
                   </div>
                 <%end%>
