@@ -8,11 +8,42 @@
       <li><%= @shelter.location %></li>
       <li> <%= @shelter.description %></li>
       </ul>
-      <% if @shelter.photos.attached? %>
-        <%= image_tag(@shelter.photos[0]) %>
-      <% else %>
-        <%= image_tag "defult-shelter.png", width: 500 %>
-      <% end %>
+
+    <div class="col-4">
+<%# ///////////shelters photos slide show start///////////////////// %>
+      <div id="shelters-photos" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#shelters-photos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#shelters-photos" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#shelters-photos" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <% if @shelter.photos.attached? %>
+            <% @shelter.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= "active" if index == 0 %>">
+                <%= image_tag photo, class: "d-block w-100" %>
+              </div>
+            <% end #each %>
+          <% else %>
+            <div class="carousel-item">
+              <%= image_tag "defult-shelter.png", class: "d-block w-100" %>
+            </div>
+          <% end #if %>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#shelters-photos" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#shelters-photos" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+<%# ///////////shelters photos slide show end//////////////////////// %>
+    </div>
+
       <% if @shelter.user == current_user %>
         <%= link_to "Edit my shelter", edit_shelter_path %>
       <% end %>
