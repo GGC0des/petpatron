@@ -6,8 +6,7 @@
       <%= f.input :sex %>
       <%= f.input :size %>
       <%= f.input :species %>
-      <%= f.association :categories, as: :check_boxes %>
-      <%= f.collection_check_boxes :categories, Category.all, :id, :name %>
+      <%= f.collection_check_boxes :categories, Category.all, :id, :name, item_label_class: 'collection-checkboxes' %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
       <div class="d-grid gap-2 col-6 mx-auto">

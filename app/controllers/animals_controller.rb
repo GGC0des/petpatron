@@ -23,6 +23,10 @@ class AnimalsController < ApplicationController
     if user_signed_in?
       @animal = Animal.new(animal_params)
       @animal.shelter = current_user.shelter
+      animal_categories = params[:animal][:categories].reject { |category| category.empty? }
+      animal_categories.each do |category|
+        AnimalCategory.create(animal: @animal, category_id: category)
+      end
       if @animal.save
         redirect_to dashboard_path
       else
