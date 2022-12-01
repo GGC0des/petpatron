@@ -1,0 +1,20 @@
+<h1>This is the Emergencies listing #index </h1>
+
+
+<div>
+  <div class="intro-banner bg-success">
+    <div class="intro-copy">
+      <h2> Help animals in urgent need! Donate to these emergencies</h2>
+    </div>
+  </div>
+
+  <div><% @emergencies.each do |emergency| %>
+    <div>
+    <h3> <%= emergency.title %></h3>
+    <p>description of the animal</p>
+    <p><strong><%= link_to emergency.title, emergency_path(emergency), class: 'emergency-link'%></strong></p>
+    <div class="emergency-card-picture"><%= cl_image_tag(emergency.photos[0].key)%></div>
+    </div>
+  <% end %>
+  </div>
+</div>
