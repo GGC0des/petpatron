@@ -4,8 +4,6 @@
   <% if @myshelter.present? %>
     <h1><%= @myshelter.name %></h1>
     <%= cl_image_tag(@myshelter.photos[0].key)%>
-    
-    <%# add cloudinary image etc %>
     <% else %>
     <%= link_to "Add shelter", new_shelter_path %>
   <% end %>
