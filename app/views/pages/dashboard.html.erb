@@ -1,0 +1,56 @@
+
+<div>
+  <h1>Dashboard</h1>
+
+  <% if @myshelter.present? %>
+    <h1><%= @myshelter.name %></h1>
+    <%= cl_image_tag(@myshelter.photos[0].key)%>
+    <%# add cloudinary image etc %>
+    <% else %>
+    <%= link_to "Add shelter", new_shelter_path %>
+  <% end %>
+
+  <div>
+    <h2></h2>
+    <% if @myshelter.present? %>
+      <h2> <%= @myshelter.name %>'s Dashboard</h2>
+      <div> <h3> <%= @shelter_caretakings.count %> Caretaking booking in your shelter </h3>
+
+      </div>
+      <div> <h3> <%= @myshelter.name %>'s Animals </h3>
+        <%= link_to "Add animal", new_animal_path %>
+          <div class="row">
+              <% @shelter_animals.each do |animal| %>
+                <div class="col-4">
+                <%= link_to(animal_path(animal)) do %>
+                  <div class="animal animal-overview">
+                    <div class="animal-img">
+                      <%= cl_image_tag(animal.photos[0].key)%>
+                    </div>
+                    <div>
+                      <h4><%= link_to animal.name, animal_path(animal), class: 'animal-link'%></h4>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                    <%= link_to "Delete", delete_animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
+                    <%= link_to "Edit", edit_animal_path(animal), class: "text-primary" %>
+                    </div>
+                  </div>
+                <%end%>
+                </div>
+              <% end %>
+            </div>
+          </div>
+      </div>
+
+    <% end %>
+  </div>
+
+
+
+@shelter_animals <%= @shelter_animals.count %>
+@shelter_caretakings <%= @shelter_caretakings.count %>
+@user_caretakings <%= @user_caretakings.count %>
+@shelter_emergencies <%= @shelter_emergencies.count %>
+@shelter_donations <%= @shelter_donations.count %>
+@user_donations <%= @user_donations.count %>
+</div>
