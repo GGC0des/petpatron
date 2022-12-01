@@ -1,5 +1,11 @@
 // bootstrap overwrite
 .progress {
   width: 100% !important;
-  --bs-progress-bar-bg: #E7BDA5;
+  --bs-progress-bar-bg: #E39465;
+  --bs-progress-bg: #864823;
+  border-radius:10px;
+}
+
+.progress-bar {
+  border-radius:10px;
 }
