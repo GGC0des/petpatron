@@ -1,6 +1,10 @@
 <div class="hero">
   <div class="hero-copy">
-    <h1>Hi, animal lover!</h1>
+    <% if user_signed_in? %>
+      <h1>Hi, <%= current_user.first_name.capitalize+ " " + current_user.last_name.capitalize %> </h1>
+    <% else %>
+      <h1>Hi, animal lover!</h1>
+    <% end %>
     <p>Welcome to PetPatron, where you can help shelters or register as one.</p>
   </div>
   <%= link_to "", new_shelter_path, class: "hero-eyecatcher" %>
