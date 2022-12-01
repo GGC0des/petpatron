@@ -49,8 +49,8 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
-    booking = Booking.find(params[:id])
-    booking.destroy
+    animal = Animal.find(params[:id])
+    animal.destroy
     redirect_to dashboard_path
   end
 
