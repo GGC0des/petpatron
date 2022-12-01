@@ -32,7 +32,11 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find(params[:id]) # only owner can edit !
+    if user_signed_in? && current_user.shelter.present?
+      @animal = Animal.find(params[:id])
+    else
+      flash[:warning] = "Sorry, you are not a shelter owner"
+    end
   end
 
   def update
@@ -42,6 +46,12 @@ class AnimalsController < ApplicationController
     else
       render :update, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    animal = Animal.find(params[:id])
+    animal.destroy
+    redirect_to dashboard_path
   end
 
   private
