@@ -30,7 +30,7 @@ User.create!(
 
 puts "#{User.all.size} users created."
 
-puts "Creating shelters owners and shelters .."
+puts "Creating shelters and owners ..."
 
 21.times do
   user = User.create(
@@ -53,7 +53,6 @@ puts "Creating shelters owners and shelters .."
   print "x"
 end
 
-puts ""
 puts "#{Shelter.all.size} shelters created."
 
 puts "Creating animals .."
@@ -75,7 +74,6 @@ Shelter.all.each do |shelter|
   print "x"
 end
 
-puts ""
 puts "#{Animal.all.size} animals created."
 
 puts "Creating emergencies"
@@ -95,7 +93,6 @@ Animal.all.each do |animal|
   print "x"
 end
 
-puts ""
 puts "#{Emergency.all.size} emergencies created."
 
 puts "Creating donations"
@@ -112,7 +109,6 @@ Emergency.all.each do |emergency|
   print "x"
 end
 
-puts ""
 puts "#{Donation.all.size} donations created."
 
 puts "Creating caretakings"
@@ -127,10 +123,40 @@ puts "Creating caretakings"
   print "x"
 end
 
-puts ""
 puts "#{Caretaking.all.size} caretakings created."
 
 puts "Creating categories"
+
 Category.create!(
-  name: ["Adoption", "Foster Home", "Dog Walking", "Grooming", "Playtime"]
+  name: "Adoption"
 )
+
+Category.create!(
+  name: "Foster Home"
+)
+
+Category.create!(
+  name: "Dog Walking"
+)
+Category.create!(
+  name: "Grooming"
+)
+Category.create!(
+  name: "Playtime"
+)
+
+puts "All categories created!"
+
+puts "Creating Animal_Categories"
+
+30.times do
+  AnimalCategory.create!(
+    animal_id: Animal.all.sample.id,
+    category_id: Category.all.sample.id
+  )
+end
+
+puts "#{AnimalCategory.all.size} animal categories created
+and connected to both animal-table and category-table through animal_category-table"
+
+puts "Seeding done"
