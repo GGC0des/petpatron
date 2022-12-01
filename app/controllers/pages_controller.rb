@@ -4,4 +4,14 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @myshelter = Shelter.where(user: current_user).first
+    @shelter_animals = Animal.where(shelter: current_user.shelter)
+    @shelter_caretakings = Caretaking.where(animal: @shelter_animals) # bookings the shelter has received
+    @user_caretakings = Caretaking.where(user: current_user) # what the user has booked
+    @shelter_emergencies = Emergency.where(animal: @shelter_animals)
+    @shelter_donations = Donation.where(emergencies: @shelter_emergencies)
+    @user_donations = Donation.where(user: current_user)
+  end
 end
