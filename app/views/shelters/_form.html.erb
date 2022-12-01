@@ -1,5 +1,12 @@
 <div class="container mt-5">
   <div class="bg-white rounded p-3 shadow">
+
+    <% if @shelter.errors.present? %>
+      <div class="alert alert-danger" role="alert">
+        <%= @shelter.errors.full_messages.join("<br>") %>
+      </div>
+    <% end %>
+
     <%= simple_form_for(@shelter) do |f| %>
       <%= f.input :name %>
       <%= f.input :location %>
