@@ -10,6 +10,8 @@
       </ul>
       <% if @shelter.photos.attached? %>
         <%= image_tag(@shelter.photos[0]) %>
+      <% else %>
+        <%= image_tag "defult-shelter.png", width: 500 %>
       <% end %>
       <% if @shelter.user == current_user %>
         <%= link_to "Edit my shelter", edit_shelter_path %>
