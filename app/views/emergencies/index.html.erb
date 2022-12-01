@@ -1,0 +1,40 @@
+<div class="intro-banner" style="background-image: url(<%= image_path("emerge_banner.png") %>)">
+  <div class="intro-copy">
+    <h2 class="normal-head"> Emergencies</h2>
+    <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+    <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
+  </div>
+</div>
+
+<div class="shelter-container">
+  <div class="container-top">
+    <div class="container-top-copy">
+      <h2 class="normal-head"> Emergencies</h2>
+      <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+      <form class="input-group right-align container-top-search" role="search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Enter your location" aria-label="Search">
+        <button type="submit" class="btn border bg-white">Search</button>
+      </form>
+    </div>
+    <div class="container-top-map">
+      <%= image_tag("dummy_map.png") %>
+    </div>
+  </div>
+  <div class="container-bottom">
+    <% @emergencies.each do |emergency| %>
+    <div class="shelter-card">
+      <div class="shelter-card-text shelter-card-element">
+        <h5 class="card-head"><%= emergency.title %></h5>
+        <p class="card-sub txt-limit-3"><%= emergency.description %></p>
+        <p><strong><%= link_to "See more info", emergency_path(emergency), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
+        <p class="card-sub"><%= emergency.fundraising_goal %></p>
+      </div>
+      <div class="shelter-card-image">
+      <% if emergency.photos.attached? %>
+         <%= image_tag(emergency.photos[0]) %>
+      <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
