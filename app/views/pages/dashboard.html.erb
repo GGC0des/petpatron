@@ -4,7 +4,11 @@
 
   <% if @myshelter.present? %>
     <h1><%= @myshelter.name %></h1>
-    <%= cl_image_tag(@myshelter.photos[0].key)%>
+      <% if @myshelter.photos.attached? %>
+        <%= image_tag(@myshelter.photos[0])%>
+      <% else %>
+        <%= image_tag "avatar.png", class: "avatar", width: 60 %>
+      <% end %>
     <% else %>
     <%= link_to "Add shelter", new_shelter_path %>
   <% end %>
