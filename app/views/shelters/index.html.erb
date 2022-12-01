@@ -29,7 +29,9 @@
         <p><strong><%= link_to "See more info", shelter_path(shelter), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
       </div>
       <div class="shelter-card-image">
-         <%= cl_image_tag(shelter.photos[0].key) %>
+      <% if shelter.photos.attached? %>
+         <%= image_tag(shelter.photos[0]) %>
+      <% end %>
       </div>
     </div>
     <% end %>
