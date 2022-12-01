@@ -1,20 +1,47 @@
-<h1>This is the Emergencies listing #index </h1>
+<div class="intro-banner" style="background-image: url(<%= image_path("emerge_banner.png") %>)">
+  <div class="intro-copy">
+    <h2 class="normal-head"> Emergencies</h2>
+    <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+    <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
+  </div>
+</div>
 
-
-<div>
-  <div class="intro-banner bg-success">
-    <div class="intro-copy">
-      <h2> Help animals in urgent need! Donate to these emergencies</h2>
+<div class="emergencies-container">
+  <div class="container-top">
+    <div class="container-top-copy">
+      <h2 class="normal-head"> Emergencies</h2>
+      <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+      <form class="input-group right-align container-top-search" role="search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Enter your location" aria-label="Search">
+        <button type="submit" class="btn border bg-white">Search</button>
+      </form>
+    </div>
+    <div class="container-top-map">
+      <%= image_tag("dummy_map.png") %>
     </div>
   </div>
-
-  <div><% @emergencies.each do |emergency| %>
-    <div>
-    <h3> <%= emergency.title %></h3>
-    <p>description of the animal</p>
-    <p><strong><%= link_to emergency.title, emergency_path(emergency), class: 'emergency-link'%></strong></p>
-    <div class="emergency-card-picture"><%= cl_image_tag(emergency.photos[0].key)%></div>
+  <div class="container-bottom">
+    <% @emergencies.each do |emergency| %>
+    <div class="emergency-card">
+      <div class="shelter-card-text emergency-card-element">
+        <h5 class="card-head"><%= emergency.title %></h5>
+        <p class="card-sub txt-limit-3"><%= emergency.description %></p>
+        <p><strong><%= link_to "See more info", emergency_path(emergency), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
+        <% fgoal = emergency.fundraising_goal %>
+        <% sum_of_donations = emergency.donations.sum(:donation_amount) %>
+        <p class="fund-sub">Goal: <%= fgoal %>€ | Donations: <%= sum_of_donations %>€<%= "   🎉🎊🥳" if sum_of_donations > fgoal %></p>
+        <% progress = (emergency.donations.sum(:donation_amount).to_f / emergency.fundraising_goal).round(2) * 100 %>
+        <% progress > 100 ? progress = 100 : progress = progress.to_i %>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+      <div class="shelter-card-image">
+      <% if emergency.photos.attached? %>
+         <%= image_tag(emergency.photos[0]) %>
+      <% end %>
+      </div>
     </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

@@ -1,7 +1,9 @@
 class EmergenciesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
-    @emergencies = Emergency.all
+    @emergencies = Emergency.includes(:donations).all
   end
 
   def show
