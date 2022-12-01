@@ -31,6 +31,8 @@
       <div class="shelter-card-image">
       <% if shelter.photos.attached? %>
          <%= image_tag(shelter.photos[0]) %>
+      <% else %>
+        <%= image_tag "defult-shelter.png" %>
       <% end %>
       </div>
     </div>
