@@ -2,7 +2,7 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @animals = Animals.all
+    @animals = Animal.all
   end
 
   def show
