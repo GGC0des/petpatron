@@ -9,14 +9,14 @@
   background-color: #CCCCCC;
 }
 
-.emergency-card {
+.emergency-category-card {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #ffffff83 , 15px 15px 30px  #00000024;
   transition: 0.5s;
 }
 
-.emergency-card:hover {
+.emergency-category-card:hover {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
@@ -28,14 +28,14 @@
   background-repeat: no-repeat;
 }
 
-.animal-card {
+.animal-category-card {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #ffffff83 , 15px 15px 30px  #00000024;
   transition: 0.5s;
 }
 
-.animal-card:hover {
+.animal-category-card:hover {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #eaa7f443 , 15px 15px 30px  #8a4e9c5f;
@@ -47,14 +47,14 @@
   background-repeat: no-repeat;
 }
 
-.shelter-card {
+.shelter-category-card {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #ffffff83 , 15px 15px 30px  #00000024;
   transition: 0.5s;
 }
 
-.shelter-card:hover {
+.shelter-category-card:hover {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #a7f0f466 , 15px 15px 30px  #4e859c63;
@@ -64,4 +64,12 @@
 .shelter-img {
   background-image: url("Category_shelter"), $shelter;
   background-repeat: no-repeat;
+}
+
+//for when a "link_to" breaks your div layouts
+.display-inherit {
+  display: inherit;
+  text-decoration: none;
+  position: inherit;
+
 }

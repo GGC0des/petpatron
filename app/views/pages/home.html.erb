@@ -3,20 +3,23 @@
     <h1>Hi, animal lover!</h1>
     <p>Welcome to PetPatron, where you can help shelters or register as one.</p>
   </div>
-  <div class="hero-eyecatcher">
-  </div>
+  <%= link_to "", new_shelter_path, class: "hero-eyecatcher" %>
 </div>
 
 <div class="three-cards-row">
-  <%= link_to emergencies_path, class: "t-none" do %>
-    <div class="category-card emergency-card emergency-img">
+  <%= link_to emergencies_path, class: "display-inherit" do %>
+    <div class="category-card emergency-category-card emergency-img">
       <p class="card-headline">Urgent Causes →</p>
     </div>
   <% end %>
-  <div class="category-card animal-card animal-img">
-    <p class="card-headline">Caretaking →</p>
-  </div>
-  <div class="category-card shelter-card shelter-img">
-    <p class="card-headline">Shelters →</p>
-  </div>
+  <%= link_to animals_path, class: "display-inherit" do %>
+    <div class="category-card animal-category-card animal-img">
+      <p class="card-headline">Caretaking →</p>
+    </div>
+  <% end %>
+  <%= link_to shelters_path, class: "display-inherit" do %>
+    <div class="category-card shelter-category-card shelter-img">
+      <p class="card-headline">Shelters →</p>
+    </div>
+  <% end %>
 </div>
