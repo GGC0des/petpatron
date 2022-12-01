@@ -11,7 +11,7 @@
           <%= link_to "Emergencies", emergencies_path, class: ["nav-link", ("active fw-semibold" if current_page?(emergencies_path))] %>
         </li>
         <li class="nav-item">
-          <%= link_to "Caretaking", animals_path, class: ["nav-link", ("active fw-semibold" if current_page?(animals_path))] %>
+          <%= link_to "Animals", animals_path, class: ["nav-link", ("active fw-semibold" if current_page?(animals_path))] %>
         </li>
         <li class="nav-item">
           <%= link_to "Shelters", shelters_path, class: ["nav-link", ("active fw-semibold" if current_page?(shelters_path))] %>
@@ -35,6 +35,7 @@
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to current_user.first_name.capitalize+ " " + current_user.last_name.capitalize, avatar_edit_path, class: "dropdown-item px-3 text-muted" %>
               <%= link_to "Edit Photo", avatar_edit_path, class: "dropdown-item px-3 text-muted" %>
               <hr class="dropdown-divider">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item px-3 text-muted" %>
