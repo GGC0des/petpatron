@@ -2,3 +2,16 @@
 
 
 <h1> We also want the caretaking booking form here below</h1>
+
+<div class="container mt-5" id="booking">
+  <div class="bg-white rounded p-3 shadow">
+    <h2> Book a volunteering slot for <%= @animal.name %> now </h2>
+    <br>
+    <%= simple_form_for [@animal, @caretaking] do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :date, as: :datetime, html5: true %>
+      <%= f.association :category, collection: @animal.categories %>
+      <%= f.submit class: "btn btn-primary booking-button", value:"Book volunteering"%>
+    <% end %>
+  </div>
+</div>

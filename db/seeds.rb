@@ -111,19 +111,6 @@ end
 
 puts "#{Donation.all.size} donations created."
 
-puts "Creating caretakings"
-
-(Animal.all.size / 3).times do
-  Caretaking.create!(
-    date: Faker::Time.between(from: DateTime.now - 365, to: DateTime.now),
-    volunteer_type: [].sample,
-    animal_id: Animal.all.sample.id,
-    user_id: User.all.sample.id
-  )
-  print "x"
-end
-
-puts "#{Caretaking.all.size} caretakings created."
 
 puts "Creating categories"
 
@@ -149,14 +136,28 @@ puts "All categories created!"
 
 puts "Creating Animal_Categories"
 
-30.times do
+
+Animal.all.each do |animal|
   AnimalCategory.create!(
-    animal_id: Animal.all.sample.id,
-    category_id: Category.all.sample.id
+    animal: animal,
+    category: Category.all.sample
   )
 end
-
 puts "#{AnimalCategory.all.size} animal categories created
 and connected to both animal-table and category-table through animal_category-table"
+
+puts "Creating caretakings"
+
+(Animal.all.size / 3).times do
+  Caretaking.create!(
+    date: Faker::Time.between(from: DateTime.now - 365, to: DateTime.now),
+    animal_id: Animal.all.sample.id,
+    user_id: User.all.sample.id,
+    category: Category.all.sample
+  )
+  print "x"
+end
+
+puts "#{Caretaking.all.size} caretakings created."
 
 puts "Seeding done"

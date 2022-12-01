@@ -15,28 +15,6 @@
   <div>
     <% if @myshelter.present? %>
       <h2> <%= @myshelter.name %>'s Dashboard</h2>
-
-      <div> <h3> <%= @shelter_caretakings.count %> Caretaking booking in your shelter </h3>
-        <% if @shelter_caretakings.any? { |b| b.accepted == false } %>
-          <h3 class="my-5">Pending bookings</h3>
-          <% end %>
-          <% @shelter_caretakings.each do |caretaking| %>
-            <% if caretaking.accepted == false %>
-              <div class="notification shadow">
-                <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
-                <div class="notification-content">
-                  <p><small><%= caretaking.date_from %></small> to <small><%= booking.date_to %></small> for <small><%= booking.castle.name %></small></p>
-                  <p><%= booking.comment %></p>
-                </div>
-                <div>
-                  <%= link_to "Decline", booking_path(booking), data: { "turbo-method": :delete }, class: "btn btn-danger" %>
-                  <%= link_to "Confirm", confirm_booking_path(booking), data: { turbo_method: :put, turbo_confirm: "Are you sure you want to confirm this booking?"}, class: "btn btn-success" %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-
-      </div>
       <div> <h3> <%= @myshelter.name %>'s Animals </h3>
         <%= link_to "Add animal", new_animal_path %>
           <div class="row">
@@ -53,6 +31,7 @@
                     <div class="d-flex justify-content-between">
                     <%= link_to "Delete", animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
                     <%= link_to "Edit", edit_animal_path(animal), class: "text-primary" %>
+                    <%= link_to "+ Add Emergency", new_animal_emergency_path(animal) %>
                     </div>
                   </div>
                 <%end%>
@@ -63,8 +42,6 @@
       </div>
     <% end %>
   </div>
-
-
 
 @shelter_animals <%= @shelter_animals.count %>
 @shelter_caretakings <%= @shelter_caretakings.count %>
