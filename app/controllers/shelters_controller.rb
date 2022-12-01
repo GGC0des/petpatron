@@ -10,13 +10,14 @@ class SheltersController < ApplicationController
   end
 
   def new
+    redirect_to dashboard_path if current_user.shelter.present?
     @shelter = Shelter.new
   end
 
   def create
-    shelter = Shelter.new(shelter_params)
-    shelter.user = current_user if user_signed_in?
-    if shelter.save
+    @shelter = Shelter.new(shelter_params)
+    @shelter.user = current_user if user_signed_in?
+    if @shelter.save
       redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
