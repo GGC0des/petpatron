@@ -1,7 +1,11 @@
+.emergency-show-body {
+  background: $emergency;
+}
+
 .shelter-container {
   margin: 80px;
   border-radius: 16px;
-  background-image: linear-gradient(#DEFFFB, #81D5D9)
+  background: $shelter;
 }
 
 .animal-container {

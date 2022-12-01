@@ -1,2 +1,8 @@
-<h1>This is a show page of an emergency</h1>
-<p>We need a donation form down below</p>
+<div class="emergency-show-body">
+  <div class="emergencies-container">
+    <div class="normal-head">Come to <%= @emergency.animal.name %>'s aid!</div>
+    <div>
+      <%= link_to "← back to emergencies", emergencies_path, class: "card-link" %>
+    </div>
+  </div>
+</div>
