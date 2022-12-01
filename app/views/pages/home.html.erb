@@ -1,9 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="hero">
+  <div class="hero-copy">
+    <h1>Hi, animal lover!</h1>
+    <p>Welcome to PetPatron, where you can help shelters or register as one.</p>
+  </div>
+  <%= link_to "", new_shelter_path, class: "hero-eyecatcher" %>
+</div>
 
-
-<%= link_to "Emergencies", emergencies_path %>
-<br>
-<%= link_to "Animals/Caretakings", animals_path %>
-<br>
-<%= link_to "Shelters", shelters_path %>
+<div class="three-cards-row">
+  <%= link_to emergencies_path, class: "display-inherit" do %>
+    <div class="category-card emergency-category-card emergency-img">
+      <p class="card-headline">Urgent Causes →</p>
+    </div>
+  <% end %>
+  <%= link_to animals_path, class: "display-inherit" do %>
+    <div class="category-card animal-category-card animal-img">
+      <p class="card-headline">Caretaking →</p>
+    </div>
+  <% end %>
+  <%= link_to shelters_path, class: "display-inherit" do %>
+    <div class="category-card shelter-category-card shelter-img">
+      <p class="card-headline">Shelters →</p>
+    </div>
+  <% end %>
+</div>
