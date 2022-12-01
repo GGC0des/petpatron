@@ -8,17 +8,17 @@
           <%= link_to "Home", root_path, class: ["nav-link", ("active fw-semibold" if current_page?(root_path))] %>
         </li>
         <li class="nav-item">
-          <%= link_to "Emergencies", "#", class: ["nav-link", ("active fw-semibold" if current_page?("#"))] %>
+          <%= link_to "Emergencies", emergencies_path, class: ["nav-link", ("active fw-semibold" if current_page?(emergencies_path))] %>
         </li>
         <li class="nav-item">
-          <%= link_to "Caretaking", "#", class: ["nav-link", ("active fw-semibold" if current_page?("#"))] %>
+          <%= link_to "Caretaking", animals_path, class: ["nav-link", ("active fw-semibold" if current_page?(animals_path))] %>
         </li>
         <li class="nav-item">
           <%= link_to "Shelters", shelters_path, class: ["nav-link", ("active fw-semibold" if current_page?(shelters_path))] %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Dashboard", "#", class: ["nav-link", ("active fw-semibold" if current_page?("#"))] %>
+            <%= link_to "Dashboard", dashboard_path, class: ["nav-link", ("active fw-semibold" if current_page?(dashboard_path))] %>
           </li>
         <% end %>
     </ul>
