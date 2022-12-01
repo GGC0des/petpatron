@@ -6,20 +6,15 @@
 $body-font: "Inter", "Helvetica", "sans-serif";
 $headers-font: "Inter", "Helvetica", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
-
 .font-size {
   font-size: 22px;
 }
 
+.card-headline {
+  font-weight: bold;
+  font-size: 20px;
+  color: #383838;
+}
 .normal-head {
   font-size: 32px;
   font-weight: 600;
@@ -51,14 +46,14 @@ $headers-font: "Inter", "Helvetica", "sans-serif";
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
-  color: #000000
+  color: #383838
 }
 
 .card-link {
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
-  color: #000000;
+  color: #383838;
   text-decoration: none;
 }
 
