@@ -1,1 +1,48 @@
 // Specific CSS for your home-page
+
+.hero {
+  color: $gray;
+  height: 478px;
+  display: flex;
+  align-items: center;
+  background-image: url("HeroBanner");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-copy {
+  margin: 0px 82px;
+  display: flex;
+  flex-direction: column;
+  line-height: 478px;
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: 64px;
+}
+
+.hero p {
+  max-width: 572px;
+  font-weight: 300 !important;
+  font-size: 24px;
+  line-height: 35px;
+  letter-spacing: 1px;
+}
+
+.hero-eyecatcher {
+  background-image: url("Homepage_Eyecatcher");
+  background-size: cover;
+  width: 240px;
+  height: 250px;
+  position: absolute;
+  right: 82px;
+  transition: 0.5s;
+}
+
+.hero-eyecatcher:hover {
+  background-image: url("Homepage_Eyecatcher_Hover");
+  filter: saturate(1.5)
+}
+
+// for category cards => stylesheet/components/_category_card
