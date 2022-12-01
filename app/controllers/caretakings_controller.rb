@@ -47,4 +47,3 @@ class CaretakingsController < ApplicationController
     params.require(:booking).permit(:comment, :date_from, :date_to, :user_id, :castle_id)
   end
 end
-end
