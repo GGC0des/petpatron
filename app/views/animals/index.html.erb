@@ -1,1 +1,21 @@
 <h1>This is the Animals listing #index </h1>
+
+
+<div>
+  <div class="intro-banner bg-success">
+    <div class="intro-copy">
+      <h2> Animals that would love to meet you</h2>
+      <p> Click on an animal to book a volunteering slot</p>
+    </div>
+  </div>
+
+  <div><% @animals.each do |animal| %>
+    <div>
+    <h3> <%= animal.name %></h3>
+    <p>description of the animal</p>
+    <p><strong><%= link_to animal.name, animal_path(animal), class: 'animal-link'%></strong></p>
+    <div class="animal-card-picture"><%= cl_image_tag(animal.photos[0].key)%></div>
+    </div>
+  <% end %>
+  </div>
+</div>
