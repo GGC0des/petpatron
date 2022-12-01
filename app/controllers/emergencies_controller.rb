@@ -8,7 +8,9 @@ class EmergenciesController < ApplicationController
 
   def show
     @emergency = Emergency.find(params[:id])
-    @donation = Donation.new
+    @fgoal = @emergency.fundraising_goal
+    @sum_of_donations = @emergency.donations.sum(:donation_amount)
+    @donations = @emergency.donations
   end
 
   private
