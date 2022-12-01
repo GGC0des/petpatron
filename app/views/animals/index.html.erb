@@ -1,21 +1,56 @@
-<h1>This is the Animals listing #index </h1>
+<div class="intro-banner" style="background-image: url(<%= image_path("banner_pig.png") %>)">
+  <div class="intro-copy">
+    <h2 class="normal-head"> Animals</h2>
+    <p class="normal-sub">Not sure if subline is needed – maybe just some short explanation</p>
+    <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
+  </div>
+</div>
 
-
-<div>
-  <div class="intro-banner bg-success">
-    <div class="intro-copy">
-      <h2> Animals that would love to meet you</h2>
-      <p> Click on an animal to book a volunteering slot</p>
+<div class="animal-container">
+  <div class="container-top">
+    <div class="container-top-copy">
+      <h2 class="normal-head"> Shelters</h2>
+      <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+      <form class="input-group right-align container-top-search" role="search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Enter your location" aria-label="Search">
+        <button type="submit" class="btn border bg-white">Search</button>
+      </form>
+    </div>
+    <div class="container-top-map">
+      <%= image_tag("dummy_map.png") %>
     </div>
   </div>
-
-  <div><% @animals.each do |animal| %>
-    <div>
-    <h3> <%= animal.name %></h3>
-    <p>description of the animal</p>
-    <p><strong><%= link_to animal.name, animal_path(animal), class: 'animal-link'%></strong></p>
-    <div class="animal-card-picture"><%= cl_image_tag(animal.photos[0].key)%></div>
+  <div class="container-bottom">
+    <% @animals.each do |animal| %>
+    <div class="animal-card">
+      <div class="shelter-card-text animal-card-element">
+        <h5 class="card-head"><%= animal.name %></h5>
+        <table class="my-2">
+          <tbody>
+            <tr>
+              <th class="card-sub">Species</th>
+              <th class="card-sub"><%= animal.species %></th>
+            </tr>
+            <tr>
+              <th class="card-sub">Sex</th>
+              <th class="card-sub"><%= animal.sex %></th>
+            </tr>
+            <tr>
+              <th class="card-sub">Size</th>
+              <th class="card-sub"><%= animal.size %></th>
+            </tr>
+            <tr>
+              <th class="card-sub">Caretakings</th>
+              <th class="card-sub">???</th>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong><%= link_to "Book date", animal_path(animal), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
+      </div>
+      <div class="shelter-card-image">
+         <%= cl_image_tag(animal.photos[0].key) %>
+      </div>
     </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

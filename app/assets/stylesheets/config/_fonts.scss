@@ -1,10 +1,10 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Inter", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$headers-font: "Inter", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -18,4 +18,46 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 .font-size {
   font-size: 22px;
+}
+
+.normal-head {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #383838;
+}
+
+.normal-sub {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  color: #383838;
+}
+
+.card-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #383838;
+  text-decoration: none;
+}
+
+.container-top-copy {
+  padding-top: 75px;
+  padding-left: 36px;
+}
+
+.card-head {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #000000
+}
+
+.card-link {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #000000;
+  text-decoration: none;
 }
