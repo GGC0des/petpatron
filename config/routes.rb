@@ -13,9 +13,10 @@ Rails.application.routes.draw do
 
   resources :animals do
     resources :caretakings, only: [:create, :show]
+    resources :emergencies, only: [:new, :create]
   end
 
-  resources :emergencies, only: [:index, :show, :new, :create, :destroy] do
+  resources :emergencies, only: [:index, :show, :destroy] do
     resources :donations, only: [:create, :show]
   end
 end
