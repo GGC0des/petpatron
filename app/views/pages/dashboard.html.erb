@@ -34,8 +34,8 @@
                       <h4><%= link_to animal.name, animal_path(animal), class: 'animal-link'%></h4>
                     </div>
                     <div class="d-flex justify-content-between">
-                    <%# <%= link_to "Delete", delete_animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
-                    <%# <%= link_to "Edit", edit_animal_path(animal), class: "text-primary" %> %> %>
+                    <%= link_to "Delete", animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
+                    <%= link_to "Edit", edit_animal_path(animal), class: "text-primary" %>
                     </div>
                   </div>
                 <%end%>
