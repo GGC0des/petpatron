@@ -3,7 +3,7 @@ class EmergenciesController < ApplicationController
 
 
   def index
-    @emergencies = Emergency.all
+    @emergencies = Emergency.includes(:donations).all
   end
 
   def show
