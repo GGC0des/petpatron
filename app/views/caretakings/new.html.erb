@@ -1,9 +1,3 @@
-<h1>This is the show page of one animal</h1>
-
-
-<h1> We also want the caretaking booking form here below</h1>
-
-
 <div class="container mt-5" id="booking">
   <div class="bg-white rounded p-3 shadow">
     <h2> Book a volunteering slot for <%= @animal.name %> now </h2>
@@ -16,7 +10,7 @@
         <%= f.submit class: "btn btn-primary booking-button", value:"Book volunteering"%>
       <% end %>
     <% else %>
-      <%= link_to "To book a slot, please log in", user_session_path  %>
+
     <% end %>
   </div>
 </div>

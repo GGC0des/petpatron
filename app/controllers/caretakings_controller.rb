@@ -6,7 +6,7 @@ class CaretakingsController < ApplicationController
     @caretaking.animal = @animal
     @caretaking.user = current_user if user_signed_in?
     if @caretaking.save!
-      redirect_to animal_caretaking_path(@animal, @caretaking)
+      redirect_to animal_caretaking_path(@caretaking)
     else
       render :new, status: :unprocessable_entity
     end
