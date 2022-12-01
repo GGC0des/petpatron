@@ -26,7 +26,7 @@
       <div class="shelter-card-text shelter-card-element">
         <h5 class="card-head"><%= shelter.name %></h5>
         <p class="card-sub txt-limit-3"><%= shelter.description %></p>
-        <p><strong><%= link_to "See more info", shelter_path(shelter), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
+        <p><strong><%= link_to "See more info →", shelter_path(shelter), class: "card-link" %></a></strong></p>
       </div>
       <div class="shelter-card-image">
       <% if shelter.photos.attached? %>
