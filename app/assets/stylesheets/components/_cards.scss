@@ -10,6 +10,51 @@
   overflow:hidden;
 }
 
+.fundraising-card {
+  height: 500px;
+  background-color: #FFF3EC;
+  box-shadow: -5px -12px 40px #FFF3ED, 8px 8px 32px #D9A88C;
+  border-radius: 16px;
+  display:flex;
+  justify-content: space-between;
+}
+
+.fundraising-card-text {
+  width:622px;
+  padding: 116px 76px;
+}
+
+.fundraising-card img {
+  height: 100%
+}
+
+.fund-comment-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24px 36px;
+  gap: 36px;
+  height: 148px;
+  background: #F9DFD0;
+  box-shadow: -5px -5px 24px rgba(255, 243, 237, 0.5), 8px 8px 20px rgba(217, 168, 140, 0.6);
+  border-radius: 16px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.fund-comment-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  height: 80px;
+}
+
 .animal-card {
   background-color: white;
   background: #FFFFFF;

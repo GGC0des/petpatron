@@ -1,5 +1,7 @@
 .emergency-show-body {
   background: $emergency;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .shelter-container {
@@ -17,7 +19,12 @@
 .emergencies-container {
   margin: 80px;
   border-radius: 16px;
-  background: linear-gradient(180deg, #FFFCF2 0%, #E7BDA5 100%);
+  background: $emergency
+}
+
+.em-show-container {
+  margin: 0 80px;
+  border-radius: 16px;
 }
 
 
