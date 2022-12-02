@@ -5,9 +5,13 @@
   height: 478px;
   display: flex;
   align-items: center;
-  background-image: url("HeroBanner");
+}
+
+.home-dog {
+  background-image: url("Slot-1-Hero-Isolated"), $hero;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: 65% 0%;
+  height: 100vh;
 }
 
 .hero-copy {
