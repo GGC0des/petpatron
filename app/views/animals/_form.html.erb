@@ -6,11 +6,13 @@
       <%= f.input :sex, collection: [ "Female", "Male"] %>
       <%= f.input :size %>
       <%= f.input :species %>
-      <%= f.association :categories, as: :check_boxes %>
+      <%= f.association :categories, as: :check_boxes, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
       <%= f.input :append_photos, as: :file, input_html: { multiple: true } %>
 
+
       <div class="d-grid gap-2 col-6 mx-auto">
-        <%= f.submit class: "btn btn-primary booking-button" %>
+        <%= f.submit class: "btn add-animal-button" %>
       </div>
     <% end %>
   </div>
