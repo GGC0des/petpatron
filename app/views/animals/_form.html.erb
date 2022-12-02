@@ -3,7 +3,7 @@
     <%= simple_form_for(@animal) do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
-      <%= f.input :sex %>
+      <%= f.input :sex, collection: [ "Female", "Male"] %>
       <%= f.input :size %>
       <%= f.input :species %>
       <%= f.association :categories, as: :check_boxes %>
