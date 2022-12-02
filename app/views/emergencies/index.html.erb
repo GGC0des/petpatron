@@ -12,7 +12,7 @@
       <h2 class="normal-head"> Emergencies</h2>
       <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
       <form class="input-group right-align container-top-search" role="search">
-        <input class="form-control" id="query" name="query" type="search" placeholder="Enter your location" aria-label="Search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Search for emergencies" aria-label="Search">
         <button type="submit" class="btn border bg-white">Search</button>
       </form>
     </div>
@@ -26,10 +26,10 @@
       <div class="shelter-card-text emergency-card-element">
         <h5 class="card-head"><%= emergency.title %></h5>
         <p class="card-sub txt-limit-3"><%= emergency.description %></p>
-        <p><strong><%= link_to "See more info", emergency_path(emergency), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
+        <p><strong><%= link_to "See more info →", emergency_path(emergency), class: "card-link" %></a></strong></p>
         <% fgoal = emergency.fundraising_goal %>
         <% sum_of_donations = emergency.donations.sum(:donation_amount) %>
-        <p class="fund-sub">Goal: <%= fgoal %>€ | Donations: <%= sum_of_donations %>€<%= "   🎉🎊🥳" if sum_of_donations > fgoal %></p>
+        <p class="fund-sub">Donations: <%= sum_of_donations %>€ | Goal: <%= fgoal %>€<%= "   🎉🎊🥳" if sum_of_donations > fgoal %></p>
         <% progress = (emergency.donations.sum(:donation_amount).to_f / emergency.fundraising_goal).round(2) * 100 %>
         <% progress > 100 ? progress = 100 : progress = progress.to_i %>
         <div class="progress">

@@ -2,7 +2,12 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @animals = Animal.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR species ILIKE :query"
+      @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @animals = Animal.all
+    end
   end
 
   def show
@@ -61,6 +66,6 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :description, :sex, :size, :species, :categories, photos: [])
+    params.require(:animal).permit(:name, :description, :sex, :size, :species, :categories, append_photos: [])
   end
 end

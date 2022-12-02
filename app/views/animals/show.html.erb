@@ -1,4 +1,58 @@
 <h1>This is the show page of one animal</h1>
+<h2> <%= @animal.name %> </h2>
+<%= @animal.description %>
+
+<%# ///////////animals photos slide show start///////////////////// %>
+<div class="col-4 mx-auto">
+  <div id="animals-photos" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <% @animal.photos.each_with_index do |photo, index| %>
+      <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+      <% end %>
+    </div>
+
+    <div class="carousel-inner">
+      <% if @animal.photos.attached? %>
+        <% @animal.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= "active" if index == 0 %>">
+            <%= image_tag photo, class: "d-block w-100" %>
+          </div>
+        <% end #each %>
+      <% else %>
+        <div class="carousel-item">
+          <%= image_tag "defult-animal.jpeg", class: "d-block w-100" %>
+        </div>
+      <% end #if %>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#animals-photos" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#animals-photos" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<%# ///////////animals photos slide show end//////////////////////// %>
 
 
 <h1> We also want the caretaking booking form here below</h1>
+
+<div class="container mt-5" id="booking">
+  <div class="bg-white rounded p-3 shadow">
+    <h2> Book a volunteering slot for <%= @animal.name %> now </h2>
+    <br>
+    <% if current_user.present? %>
+      <%= simple_form_for [@animal, @caretaking] do |f| %>
+        <%= f.input :comment %>
+        <%= f.input :date, as: :datetime, html5: true %>
+        <%= f.association :category, collection: @animal.categories %>
+        <%= f.submit class: "btn btn-primary booking-button", value:"Book volunteering"%>
+      <% end %>
+    <% else %>
+      <%= link_to "To book a slot, please log in", user_session_path  %>
+    <% end %>
+  </div>
+</div>

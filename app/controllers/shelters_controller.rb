@@ -2,7 +2,12 @@ class SheltersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @shelters = Shelter.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR location ILIKE :query"
+      @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def show
@@ -10,13 +15,14 @@ class SheltersController < ApplicationController
   end
 
   def new
+    redirect_to dashboard_path if current_user.shelter.present?
     @shelter = Shelter.new
   end
 
   def create
-    shelter = Shelter.new(shelter_params)
-    shelter.user = current_user if user_signed_in?
-    if shelter.save
+    @shelter = Shelter.new(shelter_params)
+    @shelter.user = current_user if user_signed_in?
+    if @shelter.save
       redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
@@ -46,6 +52,6 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:name, :location, :phone_number, :email, photos: [])
+    params.require(:shelter).permit(:name, :description, :location, :phone_number, :email, append_photos: [])
   end
 end
