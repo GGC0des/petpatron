@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @myshelter = Shelter.where(user: current_user) # removed .first because of validation
+    @myshelter = current_user.shelter # equal to Shelter.where(user: current_user).first
     @shelter_animals = Animal.where(shelter: current_user.shelter)
     @shelter_caretakings = Caretaking.where(animal: @shelter_animals) # bookings the shelter has received
     @user_caretakings = Caretaking.where(user: current_user) # what the user has booked
