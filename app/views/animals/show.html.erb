@@ -49,10 +49,14 @@
         <%= f.input :comment %>
         <%= f.input :date, as: :datetime, html5: true %>
         <%= f.association :category, collection: @animal.categories %>
-        <%= f.submit class: "btn btn-primary booking-button", value:"Book volunteering"%>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
+        </div>
       <% end %>
     <% else %>
-      <%= link_to "To book a slot, please log in", user_session_path  %>
+      <div class="d-grid gap-2 col-6 mx-auto">
+      <%= link_to "Please log in", user_session_path, class: "btn bookdate-button" %>
+      </div>
     <% end %>
   </div>
 </div>
