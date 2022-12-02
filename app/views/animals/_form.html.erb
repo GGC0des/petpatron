@@ -3,14 +3,15 @@
     <%= simple_form_for(@animal) do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
-      <%= f.input :sex %>
+      <%= f.input :sex, as: :radio_buttons, collection: [['female'], ['male']], label_method: :first, value_method: :first %>
       <%= f.input :size %>
       <%= f.input :species %>
-      <%= f.collection_check_boxes :categories, Category.all, :id, :name, item_label_class: 'collection-checkboxes' %>
+      <%= f.association :categories, as: :check_boxes, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <%= f.submit class: "btn btn-primary booking-button" %>
+        <%= f.submit class: "btn add-animal-button" %>
       </div>
     <% end %>
   </div>
