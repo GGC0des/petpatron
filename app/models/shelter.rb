@@ -4,4 +4,8 @@ class Shelter < ApplicationRecord
 
   has_many_attached :photos
   validates_uniqueness_of :user_id
+
+  def append_photos=(attachables)
+    photos.attach(attachables)
+  end
 end
