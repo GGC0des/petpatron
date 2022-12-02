@@ -8,6 +8,12 @@ class SheltersController < ApplicationController
     else
       @shelters = Shelter.all
     end
+    @markers = @shelters.geocoded.map do |shelter|
+      {
+        lat: shelter.latitude,
+        lng: shelter.longitude
+      }
+    end
   end
 
   def show
