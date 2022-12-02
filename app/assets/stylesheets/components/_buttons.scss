@@ -113,4 +113,116 @@
   --bs-btn-active-margin: 20px;
 }
 
-// on show-pages for emergencies, animals or shelters:
+// on show-page for emergencies called "donate-button",
+
+.donate-button {
+  background-color: #D88351;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #D88351 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.donate-button:hover {
+  background-color: #D88351;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
+  transition: 0.5s;
+}
+
+.donate-button:active {
+  --bs-btn-active-bg: #D88351;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
+}
+
+// on show-pages for animals called "bookdate-button",
+
+.bookdate-button {
+  background-color: #B36DB9;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #B36DB9 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.bookdate-button:hover {
+  background-color: #B36DB9;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  box-shadow: -15px -15px 20px #eaa7f443 , 15px 15px 20px  #8a4e9c5f;
+  transition: 0.5s;
+}
+
+.bookdate-button:active {
+  --bs-btn-active-bg: #B36DB9;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
+}
+
+// on show-pages for shelters called "allanimals-button" & "urgentcauses-button"
+
+.allanimals-button {
+  background-color: #42A8B1;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #42A8B1 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.allanimals-button:hover {
+  background-color: #42A8B1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  box-shadow: -15px -15px 20px #a7f0f466 , 15px 15px 20px  #4e859c63;
+  transition: 0.5s;
+}
+
+.allanimals-button:active {
+  --bs-btn-active-bg: #42A8B1;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -15px -15px 20px #a7f0f466 , 15px 15px 20px  #4e859c63;
+}
