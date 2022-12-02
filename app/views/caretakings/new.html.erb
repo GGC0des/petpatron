@@ -7,7 +7,7 @@
         <%= f.input :comment %>
         <%= f.input :date, as: :datetime, html5: true %>
         <%= f.association :category, collection: @animal.categories %>
-        <%= f.submit class: "btn btn-primary booking-button", value:"Book volunteering"%>
+        <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
       <% end %>
     <% else %>
 
