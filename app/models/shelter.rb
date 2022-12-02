@@ -8,5 +8,5 @@ class Shelter < ApplicationRecord
 
   def append_photos=(attachables)
     photos.attach(attachables)
-  end 
+  end
 end
