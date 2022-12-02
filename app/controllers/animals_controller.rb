@@ -13,6 +13,7 @@ class AnimalsController < ApplicationController
   def show
     @animal = Animal.find(params[:id])
     @caretaking = Caretaking.new
+    store_location_for(:user, animal_path(params[:id]))
   end
 
   def new
