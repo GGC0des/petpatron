@@ -32,7 +32,6 @@ class CaretakingsController < ApplicationController
   private
 
   def caretaking_params
-    # change params !
-    params.require(:caretaking).permit(:comment, :date, :category_id)
+    params.require(:caretaking).permit(:comment, :date, :animal_id, :category_id)
   end
 end
