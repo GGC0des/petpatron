@@ -1,23 +1,254 @@
-.btn-donate {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 16px 22px;
-  width: 260px;
-  height: 56px;
-  background: #D88351;
+// on forms to add emergencies, animals or shelters:
+
+.add-animal-button {
+  background-color: #FDE3FF;
+  color: #B36DB9;
+  border: none;
   border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #B36DB9 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
 }
 
-.btn-urgent-causes {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+.add-animal-button:hover {
+  background-color: #B36DB9;
+  color: white;
+  border: none;
+  border-radius: 20px;
   padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.add-animal-button:active {
+  --bs-btn-active-bg: #B36DB9;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+}
+
+.add-emergency-button {
+  background-color: #FFE2D0;
+  color: #D88351;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #D88351 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.add-emergency-button:hover {
+  background-color: #D88351;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.add-emergency-button:active {
+  --bs-btn-active-bg: #D88351;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+}
+
+.add-shelter-button {
+  background-color: #E5FFFE;
+  color: #42A8B1;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #42A8B1 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.add-shelter-button:hover {
+  background-color: #42A8B1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.add-shelter-button:active {
+  --bs-btn-active-bg: #42A8B1;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+}
+
+// on show-page for emergencies called "donate-button",
+
+.donate-button {
+  background-color: #D88351;
+  margin-top: 24px;
+  color: #FFF;
   width: 260px;
   height: 56px;
-  background: #383838;
+  border: none;
   border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  --bs-btn-bg: #D88351 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.donate-button:hover {
+  background-color: #D88351;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
+  transition: 0.5s;
+}
+
+.donate-button:active {
+  --bs-btn-active-bg: #D88351;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
+}
+
+// on show-pages for animals called "bookdate-button",
+
+.bookdate-button {
+  background-color: #B36DB9;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #B36DB9 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.bookdate-button:hover {
+  background-color: #B36DB9;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  margin: 20px;
+  box-shadow: -15px -15px 20px #eaa7f443 , 15px 15px 20px  #8a4e9c5f;
+  transition: 0.5s;
+}
+
+.bookdate-button:active {
+  --bs-btn-active-bg: #B36DB9;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
+}
+
+// on show-pages for shelters called "allanimals-button" & "urgentcauses-button"
+
+.allanimals-button {
+  width: 234px;
+  height: 35px;
+  background-color: #42A8B1;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #42A8B1 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.allanimals-button:hover {
+  background-color: #42A8B1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  margin: 20px;
+  box-shadow: -10px -10px 20px #a7f0f466 , 10px 10px 20px  #4e859c63;
+  transition: 0.5s;
+}
+
+.allanimals-button:active {
+  --bs-btn-active-bg: #42A8B1;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -10px -10px 20px #a7f0f466 , 10px 10px 20px  #4e859c63;
+}
+
+.urgentcauses-button {
+  width: 234px;
+  height: 35px;
+  background-color: #383838;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #383838 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.urgentcauses-button:hover {
+  background-color: #383838;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  margin: 20px;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
+  transition: 0.5s;
+}
+
+.urgentcauses-button:active {
+  --bs-btn-active-bg: #383838;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
 }
