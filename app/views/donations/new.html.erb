@@ -1,0 +1,27 @@
+<div class="container mt-5" id="booking">
+  <div class="bg-white rounded p-3 shadow">
+    <h2> Make a donation now </h2>
+    <br>
+    <% if current_user.present? %>
+      <%= simple_form_for [@emergency, @donation] do |f| %>
+        <div class="container">
+          <input type="range" name="donation[donation_amount]" id="my-slider" min="0" max="100" value="50" oninput="slider()">
+          <div id="slider-value">0</div>
+        </div>
+        <%= f.input :comment %>
+        <%= f.submit class: "btn btn-primary booking-button", value:"Make donation"%>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+const mySlider = document.getElementById("my-slider");
+const sliderValue = document.getElementById("slider-value");
+function slider(){
+    valPercent = (mySlider.value / mySlider.max)*100;
+    mySlider.style.background = `linear-gradient(to right, #3264fe ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+    sliderValue.textContent = `${mySlider.value}€`;
+}
+slider();
+</script>
