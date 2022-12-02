@@ -226,3 +226,15 @@
   --bs-btn-active-margin: 20px;
   box-shadow: -15px -15px 20px #a7f0f466 , 15px 15px 20px  #4e859c63;
 }
+
+.btn-urgent-causes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 22px;
+  width: 260px;
+  height: 56px;
+  background: #383838;
+  border-radius: 20px;
+}
