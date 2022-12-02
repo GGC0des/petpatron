@@ -2,7 +2,12 @@ class SheltersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @shelters = Shelter.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR location ILIKE :query"
+      @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def show
