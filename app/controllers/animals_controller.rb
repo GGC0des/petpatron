@@ -7,6 +7,13 @@ class AnimalsController < ApplicationController
       @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
     else
       @animals = Animal.all
+      @shelters = Shelter.all
+      @markers = @shelters.geocoded.map do |shelter|
+        {
+          lat: shelter.latitude,
+          lng: shelter.longitude
+        }
+      end
     end
   end
 

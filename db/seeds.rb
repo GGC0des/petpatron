@@ -32,7 +32,9 @@ puts "#{User.all.size} users created."
 
 puts "Creating shelters and owners ..."
 
-21.times do
+i = 0
+location_array = ["Storkower Strasse 46", "Mohrenstrasse 11", "Grosse Praesidenten Str. 84", "Guentzelstrasse 98", "Meininger Strasse 27", "Hallesches Ufer 90", "Bleibtreustrasse 94", "Leipziger Strasse 52", "Am Borsigturm 99", "Friedrichstrasse 83", "Jahnstrasse 57", "Pasewalker Straße 55", "Ziegelstr. 25", "Hans-Grade-Allee 2", "Knesebeckstrasse 30", "Augsburger Straße 58", "Friedrichstrasse 94", "Holstenwall 56", "Genslerstraße 86", "Büsingstrasse 80", " Luebeckertordamm 52", "Stuttgarter Platz 15"]
+while i < 20 do
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -43,7 +45,7 @@ puts "Creating shelters and owners ..."
   shelter = Shelter.new(
     name: Faker::Company.name,
     description: Faker::Lorem.paragraph(sentence_count: rand(3..7)),
-    location: Faker::Address.full_address,
+    location: location_array[i],
     phone_number: Faker::PhoneNumber.phone_number_with_country_code,
     email: Faker::Internet.email,
     user_id: user.id
@@ -51,6 +53,7 @@ puts "Creating shelters and owners ..."
   shelter.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
   shelter.save!
   print "x"
+  i += 1
 end
 
 puts "#{Shelter.all.size} shelters created."

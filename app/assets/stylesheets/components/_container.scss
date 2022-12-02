@@ -8,18 +8,27 @@
   margin: 80px;
   border-radius: 16px;
   background: $shelter;
+  width: 90%;
+  max-width: 1800px;
+  margin: 80px auto;
 }
 
 .animal-container {
   margin: 80px;
   border-radius: 16px;
   background: linear-gradient(180deg, #FFF4FF 0%, #E4B4E8 100%);
+  width: 90%;
+  max-width: 1800px;
+  margin: 80px auto;
 }
 
 .emergencies-container {
   margin: 80px;
   border-radius: 16px;
-  background: $emergency
+  background: $emergency;
+  width: 90%;
+  max-width: 1800px;
+  margin: 80px auto;
 }
 
 .em-show-container {
@@ -32,6 +41,7 @@
   height: 300px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .container-bottom {
