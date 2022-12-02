@@ -3,7 +3,11 @@
     <%= simple_form_for(@animal) do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
+<<<<<<< HEAD
       <%= f.input :sex, as: :radio_buttons, collection: [['female'], ['male']], label_method: :first, value_method: :first %>
+=======
+      <%= f.input :sex, collection: [ "Female", "Male"] %>
+>>>>>>> master
       <%= f.input :size %>
       <%= f.input :species %>
       <%= f.association :categories, as: :check_boxes, input_html: { class: "tag-selector" },
