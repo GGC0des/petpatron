@@ -192,11 +192,13 @@
 // on show-pages for shelters called "allanimals-button" & "urgentcauses-button"
 
 .allanimals-button {
+  width: 234px;
+  height: 35px;
   background-color: #42A8B1;
   color: #FFF;
   border: none;
   border-radius: 20px;
-  padding: 16px 22px;
+  padding: 6px 22px;
   font-weight: bold;
   margin: 20px;
   --bs-btn-bg: #42A8B1 !important;
@@ -209,10 +211,10 @@
   color: white;
   border: none;
   border-radius: 20px;
-  padding: 16px 22px;
+  padding: 6px 22px;
   font-weight: bold;
   margin: 20px;
-  box-shadow: -15px -15px 20px #a7f0f466 , 15px 15px 20px  #4e859c63;
+  box-shadow: -10px -10px 20px #a7f0f466 , 10px 10px 20px  #4e859c63;
   transition: 0.5s;
 }
 
@@ -224,17 +226,43 @@
   --bs-btn-active-padding: 16px 22px;
   --bs-btn-active-font-weight: bold;
   --bs-btn-active-margin: 20px;
-  box-shadow: -15px -15px 20px #a7f0f466 , 15px 15px 20px  #4e859c63;
+  box-shadow: -10px -10px 20px #a7f0f466 , 10px 10px 20px  #4e859c63;
 }
 
-.btn-urgent-causes {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 16px 22px;
-  width: 260px;
-  height: 56px;
-  background: #383838;
+.urgentcauses-button {
+  width: 234px;
+  height: 35px;
+  background-color: #383838;
+  color: #FFF;
+  border: none;
   border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  margin: 20px;
+  --bs-btn-bg: #383838 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.urgentcauses-button:hover {
+  background-color: #383838;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  margin: 20px;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
+  transition: 0.5s;
+}
+
+.urgentcauses-button:active {
+  --bs-btn-active-bg: #383838;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
 }
