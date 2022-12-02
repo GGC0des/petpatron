@@ -1,3 +1,26 @@
+<div class="emergency-show-body">
+  <div class="em-show-container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+      <div class="normal-head">Come to <%= @shelter.name %>'s aid!</div>
+      <div>
+        <%= link_to "← back to shelters", shelters_path, class: "card-link" %>
+      </div>
+    </div>
+    <div class="fundraising-card">
+      <%= image_tag(@shelter.photos[0]) %>
+      <div class="fundraising-card-text">
+        <div class="card-head mb-3">Contact</div>
+        <div class="card-link mb-2"><i class="fa-solid fa-phone"></i>  <%= @shelter.phone_number %></div>
+        <div class="card-link mb-2"><i class="fa-solid fa-envelope"></i>  <%= @shelter.email %></div>
+        <div class="btn-donate btn-font">Donate money</div>
+      </div>
+      <div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="col">
     <div class="card-body">
