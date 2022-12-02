@@ -1,9 +1,13 @@
 class EmergenciesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-
   def index
-    @emergencies = Emergency.includes(:donations).all
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @emergencies = Emergency.includes(:donations).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @emergencies = Emergency.includes(:donations).all
+    end
   end
 
   def show

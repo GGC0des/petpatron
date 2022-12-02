@@ -19,13 +19,35 @@
   justify-content: space-between;
 }
 
+.shelters-card {
+  height: 500px;
+  background-color: #FFF3EC;
+  box-shadow: -5px -12px 40px #FFF3ED, 8px 8px 32px #D9A88C;
+  border-radius: 16px;
+  display:flex;
+  justify-content: space-between;
+}
+
 .fundraising-card-text {
   width:622px;
   padding: 116px 76px;
 }
 
-.fundraising-card img {
+.shelters-card-text {
+  width:400px;
+  padding: 40px 40px;
+}
+
+.fundraising-card > img {
   height: 100%
+}
+
+.fundraising-card-maplinks {
+  width:200px;
+}
+
+.fundraising-card-maplinks img {
+  width:200px;
 }
 
 .fund-comment-card {
