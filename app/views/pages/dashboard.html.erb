@@ -9,8 +9,10 @@
 <%# ///////////shelters photos slide show start///////////////////// %>
       <div id="shelters-photos" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">
-          <% @myshelter.photos.each_with_index do |photo, index| %>
-          <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+          <% if @myshelter.photos.attached? %>
+            <% @myshelter.photos.each_with_index do |photo, index| %>
+            <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+            <% end %>
           <% end %>
         </div>
 
