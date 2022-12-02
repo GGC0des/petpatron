@@ -4,11 +4,14 @@
   <% if @myshelter.present? %>
     <h1><%= @myshelter.name %></h1>
     <%= link_to "Edit my shelter", edit_shelter_path(@myshelter) %>
-      <% if @myshelter.photos.attached? %>
+
+    <div class="col-4">
+     <% if @myshelter.photos.attached? %>
         <%= image_tag(@myshelter.photos[0])%>
       <% else %>
         <%= image_tag "defult-shelter.png", width: 500%>
       <% end %>
+    </div>
     <% else %>
     <%= link_to "Add shelter", new_shelter_path %>
   <% end %>
