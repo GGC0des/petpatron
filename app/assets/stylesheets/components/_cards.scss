@@ -42,11 +42,13 @@
   height: 100%
 }
 
-.fundraising-card-maplinks {
-  width:200px;
+.shelter-card-maplinks {
+  width:400px;
+  padding: 40px;
+  align-items: center;
 }
 
-.fundraising-card-maplinks img {
+.shelter-card-maplinks img {
   width:200px;
 }
 
@@ -157,6 +159,7 @@
   // align-items: center;
   // align-content: space-between;
 }
+
 
 // Limit text to show to number of allowed lines
 .txt-limit-3 {

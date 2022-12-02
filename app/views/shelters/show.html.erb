@@ -49,64 +49,13 @@
           </tbody>
         </table>
       </div>
-      <div class="fundraising-card-maplinks">
+      <div class="shelter-card-maplinks">
         <%= image_tag("map-dummy-shelter.png") %>
+        <br><br>
         <div class="btn-donate btn-font">All animals</div>
+        <br>
         <div class="btn-urgent-causes btn-font">Urgent causes</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="col">
-    <div class="card-body">
-      <h2 class="card-title"><%= @shelter.name %></h2>
-      <ul>
-      <li><%= @shelter.phone_number %></li>
-      <li><%= @shelter.email %></li>
-      <li><%= @shelter.location %></li>
-      <li> <%= @shelter.description %></li>
-      </ul>
-
-    <div class="col-4">
-<%# ///////////shelters photos slide show start///////////////////// %>
-      <div id="shelters-photos" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-          <% @shelter.photos.each_with_index do |photo, index| %>
-          <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
-          <% end %>
-        </div>
-
-        <div class="carousel-inner">
-          <% if @shelter.photos.attached? %>
-            <% @shelter.photos.each_with_index do |photo, index| %>
-              <div class="carousel-item <%= "active" if index == 0 %>">
-                <%= image_tag photo, class: "d-block w-100" %>
-              </div>
-            <% end #each %>
-          <% else %>
-            <div class="carousel-item">
-              <%= image_tag "defult-shelter.png", class: "d-block w-100" %>
-            </div>
-          <% end #if %>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#shelters-photos" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#shelters-photos" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-<%# ///////////shelters photos slide show end//////////////////////// %>
-    </div>
-
-      <% if @shelter.user == current_user %>
-        <%= link_to "Edit my shelter", edit_shelter_path %>
-      <% end %>
     </div>
   </div>
 </div>
