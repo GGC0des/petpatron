@@ -12,6 +12,10 @@
     <%= link_to "Add shelter", new_shelter_path %>
   <% end %>
 
+  <% if @myshelter.user == current_user %>
+    <%= link_to "Edit my shelter", edit_shelter_path(@myshelter) %>
+  <% end %>
+
   <div>
     <% if @myshelter.present? %>
       <h2> <%= @myshelter.name %>'s Dashboard</h2>
