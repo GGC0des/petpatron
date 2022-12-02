@@ -1,4 +1,7 @@
 // Specific CSS for your home-page
+.background-body {
+  background-image: $hero;
+}
 
 .hero {
   color: $gray;
@@ -8,10 +11,9 @@
 }
 
 .home-dog {
-  background-image: url("Slot-1-Hero-Isolated"), $hero;
+  background-image: url("Slot-1-Hero-Isolated");
   background-repeat: no-repeat;
   background-position: 65% 0%;
-  height: 100vh;
 }
 
 .hero-copy {

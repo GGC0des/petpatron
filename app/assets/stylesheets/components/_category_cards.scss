@@ -1,13 +1,11 @@
 .three-cards-row {
   padding: 32px 82px 64px 82px;
   display: grid;
-  grid-template-columns: 450px 450px 450px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 340px;
-  margin: 0px auto;
   justify-content: space-between;
   gap: 48px;
 }
-
 
 .emergency-category-card {
   padding: 32px 0px 0px 32px;
