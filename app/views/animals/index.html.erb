@@ -12,7 +12,7 @@
       <h2 class="normal-head"> Shelters</h2>
       <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
       <form class="input-group right-align container-top-search" role="search">
-        <input class="form-control" id="query" name="query" type="search" placeholder="Enter your location" aria-label="Search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Search for animals by name or species" aria-label="Search">
         <button type="submit" class="btn border bg-white">Search</button>
       </form>
     </div>
@@ -45,7 +45,7 @@
             </tr>
           </tbody>
         </table>
-        <p><strong><%= link_to "Book date", animal_path(animal), class: "card-link" %> <i class="fa-solid fa-arrow-right-long"></i></a></strong></p>
+        <p><strong><%= link_to "Book date →", animal_path(animal), class: "card-link" %></a></strong></p>
       </div>
       <div class="shelter-card-image">
          <%= cl_image_tag(animal.photos[0].key) %>

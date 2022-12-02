@@ -1,2 +1,19 @@
 <h1>This is the emergency #new page </h1>
 <p>This should be a form</p>
+
+<h3> You are creating an urgent fundraising cause for <%= @emergency.animal.name %> </h3>
+<%= cl_image_tag(@emergency.animal.photos[0].key) %>
+
+<div class="container mt-5">
+  <div class="bg-white rounded p-3 shadow">
+    <%= simple_form_for([@animal,@emergency]) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :fundraising_goal %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photo for your Urgent Fundraising Cause" %>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <%= f.submit class: "btn btn-primary booking-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
