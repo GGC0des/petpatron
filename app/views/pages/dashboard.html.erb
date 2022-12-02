@@ -1,13 +1,44 @@
 <div>
-  <h1>Dashboard</h1>
+  <h1> <%= @myshelter.name %>'s Dashboard</h1>
 
   <% if @myshelter.present? %>
-    <h1><%= @myshelter.name %></h1>
-      <% if @myshelter.photos.attached? %>
-        <%= image_tag(@myshelter.photos[0])%>
-      <% else %>
-        <%= image_tag "defult-shelter.png", width: 500%>
-      <% end %>
+    <h2><%= @myshelter.name %></h2>
+
+    <div class="col-4">
+<%# ///////////shelters photos slide show start///////////////////// %>
+      <div id="shelters-photos" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <% @myshelter.photos.each_with_index do |photo, index| %>
+          <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+          <% end %>
+        </div>
+
+        <div class="carousel-inner">
+          <% if @myshelter.photos.attached? %>
+            <% @myshelter.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= "active" if index == 0 %>">
+                <%= image_tag photo, class: "d-block w-100" %>
+              </div>
+            <% end #each %>
+          <% else %>
+            <div class="carousel-item">
+              <%= image_tag "defult-shelter.png", class: "d-block w-100" %>
+            </div>
+          <% end #if %>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#shelters-photos" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#shelters-photos" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+<%# ///////////shelters photos slide show end//////////////////////// %>
+    </div>
+
     <% else %>
     <%= link_to "Add shelter", new_shelter_path %>
   <% end %>
@@ -18,39 +49,68 @@
 
   <div>
     <% if @myshelter.present? %>
-      <h2> <%= @myshelter.name %>'s Dashboard</h2>
-      <div> <h3> <%= @myshelter.name %>'s Animals </h3>
+      <div>
+        <h3> <%= @myshelter.name %>'s Animals </h3>
         <%= link_to "Add animal", new_animal_path %>
-          <div class="row">
-              <% @shelter_animals.each do |animal| %>
-                <div class="col-4">
-                <%= link_to(animal_path(animal)) do %>
-                  <div class="animal animal-overview">
-                    <div class="animal-img">
-                      <%= cl_image_tag(animal.photos[0].key)%>
-                    </div>
-                    <div>
-                      <h4><%= link_to animal.name, animal_path(animal), class: 'animal-link'%></h4>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                    <%= link_to "Delete", animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
-                    <%= link_to "Edit", edit_animal_path(animal), class: "text-primary" %>
-                    <%= link_to "+ Add Emergency", new_animal_emergency_path(animal) %>
-                    </div>
+        <div class="row">
+
+          <% @shelter_animals.each do |animal| %>
+            <div class="col-4">
+              <div class="animal animal-overview">
+
+<%# ///////////animals photos slide show start///////////////////// %>
+                <div id="animals-photos" class="carousel slide" data-bs-ride="true">
+                  <div class="carousel-indicators">
+                    <% animal.photos.each_with_index do |photo, index| %>
+                    <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+                    <% end %>
                   </div>
-                <%end%>
+
+                  <div class="carousel-inner">
+                    <% if animal.photos.attached? %>
+                      <% animal.photos.each_with_index do |photo, index| %>
+                        <div class="carousel-item <%= "active" if index == 0 %>">
+                          <%= image_tag photo, class: "d-block w-100" %>
+                        </div>
+                      <% end #each %>
+                    <% else %>
+                      <div class="carousel-item">
+                        <%= image_tag "defult-animal.jpeg", class: "d-block w-100" %>
+                      </div>
+                    <% end #if %>
+                  </div>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#animals-photos" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#animals-photos" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
                 </div>
-              <% end %>
+<%# ///////////animals photos slide show end//////////////////////// %>
+
+                <h4><%= link_to animal.name, animal_path(animal), class: 'animal-link'%></h4>
+
+                <div class="d-flex justify-content-between">
+                  <%= link_to "Delete", animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
+                  <%= link_to "Edit", edit_animal_path(animal), class: "text-primary" %>
+                  <%= link_to "+ Add Emergency", new_animal_emergency_path(animal) %>
+                </div>
+
+              </div>
             </div>
-          </div>
+          <% end # each %>
+        </div>
       </div>
     <% end %>
   </div>
 
-@shelter_animals <%= @shelter_animals.count %>
-@shelter_caretakings <%= @shelter_caretakings.count %>
-@user_caretakings <%= @user_caretakings.count %>
-@shelter_emergencies <%= @shelter_emergencies.count %>
-@shelter_donations <%= @shelter_donations.count %>
-@user_donations <%= @user_donations.count %>
+  @shelter_animals <%= @shelter_animals.count %>
+  @shelter_caretakings <%= @shelter_caretakings.count %>
+  @user_caretakings <%= @user_caretakings.count %>
+  @shelter_emergencies <%= @shelter_emergencies.count %>
+  @shelter_donations <%= @shelter_donations.count %>
+  @user_donations <%= @user_donations.count %>
 </div>

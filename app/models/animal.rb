@@ -5,4 +5,8 @@ class Animal < ApplicationRecord
   has_many :animal_categories, dependent: :destroy
   has_many :categories, through: :animal_categories
   has_many_attached :photos
+
+  def append_photos=(attachables)
+    photos.attach(attachables)
+  end
 end
