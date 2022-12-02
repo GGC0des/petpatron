@@ -1,5 +1,7 @@
 <h1>This is the show page of one animal</h1>
-
+<h1> <%= @animal.name %> </h1>
+<%= @animal.description %>
+<br>
 <%= cl_image_tag(@animal.photos[0].key) %>
 
 
