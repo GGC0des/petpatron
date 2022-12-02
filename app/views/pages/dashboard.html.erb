@@ -3,6 +3,7 @@
 
   <% if @myshelter.present? %>
     <h2><%= @myshelter.name %></h2>
+    <%= link_to "Edit my shelter", edit_shelter_path(@myshelter) %>
 
     <div class="col-4">
 <%# ///////////shelters photos slide show start///////////////////// %>
@@ -38,13 +39,8 @@
       </div>
 <%# ///////////shelters photos slide show end//////////////////////// %>
     </div>
-
     <% else %>
     <%= link_to "Add shelter", new_shelter_path %>
-  <% end %>
-
-  <% if @myshelter.user == current_user %>
-    <%= link_to "Edit my shelter", edit_shelter_path(@myshelter) %>
   <% end %>
 
   <div>
