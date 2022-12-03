@@ -7,6 +7,13 @@ class AnimalsController < ApplicationController
       @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
     else
       @animals = Animal.all
+      @shelters = Shelter.all
+      @markers = @shelters.geocoded.map do |shelter|
+        {
+          lat: shelter.latitude,
+          lng: shelter.longitude
+        }
+      end
     end
   end
 
@@ -14,6 +21,13 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     @caretaking = Caretaking.new
     store_location_for(:user, animal_path(params[:id]))
+    @shelters = Shelter.all
+    @markers = @shelters.geocoded.map do |shelter|
+      {
+        lat: shelter.latitude,
+        lng: shelter.longitude
+      }
+    end
   end
 
   def new
