@@ -49,7 +49,7 @@
   height: 100%;
 }
 
-.animal-show-card-image img{
+.animal-show-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -84,7 +84,11 @@
   color: rgba(0, 0, 0, 0.75);
 }
 
-.animal-show-card-content table th{
+.animal-show-card-content table th {
   font-weight: 400;
   line-height: 19px;
+}
+
+.animal-show-container .container {
+padding: 64px 82px;
 }
