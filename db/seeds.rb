@@ -32,7 +32,11 @@ puts "#{User.all.size} users created."
 
 puts "Creating shelters and owners ..."
 
-21.times do
+i = 0
+location_array = [
+  "Zooallee 1, 39124 Magdeburg", "Kalletal, 32689 Kalletal", "Holzminden, 37603 Holzminden", "Gartenstraße 33, 19230 Strohkirchen", "Koogstraße 32, 24863 Börm", "St.-Laurentius-Straße 3, 36041 Fulda", "Kantstraße 66,Eisenach", "Marseiller Strasse 14, Sindelsdorf", "Gotthardstrasse 82, Chemnitz", "Budapester Straße 59, Niederbach", "Borstelmannsweg 2, Staffelstein", "Mohrenstrasse 11, Berlin", "Grosse Praesidenten Str. 84, Berlin", "Guentzelstrasse 98, Berlin", "Eichendorffstr. 20, Tuningen", "Lietzensee-Ufer 64, Senftenberg", "Holsteiner Chaussee 49, 22523 Hamburg", "Wandsbeker Marktstraße 1, 22041 Hamburg", "Kröpeliner Str. 30, 18055 Rostock", "Gotthardstrasse 16, Erfurt", "Sömmeringstr. 20, Pforzheim", "Kantstrasse 75, Nürnberg", "ul. Kujawska 79, Katowice", "ul. Pałucka 84, Poznań", "Sonnenweg 119, Matran", "Wiesenstrasse 138, Basel", "Weblinger Gürtel 47, Hengstberg", "Wiehtestrasse 46, Siedlung", "Pottendorfer Strasse 6, Rodelsbach", "Iepenlaan 195, Roermond", "Wolfsdonk 178, Chaam"
+]
+while i < 31 do
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -43,7 +47,7 @@ puts "Creating shelters and owners ..."
   shelter = Shelter.new(
     name: Faker::Company.name,
     description: Faker::Lorem.paragraph(sentence_count: rand(3..7)),
-    location: Faker::Address.full_address,
+    location: location_array[i],
     phone_number: Faker::PhoneNumber.phone_number_with_country_code,
     email: Faker::Internet.email,
     user_id: user.id
@@ -51,6 +55,7 @@ puts "Creating shelters and owners ..."
   shelter.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
   shelter.save!
   print "x"
+  i += 1
 end
 
 puts "#{Shelter.all.size} shelters created."

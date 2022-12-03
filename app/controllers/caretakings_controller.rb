@@ -6,14 +6,14 @@ class CaretakingsController < ApplicationController
     @caretaking.animal = @animal
     @caretaking.user = current_user if user_signed_in?
     if @caretaking.save!
-      redirect_to animal_caretaking_path(@caretaking)
+      redirect_to animal_caretaking_path(@animal, @caretaking)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @animal = Animal.find(params[:castle_id])
+    @animal = Animal.find(params[:animal_id])
     @caretaking = Caretaking.find(params[:id])
   end
 
