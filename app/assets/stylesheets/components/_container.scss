@@ -13,13 +13,27 @@
 .animal-container {
   margin: 80px;
   border-radius: 16px;
-  background: linear-gradient(180deg, #FFF4FF 0%, #E4B4E8 100%);
+  background: $animal;
+}
+
+.animal-show-container {
+  background: $animal;
+}
+
+.animal-show-body {
+  width: 1440px;
+  height: 699px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 64px 82px;
+  gap: 32px;
 }
 
 .emergencies-container {
   margin: 80px;
   border-radius: 16px;
-  background: $emergency
+  background: $emergency;
 }
 
 .em-show-container {
