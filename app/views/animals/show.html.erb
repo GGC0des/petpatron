@@ -23,7 +23,7 @@
                 </div>
               <% end #each %>
             <% else %>
-              <div class="carousel-item">
+              <div class="carousel-item active">
                 <%= image_tag "pets-icons.jpeg", class: "d-block w-100" %>
               </div>
             <% end #if %>
@@ -42,7 +42,6 @@
 
       </div>
       <div class="animal-show-card-content-container">
-        <div class="animal-show-card-content">
           <div class="animal-show-card-content-title">
             <h4>Animal Profile</h4>
             <p><%= @animal.description %></p>
@@ -62,7 +61,7 @@
                 <th class="card-sub"><%= @animal.size %></th>
               </tr>
               <tr>
-                <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i> Caretakings &nbsp; &nbsp;</th>
+                <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i> Caretakings &nbsp; &nbsp; &nbsp; &nbsp;</th>
                 <th class="card-sub">???</th>
               </tr>
             </tbody>
@@ -71,7 +70,6 @@
             <%= f.association :categories, as: :check_boxes, input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
           <% end %>
-        </div>
       </div>
     </div>
   </div>

@@ -60,21 +60,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 0px;
-  gap: 32px;
-  width: 622px;
-  height: 500px;
-}
-
-.animal-show-card-content{
-  display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
-  gap: 36px;
   width: 470px;
-  height: 337px;
+  margin-right: 150px;
+  gap: 18px;
 }
 
 .animal-show-card-content-title {
@@ -93,11 +82,6 @@
 .animal-show-card-content-title p {
   line-height: 19px;
   color: rgba(0, 0, 0, 0.75);
-}
-
-.animal-show-card-content table {
-  display: flex;
-  height: 119px;
 }
 
 .animal-show-card-content table th{
