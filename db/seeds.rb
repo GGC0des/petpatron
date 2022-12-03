@@ -33,8 +33,10 @@ puts "#{User.all.size} users created."
 puts "Creating shelters and owners ..."
 
 i = 0
-location_array = ["Storkower Strasse 46", "Mohrenstrasse 11", "Grosse Praesidenten Str. 84", "Guentzelstrasse 98", "Meininger Strasse 27", "Hallesches Ufer 90", "Bleibtreustrasse 94", "Leipziger Strasse 52", "Am Borsigturm 99", "Friedrichstrasse 83", "Jahnstrasse 57", "Pasewalker Straße 55", "Ziegelstr. 25", "Hans-Grade-Allee 2", "Knesebeckstrasse 30", "Augsburger Straße 58", "Friedrichstrasse 94", "Holstenwall 56", "Genslerstraße 86", "Büsingstrasse 80", " Luebeckertordamm 52", "Stuttgarter Platz 15"]
-while i < 20 do
+location_array = [
+  "Zooallee 1, 39124 Magdeburg", "Kalletal, 32689 Kalletal", "Holzminden, 37603 Holzminden", "Gartenstraße 33, 19230 Strohkirchen", "Koogstraße 32, 24863 Börm", "St.-Laurentius-Straße 3, 36041 Fulda", "Kantstraße 66,Eisenach", "Marseiller Strasse 14, Sindelsdorf", "Gotthardstrasse 82, Chemnitz", "Budapester Straße 59, Niederbach", "Borstelmannsweg 2, Staffelstein", "Mohrenstrasse 11, Berlin", "Grosse Praesidenten Str. 84, Berlin", "Guentzelstrasse 98, Berlin", "Eichendorffstr. 20, Tuningen", "Lietzensee-Ufer 64, Senftenberg", "Holsteiner Chaussee 49, 22523 Hamburg", "Wandsbeker Marktstraße 1, 22041 Hamburg", "Kröpeliner Str. 30, 18055 Rostock", "Gotthardstrasse 16, Erfurt", "Sömmeringstr. 20, Pforzheim", "Kantstrasse 75, Nürnberg", "ul. Kujawska 79, Katowice", "ul. Pałucka 84, Poznań", "Sonnenweg 119, Matran", "Wiesenstrasse 138, Basel", "Weblinger Gürtel 47, Hengstberg", "Wiehtestrasse 46, Siedlung", "Pottendorfer Strasse 6, Rodelsbach", "Iepenlaan 195, Roermond", "Wolfsdonk 178, Chaam"
+]
+while i < 31 do
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
