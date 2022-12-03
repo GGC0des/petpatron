@@ -1,3 +1,9 @@
+.container{
+  max-width: 1700px;
+  position: relative;
+  margin: 0 auto;
+}
+
 .emergency-show-body {
   background: $emergency;
   padding-top: 80px;
@@ -8,6 +14,9 @@
   margin: 80px;
   border-radius: 16px;
   background: $shelter;
+  width: 90%;
+  max-width: 1800px;
+  margin: 80px auto;
 }
 
 .animal-container {
@@ -23,6 +32,8 @@
 
 .animal-show-body {
   width: 1440px;
+  max-width: 1800px;
+  margin: 80px auto;
   height: 699px;
   display: flex;
   flex-direction: column;
@@ -35,6 +46,9 @@
   margin: 80px;
   border-radius: 16px;
   background: $emergency;
+  width: 90%;
+  max-width: 1800px;
+  margin: 80px auto;
 }
 
 .em-show-container {
@@ -47,6 +61,7 @@
   height: 300px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .container-bottom {

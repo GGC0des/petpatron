@@ -7,6 +7,13 @@ class EmergenciesController < ApplicationController
       @emergencies = Emergency.includes(:donations).where(sql_query, query: "%#{params[:query]}%")
     else
       @emergencies = Emergency.includes(:donations).all
+      @shelters = Shelter.all
+      @markers = @shelters.geocoded.map do |shelter|
+        {
+          lat: shelter.latitude,
+          lng: shelter.longitude
+        }
+      end
     end
   end
 
@@ -67,5 +74,6 @@ class EmergenciesController < ApplicationController
 
   def emergency_params
     params.require(:emergency).permit(:title, :description, :fundraising_goal, photos: [])
+    params.require(:shelter).permit(:name, :location)
   end
 end

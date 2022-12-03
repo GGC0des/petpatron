@@ -1,13 +1,19 @@
 // Specific CSS for your home-page
+.background-body {
+  background-image: $hero;
+}
 
 .hero {
   color: $gray;
   height: 478px;
   display: flex;
   align-items: center;
-  background-image: url("HeroBanner");
+}
+
+.home-dog {
+  background-image: url("Slot-1-Hero-Isolated");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: 65% 0%;
 }
 
 .hero-copy {
