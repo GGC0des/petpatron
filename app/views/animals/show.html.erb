@@ -1,5 +1,3 @@
-<h1>This is the show page of one animal</h1>
-
 <div class="animal-show-container">
   <div class="animal-show-body">
     <div class="animal-show-title">
@@ -42,6 +40,10 @@
               </tr>
             </tbody>
           </table>
+          <%= simple_form_for(@animal) do |f| %>
+            <%= f.association :categories, as: :check_boxes, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -84,8 +86,7 @@
     <%# ///////////animals photos slide show end//////////////////////// %>
   </div>
 
-  <h1> We also want the caretaking booking form here below</h1>
-
+<%# ////////////////////////Booking form start//////////////////// %>
   <div class="container mt-5" id="booking">
     <div class="bg-white rounded p-3 shadow">
       <h2> Book a volunteering slot for <%= @animal.name %> now </h2>
@@ -106,6 +107,6 @@
       <% end %>
     </div>
   </div>
-
+<%# ////////////////////////Booking form end//////////////////// %>
 
 </div>
