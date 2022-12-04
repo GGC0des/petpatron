@@ -1,10 +1,10 @@
 <div class="animal-show-container">
-  <div class="animal-show-body">
+  <div class="container">
     <div class="animal-show-title">
       <h2> <%= @animal.name %> </h2>
       <%= link_to "← back to all animals", animals_path %>
     </div>
-    <div class="animal-show-card">
+    <div class="bg-white rounded-4 p-3 shadow animal-show-card">
       <div class="animal-show-card-image">
         <%# /////////////////////////////////////////////////////// %>
         <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
