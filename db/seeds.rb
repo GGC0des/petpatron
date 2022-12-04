@@ -70,7 +70,7 @@ Shelter.all.each do |shelter|
       description: Faker::Lorem.paragraph(sentence_count: 7),
       sex: ["male", "female"].sample,
       size: "#{rand(0.1..1.5)} m",
-      species: Faker::Creature::Animal,
+      species: Faker::Creature::Animal.name,
       shelter_id: shelter.id
     )
     animal.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
