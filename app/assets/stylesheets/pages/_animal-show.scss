@@ -1,5 +1,11 @@
+.animal-show-container .container {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
 .animal-show-title {
-  width: 1276px;
+  width: 1248px;
   height: 39px;
   display: flex;
   flex-direction: row;
@@ -12,7 +18,7 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 39px;
-  width: 1117px;
+  width: 1102px;
   height: 39px;
 }
 
@@ -29,13 +35,9 @@
 }
 
 .animal-show-card {
-  width: 1276px;
-  height: 500px;
-  background: #FFFFFF;
-  box-shadow: -5px -5px 22px rgba(255, 255, 255, 0.5), 6px 6px 20px rgba(0, 0, 0, 0.1);  border-radius: 16px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  padding: 0 !important;
 }
 
 .animal-show-card-image {
