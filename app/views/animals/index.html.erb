@@ -49,7 +49,11 @@
         <p><strong><%= link_to "Book date →", animal_path(animal), class: "card-link" %></a></strong></p>
       </div>
       <div class="shelter-card-image">
-         <%= cl_image_tag(animal.photos[0].key) %>
+      <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+      <% if animal.photos.attached? %>
+        <%= cl_image_tag(animal.photos[0].key) %>
+      <% end %>
+         <%# <%= cl_image_tag(animal.photos[0].key) %> %>
       </div>
     </div>
     <% end %>
