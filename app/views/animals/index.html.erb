@@ -42,7 +42,7 @@
             </tr>
             <tr>
               <th class="card-sub">Caretakings</th>
-              <th class="card-sub">???</th>
+              <th class="card-sub"><%= animal.categories.collect(&:name).join(', ') %></th>
             </tr>
           </tbody>
         </table>

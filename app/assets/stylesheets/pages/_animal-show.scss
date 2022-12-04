@@ -100,3 +100,21 @@ padding: 64px 82px;
 #animals-show-photos .carousel-inner, #animals-show-photos .carousel-inner .carousel-item {
   height: 100%;
 }
+
+.animal-show-card-content-container table {
+  margin-bottom: 30px;
+}
+
+.tag {
+  background-color: rgb(179, 109, 185);
+  color: white;
+  font-weight: bold;
+  letter-spacing: .1em;
+  margin-right: 1rem;
+  border-radius: 50rem;
+  padding: 0.2rem 0.7rem;
+}
+
+.tag_row {
+  display: flex;
+}
