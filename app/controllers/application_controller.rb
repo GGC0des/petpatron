@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    return if is_a? Devise::SessionsController
+    return if devise_controller?
 
     store_location_for(:user, request.env['PATH_INFO'])
   end
