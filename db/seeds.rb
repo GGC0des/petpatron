@@ -141,7 +141,6 @@ puts "All categories created!"
 
 puts "Creating Animal_Categories"
 
-
 Animal.all.each do |animal|
   AnimalCategory.create!(
     animal: animal,
