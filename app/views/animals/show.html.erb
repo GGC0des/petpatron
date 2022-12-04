@@ -64,14 +64,13 @@
                 <th class="card-sub"><i class="fa-solid fa-maximize"></i>&nbsp;&nbsp; Size:</th>
                 <th class="card-sub"><%= @animal.size %></th>
               </tr>
-              <tr>
+              <%# <tr>
                 <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i>&nbsp;&nbsp; Caretakings: &nbsp; &nbsp; &nbsp; &nbsp;</th>
                 <th class="card-sub">???</th>
-              </tr>
+              </tr> %>
             </tbody>
           </table>
-          <%= simple_form_for(@animal) do |f| %>
-            <%= f.association :categories, as: :check_boxes, input_html: { class: "tag-selector" },
+          <tr class="tag-selector" > </tr>
                   item_wrapper_class: 'tag-item' %>
           <% end %>
       </div>

@@ -29,20 +29,20 @@
         <table class="my-2">
           <tbody>
             <tr>
-              <th class="card-sub">Species</th>
-              <th class="card-sub"><%= animal.species %></th>
+              <%# <th class="card-sub">Species</th>
+              <th class="card-sub"><%= animal.species </th> %>
             </tr>
             <tr>
               <th class="card-sub">Sex</th>
               <th class="card-sub"><%= animal.sex %></th>
             </tr>
             <tr>
-              <th class="card-sub">Size</th>
-              <th class="card-sub"><%= animal.size %></th>
+              <%# <th class="card-sub">Size</th>
+              <th class="card-sub"><%= animal.size </th> %>
             </tr>
             <tr>
-              <th class="card-sub">Caretakings</th>
-              <th class="card-sub">???</th>
+              <th class="card-sub">Volunteer</th>
+              <th class=“card-sub”><%= animal.categories.collect(&:name).join(', ') %></th>
             </tr>
           </tbody>
         </table>
