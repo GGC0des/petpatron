@@ -1,14 +1,14 @@
 class CaretakingsController < ApplicationController
-
   def create
     @animal = Animal.find(params[:animal_id])
     @caretaking = Caretaking.new(caretaking_params)
     @caretaking.animal = @animal
     @caretaking.user = current_user if user_signed_in?
-    if @caretaking.save!
+    if @caretaking.save
       redirect_to animal_caretaking_path(@animal, @caretaking)
     else
-      render :new, status: :unprocessable_entity
+      puts "h" * 200
+      render "animals/show", status: :unprocessable_entity
     end
   end
 
