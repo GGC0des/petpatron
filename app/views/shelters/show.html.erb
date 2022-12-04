@@ -1,46 +1,49 @@
-<div class="emergency-show-body">
+<div class="shelter-show-body ">
   <div class="em-show-container">
     <div class="d-flex justify-content-between align-items-center mb-5">
       <div class="normal-head">Come to <%= @shelter.name %>'s aid!</div>
       <div>
-        <%= link_to "← back to shelters", shelters_path, class: "card-link" %>
+        <%= link_to "← back to shelters", shelters_path, class: "card-link", style: "color: #42a8b1" %>
       </div>
     </div>
     <div class="shelters-card">
-        <div class="col-4">
+
           <%# ///////////shelters photos slide show start///////////////////// %>
-          <div id="shelters-photos" class="carousel slide" data-bs-ride="true">
-            <div class="carousel-indicators">
-              <% @shelter.photos.each_with_index do |photo, index| %>
-              <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
-              <% end %>
-            </div>
+          <div class="animal-show-card-image">
+            <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
 
-            <div class="carousel-inner">
-              <% if @shelter.photos.attached? %>
-                <% @shelter.photos.each_with_index do |photo, index| %>
-                  <div class="carousel-item <%= "active" if index == 0 %>">
-                    <%= image_tag photo, class: "d-block w-100" %>
+              <div class="carousel-indicators"> <%# switch buttons %>
+                  <% @shelter.photos.each_with_index do |photo, index| %>
+                  <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+                  <% end %>
+              </div>
+
+              <div class="carousel-inner"> <%# photos %>
+                <% if @shelter.photos.attached? %>
+                  <% @shelter.photos.each_with_index do |photo, index| %>
+                    <div class="carousel-item <%= "active" if index == 0 %>">
+                      <%= image_tag photo, class: "d-block w-100" %>
+                    </div>
+                  <% end #each %>
+                <% else %>
+                  <div class="carousel-item active">
+                    <%= image_tag "pets-icons.jpeg", class: "d-block w-100" %>
                   </div>
-                <% end #each %>
-              <% else %>
-                <div class="carousel-item">
-                  <%= image_tag "defult-shelter.png", class: "d-block w-100" %>
-                </div>
-              <% end #if %>
-            </div>
+                <% end #if %>
+              </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#shelters-photos" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#shelters-photos" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+              <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
           <%# ///////////shelters photos slide show end//////////////////////// %>
-        </div>
+
         <div class="shelters-card-text">
         <div class="card-head mb-3">Contact</div>
         <br>
