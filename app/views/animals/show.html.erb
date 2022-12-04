@@ -66,13 +66,18 @@
               </tr>
               <%# <tr>
                 <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i>&nbsp;&nbsp; Caretakings: &nbsp; &nbsp; &nbsp; &nbsp;</th>
-                <th class="card-sub">???</th>
-              </tr> %>
+                <th class="card-sub"><%= @animal.categories.collect(&:name).join(', ') %></th>
+              </tr>
             </tbody>
           </table>
-          <tr class="tag-selector" > </tr>
-                  item_wrapper_class: 'tag-item' %>
-          <% end %>
+          <div class="caretaking_categories">
+            <div class="animal-show-card-content-title"><h4 >Caretaking Categories</h4></div>
+            <div class="tag_row">
+              <% @animal.categories.each do |category| %>
+                <div class="tag"><%= category.name %></div>
+              <% end %>
+            </div>
+          </div>
       </div>
     </div>
   </div>
