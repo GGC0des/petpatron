@@ -3,11 +3,46 @@
     <div class="d-flex justify-content-between align-items-center mb-5">
       <div class="normal-head">Come to <%= @emergency.animal.name %>'s aid!</div>
       <div>
-        <%= link_to "← back to emergencies", emergencies_path, class: "card-link" %>
+        <%= link_to "← back to emergencies", emergencies_path, class: "card-link", style: "font-weight: 400; color: #864924" %>
       </div>
     </div>
+
     <div class="fundraising-card">
-      <%= image_tag(@emergency.photos[0]) %>
+      <div class="animal-show-card-image">
+        <%# /////////////////////////////////////////////////////// %>
+        <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
+
+          <div class="carousel-indicators"> <%# switch buttons %>
+              <% @emergency.photos.each_with_index do |photo, index| %>
+              <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+              <% end %>
+          </div>
+
+          <div class="carousel-inner"> <%# photos %>
+            <% if @emergency.photos.attached? %>
+              <% @emergency.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= "active" if index == 0 %>">
+                  <%= image_tag photo, class: "d-block w-100" %>
+                </div>
+              <% end #each %>
+            <% else %>
+              <div class="carousel-item active">
+                <%= image_tag "pets-icons.jpeg", class: "d-block w-100" %>
+              </div>
+            <% end #if %>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <%# /////////////////////////////////////////////////////// %>
       <div class="fundraising-card-text">
         <div class="card-head mb-3"><%= @sum_of_donations %> € collected already, <%= @fgoal %> € still needed!</div>
         <% progress = (@sum_of_donations / @fgoal).round(2) * 100 %>
@@ -20,6 +55,7 @@
         <div class="btn donate-button btn-font">Donate money</div>
       </div>
     </div>
+
     <% @donations.each do |donation| %>
       <div class="fund-comment-card my-3">
         <% if donation.user.avatar.key %>
