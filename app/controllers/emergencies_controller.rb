@@ -2,18 +2,23 @@ class EmergenciesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @emergencies = Emergency.all
     if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
-      @emergencies = Emergency.includes(:donations).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @emergencies = Emergency.includes(:donations).all
-      @shelters = Shelter.all
-      @markers = @shelters.geocoded.map do |shelter|
-        {
-          lat: shelter.latitude,
-          lng: shelter.longitude
-        }
+      sql_query = "name ILIKE :query OR location ILIKE :query"
+      @all_locations = Shelter.all.pluck(:location).join(",")
+      if @all_locations.include? params[:query].to_s.capitalize
+        @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+      else
+        @shelters = Shelter.all
       end
+    else
+      @shelters = Shelter.all
+    end
+    @markers = @shelters.geocoded.map do |shelter|
+      {
+        lat: shelter.latitude,
+        lng: shelter.longitude
+      }
     end
   end
 
