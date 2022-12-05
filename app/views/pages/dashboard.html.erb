@@ -63,7 +63,7 @@
             <% if caretaking.user.avatar.key %>
               <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
               <% else %>
-              <%= image_tag "avatar.png" %>
+              <%= image_tag "avatar.png", class: "avatar-large" %>
               <% end %>
               <div class="notification-content">
                 <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
@@ -85,7 +85,7 @@
               <% if caretaking.user.avatar.key %>
                 <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
               <% else %>
-                <%= image_tag "avatar.png" %>
+                <%= image_tag "avatar.png", class: "avatar-large" %>
               <% end %>
               <div class="notification-content">
                 <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
