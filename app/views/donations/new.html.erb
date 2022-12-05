@@ -1,27 +1,57 @@
-<div class="container mt-5" id="booking">
+<div class="create-don-container  mt-5" id="booking">
   <div class="bg-white rounded p-3 shadow">
-    <h2> Make a donation now </h2>
-    <br>
+    <div class="normal-head mb-4">Come to <%= @emergency.animal.name %>'s aid!</div>
+    <div class="normal-sub mb-3"><%= @sum_of_donations %> € of the goal of <%= @fgoal %> €</div>
+    <% progress = (@sum_of_donations.to_f / @fgoal).round(2) * 100 %>
+    <% progress > 100 ? progress = 100 : progress = progress.to_i %>
+    <div class="progress mb-5">
+      <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
     <% if current_user.present? %>
-      <%= simple_form_for [@emergency, @donation] do |f| %>
-        <div class="container">
-          <input type="range" name="donation[donation_amount]" id="my-slider" min="0" max="100" value="50" oninput="slider()">
-          <div id="slider-value">0</div>
+      <%= simple_form_for [@emergency, @donation], data: {controller: "toggle-payment-details"} do |f| %>
+        <div class="normal-sub mb-3">Choose the amount you want to donate:</div>
+        <div class="d-flex gap-3 mb-4">
+          <input type="range" name="donation[donation_amount]" id="my-slider" min="0" max="250" value="25" oninput="slider()">
+          <div id="slider-value" class="normal-head">0</div>
         </div>
-        <%= f.input :comment %>
-        <%= f.submit class: "donate-button", value:"Make donation"%>
+        <%= f.input :comment, label: "Add a comment to your donation" %>
+        <div class="d-flex gap-3 my-4">
+          <div class="payment-button" data-action="click->toggle-payment-details#toggle1" data-toggle-payment-details-target="button"><%= image_tag("paypal_logo.svg") %></div>
+          <div class="payment-button" data-action="click->toggle-payment-details#toggle2" data-toggle-payment-details-target="button"><%= image_tag("creditcard_logo.png") %></div>
+          <div class="payment-button" data-action="click->toggle-payment-details#toggle3" data-toggle-payment-details-target="button"><%= image_tag("sepa_logo.jpg") %></div>
+        </div>
+        <div data-toggle-payment-details-target="pinputs3" class="d-none">
+          <%= f.input :account_holder %>
+          <%= f.input :iban, label: "IBAN" %>
+        </div>
+        <div data-toggle-payment-details-target="pinputs2" class="d-none">
+          <%= f.input :account_holder, label: "Name on card" %>
+          <%= f.input :iban, label: "Card number" %>
+          <%= f.input :expiry_date %>
+          <%= f.input :security_code %>
+        </div>
+        <div data-toggle-payment-details-target="pinputs1" class="d-none">
+          <div class="pp-card">
+            <p>PayPal</p>
+            <hr>
+            <p>After filling out and submitting this form, you will be redirected to PayPal to complete the donation process.</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit class: "donate-button", value:"Make donation" %>
+        </div>
       <% end %>
     <% end %>
   </div>
 </div>
 
 <script>
-const mySlider = document.getElementById("my-slider");
-const sliderValue = document.getElementById("slider-value");
-function slider(){
+  function slider(){
+    const mySlider = document.getElementById("my-slider");
+    const sliderValue = document.getElementById("slider-value");
     valPercent = (mySlider.value / mySlider.max)*100;
-    mySlider.style.background = `linear-gradient(to right, #3264fe ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+    mySlider.style.background = `linear-gradient(to right, rgba(255,252,242,1) ${valPercent}%, rgba(231,189,165,1) ${valPercent}%)`;
     sliderValue.textContent = `${mySlider.value}€`;
-}
-slider();
+  }
+  slider();
 </script>

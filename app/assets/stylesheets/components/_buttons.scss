@@ -114,6 +114,7 @@
   --bs-btn-bg: #D88351 !important;
   --bs-btn-color: white !important;
   --bs-btn-disabled-opacity: 100%;
+  text-decoration:none;
 }
 
 .donate-button:hover {
@@ -125,6 +126,7 @@
   font-weight: bold;
   box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
   transition: 0.5s;
+  text-decoration:none;
 }
 
 .donate-button:active {
@@ -251,4 +253,69 @@
   --bs-btn-active-font-weight: bold;
   --bs-btn-active-margin: 20px;
   box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
+}
+
+.payment-button {
+  width:160px;
+  height:80px;
+  border:2px solid #c8c8c8;
+  padding:16px 24px;
+  text-align: center;
+  border-radius:5px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-button:hover {
+  border:2px solid #767676;
+}
+
+.payment-button-selected {
+  width:160px;
+  height:80px;
+  border:2px solid #767676;
+  padding:16px 24px;
+  text-align: center;
+  border-radius:5px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-button img {
+  height:40px;
+  width: auto;
+}
+
+.swal-button {
+  background-color: #D88351 !important;
+  margin-top: 24px;
+  color: #FFF;
+  width: 120px;
+  height: 56px;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  --bs-btn-bg: #D88351 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+  text-decoration:none;
+}
+
+.swal-button:hover {
+  background-color: #D88351 !important;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a !important;
+  transition: 0.5s;
+  text-decoration:none;
+}
+
+.swal-footer {
+  text-align: center;
 }
