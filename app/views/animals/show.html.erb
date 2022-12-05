@@ -50,7 +50,7 @@
       <div class="col-8">
         <div class="p-5">
           <h4>Animal Profile</h4>
-          <p><%= @animal.description %></p>
+          <p class="txt-limit-3"><%= @animal.description %></p>
           <table class="mb-3">
             <tbody>
               <tr>
@@ -71,7 +71,7 @@
               </tr>
             </tbody>
           </table>
-          <h5>Caretaking Categories</h5>
+          <h5>Volunteer</h5>
           <% @animal.categories.each do |category| %>
             <span class="tag badge rounded-pill"><%= category.name %></span>
           <% end %>
