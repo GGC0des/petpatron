@@ -26,7 +26,9 @@ class EmergenciesController < ApplicationController
     @markers = @shelters.geocoded.map do |shelter|
       {
         lat: shelter.latitude,
-        lng: shelter.longitude
+        lng: shelter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
+        image_url: helpers.asset_url("marker")
       }
     end
   end

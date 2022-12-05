@@ -85,7 +85,7 @@
     <%# ////////////////////////Booking form start//////////////////// %>
     <div id="booking">
       <div class="bg-white rounded-4 p-5 shadow">
-        <h2 class="mb-4"> Book a volunteering slot for <%= @animal.name %> now </h2>
+        <h2 class="mb-4" style="text-align:center"> Book a volunteering slot for <%= @animal.name %> now </h2>
         <% if current_user.present? %>
           <%= simple_form_for [@animal, @caretaking] do |f| %>
             <%= f.input :comment, class: "mb-4 " %>
