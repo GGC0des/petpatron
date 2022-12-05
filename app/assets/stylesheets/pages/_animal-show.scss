@@ -1,0 +1,42 @@
+.animal-show-container .container {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.animal-show-container h2 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.animal-show-container a {
+  color: #934599;
+  text-decoration: none;
+}
+
+.animal-show-card-image {
+  border-radius: 16px 0 0 16px;
+  height: 100%;
+  overflow: hidden;
+}
+
+#animals-show-photos {
+  height: 100%;
+}
+
+.animal-show-card-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.animal-show-container .container {
+padding: 64px 82px;
+}
+
+#animals-show-photos .carousel-inner, #animals-show-photos .carousel-inner .carousel-item {
+  height: 100%;
+}
+
+.tag {
+  background-color: rgb(179, 109, 185);
+}

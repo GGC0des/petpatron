@@ -2,7 +2,11 @@
 <p>This should be a form</p>
 
 <h3> You are creating an urgent fundraising cause for <%= @emergency.animal.name %> </h3>
-<%= cl_image_tag(@emergency.animal.photos[0].key) %>
+      <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+<% if @emergency.animal.photos.attached? %>
+  <%= image_tag(@emergency.animal.photos[0]) %>
+<% end %>
+<%# <%= cl_image_tag(@emergency.animal.photos[0].key) %> %>
 
 <div class="container mt-5">
   <div class="bg-white rounded p-3 shadow">

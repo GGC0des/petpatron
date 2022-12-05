@@ -21,8 +21,8 @@
 
 .shelters-card {
   height: 500px;
-  background-color: #FFF3EC;
-  box-shadow: -5px -12px 40px #FFF3ED, 8px 8px 32px #D9A88C;
+  background: #FFFFFF;
+  box-shadow: -5px -12px 24px rgba(255, 255, 255, 0.5), 8px 8px 25px rgba(0, 0, 0, 0.16);
   border-radius: 16px;
   display:flex;
   justify-content: space-between;
@@ -122,7 +122,7 @@
 }
 
 .shelter-card-element {
-  display: flex;
+  // display: flex;
   // flex-direction: column;
   // justify-content: space-between;
   // overflow:hidden;

@@ -47,8 +47,9 @@ $headers-font: "Inter", "Helvetica", "sans-serif";
 }
 
 .container-top-copy {
-  padding-top: 75px;
   padding-left: 36px;
+  padding-right: 36px;
+  width: 50%;
 }
 
 .card-head {
@@ -74,3 +75,5 @@ $headers-font: "Inter", "Helvetica", "sans-serif";
   letter-spacing: 0em;
   text-align: left;
 }
+
+

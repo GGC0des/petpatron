@@ -28,7 +28,15 @@
                 <%= link_to(animal_path(animal)) do %>
                   <div class="animal animal-overview">
                     <div class="animal-dashboard-img">
-                      <%= cl_image_tag(animal.photos[0].key, class:"animal-dashboard-img") %>
+<%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+<%# iterate to show all photos %>
+                      <% if animal.photos.attached? %>
+                        <% animal.photos.each_with_index do |photo, index| %>
+                            <%= cl_image_tag(animal.photos[0].key, class:"animal-dashboard-img") %>
+                        <% end #each %>
+                      <% else %>
+                          <%= image_tag "pets-icons.jpeg", style: "width: 50%" %>
+                      <% end #if %>
                     </div>
                     <div class="dashboard-links">
                     <%= link_to "Show profile", animal_path(animal) %>

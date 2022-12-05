@@ -10,3 +10,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/animal-show";
+
+.navbar {
+  justify-content: space-around;}
+
+.footer {
+  justify-content: space-around;
+  margin: 0px 82px;}

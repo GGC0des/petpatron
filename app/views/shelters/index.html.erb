@@ -10,14 +10,16 @@
   <div class="container-top">
     <div class="container-top-copy">
       <h2 class="normal-head"> Shelters</h2>
-      <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+      <p class="normal-sub">Search for shelters close to you</p>
       <form class="input-group right-align container-top-search" role="search">
         <input class="form-control" id="query" name="query" type="search" placeholder="Enter name or location" aria-label="Search">
         <button type="submit" class="btn border bg-white">Search</button>
       </form>
     </div>
-    <div class="container-top-map">
-      <%= image_tag("dummy_map.png") %>
+    <div style="width: 50%; height: 250px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
   <div class="container-bottom">
