@@ -1,3 +1,10 @@
+<!-- Facebook Open Graph data -->
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Come to #{@emergency.animal.name}'s aid!" %>
+<% content_for :meta_description, @emergency.description %>
+<% content_for :meta_image, cl_image_path(@emergency.photos[0].key) if @emergency.photos.attached? %>
+<%# <meta property="og:site_name" content="<%= meta_title %>
+
 <div class="emergency-show-body" data-controller="<%= "sweetalert" if @donated %>">
   <div class="em-show-container">
     <div class="d-flex justify-content-between align-items-center mb-5">
@@ -69,3 +76,21 @@
     <% end %>
   </div>
 </div>
+
+<%# <!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }
+  (document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Your share button code -->
+<div class="fb-share-button"
+data-href="https://www.your-domain.com/your-page.html"
+data-layout="button_count">
+</div> %>
