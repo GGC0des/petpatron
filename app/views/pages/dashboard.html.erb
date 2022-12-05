@@ -59,21 +59,21 @@
           <h3> Pending: <%= @pending_shelter_caretakings.count %> </h3>
           <% end %>
           <% @pending_shelter_caretakings.each do |caretaking| %>
-              <div class="notification shadow">
-              <% if caretaking.user.avatar.key %>
-                <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
-                <% else %>
-                <%= image_tag "avatar.png" %>
-                <% end %>
-                <div class="notification-content">
-                  <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
-                  <p><%= caretaking.comment %></p>
-                </div>
-                <div>
-                  <%= link_to "Decline", caretaking_path(caretaking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-danger" %>
-                  <%= link_to "Confirm", confirm_caretaking_path(caretaking), data: { turbo_method: :put, turbo_confirm: "Confirm this booking?"}, class: "btn btn-success" %>
-                </div>
+            <div class="notification shadow">
+            <% if caretaking.user.avatar.key %>
+              <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
+              <% else %>
+              <%= image_tag "avatar.png" %>
+              <% end %>
+              <div class="notification-content">
+                <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
+                <p><%= caretaking.comment %></p>
               </div>
+              <div>
+                <%= link_to "Decline", caretaking_path(caretaking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-danger" %>
+                <%= link_to "Confirm", confirm_caretaking_path(caretaking), data: { turbo_method: :put, turbo_confirm: "Confirm this booking?"}, class: "btn btn-success" %>
+              </div>
+            </div>
           <% end %>
       </div>
       <div>
@@ -81,21 +81,49 @@
           <h3> Confirmed: <%= @confirmed_shelter_caretakings.count %></h3>
           <% end %>
           <% @confirmed_shelter_caretakings.each do |caretaking| %>
-              <div class="notification shadow">
-                <% if caretaking.user.avatar.key %>
-                  <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
-                <% else %>
-                  <%= image_tag "avatar.png" %>
-                <% end %>
-                <div class="notification-content">
-                  <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
-                  <p><%= caretaking.comment %></p>
-                </div>
-                <p class="btn btn-success disabled">Confirmed</p>
-                <%= link_to "X", caretaking_path(caretaking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-danger" %>
+            <div class="notification shadow">
+              <% if caretaking.user.avatar.key %>
+                <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
+              <% else %>
+                <%= image_tag "avatar.png" %>
+              <% end %>
+              <div class="notification-content">
+                <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
+                <p><%= caretaking.comment %></p>
               </div>
+              <p class="btn btn-success disabled">Confirmed</p>
+              <%= link_to "X", caretaking_path(caretaking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-danger" %>
+            </div>
           <% end %>
       </div>
 
     <% end %>
   </div>
+
+  <div>
+    <% if @user_caretakings.any? %>
+    <% @user_caretakings.each do |caretaking| %>
+    <div class="notification shadow">
+      <% if booking.user.avatar.key %>
+        <%= image_tag booking.user.avatar, class: "avatar-large" %>
+      <% else %>
+        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+      <% end %>
+      <div class="notification-content">
+        <p><small><%= booking.date_from %></small> to <small><%= booking.date_to %></small> for <small><%= booking.castle.name %></small></p>
+        <p><%= booking.comment %></p>
+      </div>
+      <% if !booking.accepted %>
+      <p class="btn btn-light disabled">Waiting for confirmation</p>
+      <% else %>
+      <p class="btn btn-success disabled">Booking confirmed</p>
+      <% end %>
+    </div>
+  <% end %>
+    <% else %>
+      <h3> You have not booked any volunteering slots</h3>
+      <%= link_to "Check out volunteering possibilities near you", animals_path(animals) %>
+    <% end %>
+
+  </div>
+</div>
