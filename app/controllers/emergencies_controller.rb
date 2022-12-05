@@ -78,7 +78,6 @@ class EmergenciesController < ApplicationController
   private
 
   def emergency_params
-    params.require(:emergency).permit(:title, :description, :fundraising_goal, photos: [])
-    params.require(:shelter).permit(:name, :location)
+    params.require(:emergency).permit(:animal_id, :title, :description, :fundraising_goal, photos: [])
   end
 end
