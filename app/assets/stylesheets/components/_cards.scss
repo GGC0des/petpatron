@@ -80,15 +80,12 @@
 }
 
 .animal-card {
-  background-color: white;
   background: #FFFFFF;
   box-shadow: -5px -5px 22px rgba(255, 255, 255, 0.5), 6px 6px 20px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  height:440px;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow:hidden;
+  overflow: hidden;
+  display: grid;
+  // align-content: space-between;
 }
 
 .emergency-card {
@@ -110,7 +107,7 @@
   height:200px;
 }
 .shelter-card-text {
-  padding: 32px 28px;
+  padding: 28px 28px;
 }
 
 .animal-card-element {
@@ -118,7 +115,6 @@
     flex-direction: column;
     justify-content: space-between;
     overflow:hidden;
-    height:200px;
 }
 
 .shelter-card-element {
@@ -139,8 +135,6 @@
 }
 
 .animal-card img {
-  object-fit: cover;
-  height:200px;
   width:100%;
 }
 
