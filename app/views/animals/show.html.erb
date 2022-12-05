@@ -112,7 +112,6 @@
 
 
     <%# //////////////////model start///////////////////////// %>
-<!-- Modal -->
 <div class="modal fade" id="animal-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -132,6 +131,10 @@
 </div>
     <%# //////////////////model end////////////////////////// %>
 
-<script>
-  animal_modal()
-</script>
+
+
+<% if flash[:confirmation] %>
+  <script>
+    animal_modal();
+  </script>
+<% end %>
