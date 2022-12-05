@@ -2,12 +2,18 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @animals = Animal.all
     if params[:query].present?
       sql_query = "name ILIKE :query OR location ILIKE :query"
       @all_locations = Shelter.all.pluck(:location).join(",")
       if @all_locations.include? params[:query].to_s.capitalize
         @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+        @all_animals = Animal.all
+        @animals = []
+        @all_animals.each do |animal|
+          if @shelters.include? animal.shelter
+            @animals << animal
+          end
+        end
         @markers = @shelters.geocoded.map do |shelter|
           {
             lat: shelter.latitude,
@@ -16,9 +22,11 @@ class AnimalsController < ApplicationController
         end
       else
         @shelters = Shelter.all
+        @animals = Animal.all
       end
     else
       @shelters = Shelter.all
+      @animals = Animal.all
     end
     @markers = @shelters.geocoded.map do |shelter|
       {
