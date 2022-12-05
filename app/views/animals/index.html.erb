@@ -27,7 +27,7 @@
 
         <%# //////////////////test start////////////////////////////////// %>
         <div class="p-4" style="display: grid; row-gap: 5px;">
-          <h5 class="card-head"><%= animal.name %></h5>
+          <h5 class="card-head"><i class="fa-solid fa-paw"></i> <%= animal.name %></h5>
           <table class="mb-2">
             <tbody>
               <tr>
@@ -42,7 +42,7 @@
               </tr>
             </tbody>
           </table>
-          <%= link_to "Book date →", animal_path(animal), class: "card-link fw-bold" %>
+          <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Book date →", animal_path(animal), class: "card-link fw-bold" %></span>
         </div>
         <%# //////////////////test end////////////////////////////////// %>
 
