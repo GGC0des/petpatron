@@ -112,23 +112,22 @@
 
 
     <%# //////////////////model start///////////////////////// %>
-<div class="modal fade" id="animal-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= flash[:confirmation] %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+
+    <div class="modal fade" id="animal-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 16px;">
+          <div style="padding: 1rem;">
+            <h1 class="modal-title fs-5 text-center fw-bolder" id="exampleModalLabel">Thank you for taking care of <%= @animal.name %></h1>
+          </div>
+          <div class="modal-body text-center fst-italic lh-2">
+            <%= flash[:confirmation] %>
+          </div>
+          <div class="modal-footer bg-dark" style="justify-content: center; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
     <%# //////////////////model end////////////////////////// %>
 
 
