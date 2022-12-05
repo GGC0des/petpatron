@@ -1,7 +1,7 @@
 .animal-show-container .container {
   display: flex;
   flex-direction: column;
-  gap: 34px;
+  gap: 50px;
 }
 
 .animal-show-container h2 {
@@ -39,4 +39,8 @@ padding: 64px 82px;
 
 .tag {
   background-color: rgb(179, 109, 185);
+}
+
+.fa-solid {
+  width: 14px
 }
