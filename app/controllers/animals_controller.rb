@@ -2,24 +2,36 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @animals = Animal.all
     if params[:query].present?
-      sql_query = "name ILIKE :query OR species ILIKE :query"
-      @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @animals = Animal.all
-      @shelters = Shelter.all
-      @markers = @shelters.geocoded.map do |shelter|
-        {
-          lat: shelter.latitude,
-          lng: shelter.longitude
-        }
+      sql_query = "name ILIKE :query OR location ILIKE :query"
+      @all_locations = Shelter.all.pluck(:location).join(",")
+      if @all_locations.include? params[:query].to_s.capitalize
+        @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+        @markers = @shelters.geocoded.map do |shelter|
+          {
+            lat: shelter.latitude,
+            lng: shelter.longitude
+          }
+        end
+      else
+        @shelters = Shelter.all
       end
+    else
+      @shelters = Shelter.all
+    end
+    @markers = @shelters.geocoded.map do |shelter|
+      {
+        lat: shelter.latitude,
+        lng: shelter.longitude
+      }
     end
   end
 
   def show
     @animal = Animal.find(params[:id])
     @caretaking = Caretaking.new
+    store_location_for(:user, animal_path(params[:id]))
     @shelters = Shelter.all
     @markers = @shelters.geocoded.map do |shelter|
       {
