@@ -1,56 +1,57 @@
+  <%# ////////////////////////animal show card start//////////////////// %>
 <div class="animal-show-container">
   <div class="container">
-    <div class="animal-show-title">
-      <h2> <%= @animal.name %> </h2>
-      <%= link_to "← back to all animals", animals_path %>
-    </div>
-    <div class="bg-white rounded-4 p-3 shadow animal-show-card">
-
-      <%# ///////////shelters photos slide show start///////////////////// %>
-      <div class="animal-show-card-image">
-        <%# /////////////////////////////////////////////////////// %>
-        <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
-
-          <div class="carousel-indicators"> <%# switch buttons %>
-              <% @animal.photos.each_with_index do |photo, index| %>
-              <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
-              <% end %>
-          </div>
-
-          <div class="carousel-inner"> <%# photos %>
-            <% if @animal.photos.attached? %>
-              <% @animal.photos.each_with_index do |photo, index| %>
-                <div class="carousel-item <%= "active" if index == 0 %>">
-                  <%= image_tag photo, class: "d-block w-100" %>
-                </div>
-              <% end #each %>
-            <% else %>
-              <div class="carousel-item active">
-                <%= image_tag "pets-icons.jpeg", class: "d-block w-100" %>
-              </div>
-            <% end #if %>
-          </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-        <%# /////////////////////////////////////////////////////// %>
-
+    <div class="row">
+      <div class="col">
+        <h2> <%= @animal.name %> </h2>
       </div>
-      <%# ///////////shelters photos slide show end//////////////////////// %>
+      <div class="col-md-auto">
+        <%= link_to "← back to all animals", animals_path %>
+      </div>
+    </div>
+    <div class="row bg-white rounded-4 shadow gx-0">
+    <%# ///////////////photo slider start/////////////////////// %>
+      <div class="col-4">
+        <div class="animal-show-card-image">
+          <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
 
-      <div class="animal-show-card-content-container">
-          <div class="animal-show-card-content-title">
-            <h4>Animal Profile</h4>
-            <p><%= @animal.description %></p>
+            <div class="carousel-indicators"> <%# switch buttons %>
+                <% @animal.photos.each_with_index do |photo, index| %>
+                <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+                <% end %>
+            </div>
+
+            <div class="carousel-inner"> <%# photos %>
+              <% if @animal.photos.attached? %>
+                <% @animal.photos.each_with_index do |photo, index| %>
+                  <div class="carousel-item <%= "active" if index == 0 %>">
+                    <%= image_tag photo, class: "d-block w-100" %>
+                  </div>
+                <% end #each %>
+              <% else %>
+                <div class="carousel-item active">
+                  <%= image_tag "pets-icons.jpeg", class: "d-block w-100" %>
+                </div>
+              <% end #if %>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <table>
+        </div>
+      </div>
+      <%# ///////////////photo slider end/////////////////////// %>
+      <div class="col-8">
+        <div class="p-5">
+          <h4>Animal Profile</h4>
+          <p><%= @animal.description %></p>
+          <table class="mb-3">
             <tbody>
               <tr>
                 <th class="card-sub"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; Species:</th>
@@ -70,17 +71,15 @@
               </tr>
             </tbody>
           </table>
-          <div class="caretaking_categories">
-            <div class="animal-show-card-content-title"><h4 >Caretaking Categories</h4></div>
-            <div class="tag_row">
-              <% @animal.categories.each do |category| %>
-                <div class="tag"><%= category.name %></div>
-              <% end %>
-            </div>
-          </div>
+          <h5>Caretaking Categories</h5>
+          <% @animal.categories.each do |category| %>
+            <span class="tag badge rounded-pill"><%= category.name %></span>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+  <%# ////////////////////////animal show card end//////////////////// %>
 
   <%# ////////////////////////Booking form start//////////////////// %>
   <div class="container" id="booking">

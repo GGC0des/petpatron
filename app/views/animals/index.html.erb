@@ -50,10 +50,12 @@
       </div>
       <div class="shelter-card-image">
       <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
-      <% if animal.photos.attached? %>
-        <%= cl_image_tag(animal.photos[0].key) %>
-      <% end %>
-         <%# <%= cl_image_tag(animal.photos[0].key) %> %>
+        <% if animal.photos.attached? %>
+          <%= cl_image_tag(animal.photos[0].key) %>
+      <%# display defult pic if the user did'nt upload one %>
+        <% else %>
+          <%= image_tag "pets-icons.jpeg"%>
+        <% end #if %>
       </div>
     </div>
     <% end %>
