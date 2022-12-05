@@ -1,62 +1,106 @@
-<h1>This is the show page of one animal</h1>
-<h2> <%= @animal.name %> </h2>
-<%= @animal.description %>
-
-<%# ///////////animals photos slide show start///////////////////// %>
-<div class="col-4 mx-auto">
-  <div id="animals-photos" class="carousel slide" data-bs-ride="true">
-    <div class="carousel-indicators">
-      <% @animal.photos.each_with_index do |photo, index| %>
-      <button type="button" data-bs-target="#animals-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
-      <% end %>
-    </div>
-
-    <div class="carousel-inner">
-      <% if @animal.photos.attached? %>
-        <% @animal.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item <%= "active" if index == 0 %>">
-            <%= image_tag photo, class: "d-block w-100" %>
-          </div>
-        <% end #each %>
-      <% else %>
-        <div class="carousel-item">
-          <%= image_tag "defult-animal.jpeg", class: "d-block w-100" %>
-        </div>
-      <% end #if %>
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#animals-photos" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#animals-photos" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
-<%# ///////////animals photos slide show end//////////////////////// %>
-
-
-<h1> We also want the caretaking booking form here below</h1>
-
-<div class="container mt-5" id="booking">
-  <div class="bg-white rounded p-3 shadow">
-    <h2> Book a volunteering slot for <%= @animal.name %> now </h2>
-    <br>
-    <% if current_user.present? %>
-      <%= simple_form_for [@animal, @caretaking] do |f| %>
-        <%= f.input :comment %>
-        <%= f.input :date, as: :datetime, html5: true %>
-        <%= f.association :category, collection: @animal.categories %>
-        <div class="d-grid gap-2 col-6 mx-auto">
-        <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
-        </div>
-      <% end %>
-    <% else %>
-      <div class="d-grid gap-2 col-6 mx-auto">
-      <%= link_to "Please log in", user_session_path, class: "btn bookdate-button" %>
+  <%# ////////////////////////animal show card start//////////////////// %>
+<div class="animal-show-container">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2> <%= @animal.name %> </h2>
       </div>
-    <% end %>
+      <div class="col-md-auto">
+        <%= link_to "← back to all animals", animals_path %>
+      </div>
+    </div>
+    <div class="row bg-white rounded-4 shadow gx-0">
+    <%# ///////////////photo slider start/////////////////////// %>
+      <div class="col-4">
+        <div class="animal-show-card-image">
+          <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
+
+            <div class="carousel-indicators"> <%# switch buttons %>
+                <% @animal.photos.each_with_index do |photo, index| %>
+                <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+                <% end %>
+            </div>
+
+            <div class="carousel-inner"> <%# photos %>
+              <% if @animal.photos.attached? %>
+                <% @animal.photos.each_with_index do |photo, index| %>
+                  <div class="carousel-item <%= "active" if index == 0 %>">
+                    <%= image_tag photo, class: "d-block w-100" %>
+                  </div>
+                <% end #each %>
+              <% else %>
+                <div class="carousel-item active">
+                  <%= image_tag "pets-icons.jpeg", class: "d-block w-100" %>
+                </div>
+              <% end #if %>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <%# ///////////////photo slider end/////////////////////// %>
+      <div class="col-8">
+        <div class="p-5">
+          <h4>Animal Profile</h4>
+          <p><%= @animal.description %></p>
+          <table class="mb-3">
+            <tbody>
+              <tr>
+                <th class="card-sub"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; Species:</th>
+                <th class="card-sub"><%= @animal.species %></th>
+              </tr>
+              <tr>
+                <th class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp;&nbsp; Sex:</th>
+                <th class="card-sub"><%= @animal.sex %></th>
+              </tr>
+              <tr>
+                <th class="card-sub"><i class="fa-solid fa-maximize"></i>&nbsp;&nbsp; Size:</th>
+                <th class="card-sub"><%= @animal.size %></th>
+              </tr>
+              <tr>
+                <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i>&nbsp;&nbsp; Caretakings: &nbsp; &nbsp; &nbsp; &nbsp;</th>
+                <th class="card-sub"><%= @animal.categories.collect(&:name).join(', ') %></th>
+              </tr>
+            </tbody>
+          </table>
+          <h5>Caretaking Categories</h5>
+          <% @animal.categories.each do |category| %>
+            <span class="tag badge rounded-pill"><%= category.name %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
+  <%# ////////////////////////animal show card end//////////////////// %>
+
+  <%# ////////////////////////Booking form start//////////////////// %>
+  <div class="container" id="booking">
+    <div class="bg-white rounded-4 p-5 shadow">
+      <h2 class="mb-4"> Book a volunteering slot for <%= @animal.name %> now </h2>
+      <% if current_user.present? %>
+        <%= simple_form_for [@animal, @caretaking] do |f| %>
+          <%= f.input :comment, class: "mb-4 " %>
+          <%= f.input :date, as: :datetime, html5: true, class: "mb-4 " %>
+          <%= f.association :category, collection: @animal.categories, class: "mb-4 " %>
+          <div class="d-grid gap-2 col-6 mx-auto">
+          <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <%= link_to "Please log in", user_session_path, class: "btn bookdate-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%# ////////////////////////Booking form end//////////////////// %>
+
 </div>

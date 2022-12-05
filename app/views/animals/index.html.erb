@@ -5,19 +5,20 @@
     <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
   </div>
 </div>
-
 <div class="animal-container">
   <div class="container-top">
     <div class="container-top-copy">
-      <h2 class="normal-head"> Shelters</h2>
-      <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+      <h2 class="normal-head"> Animals</h2>
+      <p class="normal-sub">Search for animals close to you</p>
       <form class="input-group right-align container-top-search" role="search">
         <input class="form-control" id="query" name="query" type="search" placeholder="Search for animals by name or species" aria-label="Search">
         <button type="submit" class="btn border bg-white">Search</button>
       </form>
     </div>
-    <div class="container-top-map">
-      <%= image_tag("dummy_map.png") %>
+    <div style="width: 50%; height: 250px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
   <div class="container-bottom">
@@ -41,14 +42,20 @@
             </tr>
             <tr>
               <th class="card-sub">Caretakings</th>
-              <th class="card-sub">???</th>
+              <th class="card-sub"><%= animal.categories.collect(&:name).join(', ') %></th>
             </tr>
           </tbody>
         </table>
         <p><strong><%= link_to "Book date →", animal_path(animal), class: "card-link" %></a></strong></p>
       </div>
       <div class="shelter-card-image">
-         <%= cl_image_tag(animal.photos[0].key) %>
+      <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+        <% if animal.photos.attached? %>
+          <%= cl_image_tag(animal.photos[0].key) %>
+      <%# display defult pic if the user did'nt upload one %>
+        <% else %>
+          <%= image_tag "pets-icons.jpeg"%>
+        <% end #if %>
       </div>
     </div>
     <% end %>

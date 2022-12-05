@@ -64,6 +64,7 @@
                     <% end %>
                   </div>
 
+
                   <div class="carousel-inner">
                     <% if animal.photos.attached? %>
                       <% animal.photos.each_with_index do |photo, index| %>
@@ -73,7 +74,7 @@
                       <% end #each %>
                     <% else %>
                       <div class="carousel-item">
-                        <%= image_tag "defult-animal.jpeg", class: "d-block w-100" %>
+                        <%= image_tag "pets-icons.jpeg", class: "d-block w-100" %>
                       </div>
                     <% end #if %>
                   </div>
