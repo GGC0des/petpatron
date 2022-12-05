@@ -1,4 +1,4 @@
-  <%# ////////////////////////animal show card start//////////////////// %>
+<%# ////////////////////////animal show card start//////////////////// %>
 <div class="animal-show-container">
   <div class="container">
     <div class="row">
@@ -9,6 +9,7 @@
         <%= link_to "← back to all animals", animals_path %>
       </div>
     </div>
+
     <div class="row bg-white rounded-4 shadow gx-0">
     <%# ///////////////photo slider start/////////////////////// %>
       <div class="col-4">
@@ -54,15 +55,15 @@
           <table class="mb-3">
             <tbody>
               <tr>
-                <th class="card-sub"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; Species:</th>
+                <th class="card-sub"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; Species:&nbsp;&nbsp;</th>
                 <th class="card-sub"><%= @animal.species %></th>
               </tr>
               <tr>
-                <th class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp;&nbsp; Sex:</th>
+                <th class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp;&nbsp; Sex:&nbsp;&nbsp;</th>
                 <th class="card-sub"><%= @animal.sex %></th>
               </tr>
               <tr>
-                <th class="card-sub"><i class="fa-solid fa-maximize"></i>&nbsp;&nbsp; Size:</th>
+                <th class="card-sub"><i class="fa-solid fa-maximize"></i>&nbsp;&nbsp; Size:&nbsp;&nbsp;</th>
                 <th class="card-sub"><%= @animal.size %></th>
               </tr>
               <%# <tr>
@@ -104,3 +105,35 @@
   <%# ////////////////////////Booking form end//////////////////// %>
 
 </div>
+
+
+
+
+
+
+    <%# //////////////////model start///////////////////////// %>
+
+    <div class="modal fade" id="animal-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 16px;">
+          <div style="padding: 1rem;">
+            <h1 class="modal-title fs-5 text-center fw-bolder" id="exampleModalLabel">Thank you for taking care of <%= @animal.name %></h1>
+          </div>
+          <div class="modal-body text-center fst-italic lh-2">
+            <%= flash[:confirmation] %>
+          </div>
+          <div class="modal-footer bg-dark" style="justify-content: center; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# //////////////////model end////////////////////////// %>
+
+
+
+<% if flash[:confirmation] %>
+  <script>
+    animal_modal();
+  </script>
+<% end %>
