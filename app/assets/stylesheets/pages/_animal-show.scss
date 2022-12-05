@@ -10,7 +10,6 @@
 }
 
 .animal-show-container a {
-  color: #934599;
   text-decoration: none;
 }
 
@@ -43,4 +42,10 @@ padding: 64px 82px;
 
 .fa-solid {
   width: 14px
+}
+
+.booking {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
