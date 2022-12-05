@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
 
   resources :emergencies, only: [:index, :show, :destroy] do
-    resources :donations, only: [:create, :show]
+    resources :donations, only: [:new, :create, :show]
   end
 end
