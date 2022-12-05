@@ -207,6 +207,17 @@
             <% @shelter_emergencies.each do |emergency| %>
               <div class="col-4">
               <h4> <%= emergency.title %></h4>
+              <h6> <%= emergency.animal.name %></h6>
+              <div class="animal-dashboard-img">
+                      <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+                      <%# iterate to show all photos %>
+                      <% if emergency.photos.attached? %>
+                        <% emergency.photos.each_with_index do |photo, index| %>
+                            <%= cl_image_tag(emergency.photos[0].key, class:"animal-dashboard-img") %>
+                        <% end #each %>
+                      <% else %>
+                          <%= image_tag "pets-icons.jpeg", style: "width: 50%" %>
+                      <% end #if %>
               <%= link_to "X", emergency_path(emergency), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-danger" %>
             <% end %>
           <% else %>
