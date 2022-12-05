@@ -33,7 +33,7 @@
               <th class="card-sub"><%= animal.species </th> %>
             </tr>
             <tr>
-              <th class="card-sub">Sex</th>
+              <th class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp; Sex</th>
               <th class="card-sub"><%= animal.sex %></th>
             </tr>
             <tr>
@@ -41,7 +41,7 @@
               <th class="card-sub"><%= animal.size </th> %>
             </tr>
             <tr>
-              <th class="card-sub">Caretakings</th>
+              <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i>&nbsp; Volunteer</th>
               <th class="card-sub"><%= animal.categories.collect(&:name).join(', ') %></th>
             </tr>
           </tbody>
