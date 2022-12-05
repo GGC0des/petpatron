@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   def dashboard
     @myshelter = current_user.shelter # equal to Shelter.where(user: current_user).first
     @shelter_animals = Animal.where(shelter: current_user.shelter)
-    @shelter_caretakings = Caretaking.where(animal: @shelter_animals) # bookings the shelter has received
+    @shelter_caretakings = Caretaking.where(animal: @shelter_animals).order(:date) # bookings the shelter has received
     @confirmed_shelter_caretakings = Caretaking.where(animal: @shelter_animals, status: 1) # confirmed bookings by shelter
     @pending_shelter_caretakings = Caretaking.where(animal: @shelter_animals, status: 0) # pending bookings to be confirmed by shelter
     @user_caretakings = Caretaking.where(user: current_user) # what the user has booked

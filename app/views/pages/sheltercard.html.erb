@@ -1,0 +1,66 @@
+
+
+
+
+
+
+    <div class="shelters-card">
+      <% if @myshelter.present? %>
+        <h1><%= @myshelter.name %></h1>
+        <div class="col-4">
+          <% if @myshelter.photos.attached? %>
+            <%= image_tag(@myshelter.photos[0])%>
+          <% else %>
+            <%= image_tag "defult-shelter.png", width: 500%>
+          <% end %>
+        <div class="shelters-card-text">
+        <div class="card-head mb-3">Contact</div>
+        <br>
+        <div class="card-link mb-2"><i class="fa-solid fa-phone"></i>&nbsp&nbsp  <%= @shelter.phone_number %></div>
+        <div class="card-link mb-2"><i class="fa-solid fa-envelope"></i>&nbsp&nbsp  <%= @shelter.email %></div>
+        <div class="card-link mb-2"><i class="fa-solid fa-location-dot"></i>&nbsp&nbsp  <%= @shelter.location %></div>
+        <br><br>
+        <div class="card-head mb-3">Opening times</div>
+        <table class="my-2 padding-between-cols">
+          <tbody>
+            <tr>
+              <th class="card-sub">Monday</th>
+              <th class="card-sub">closed</th>
+            </tr>
+            <tr>
+              <th class="card-sub">Tuesday</th>
+              <th class="card-sub">14 - 16 Uhr</th>
+            </tr>
+            <tr>
+              <th class="card-sub">Wednesday</th>
+              <th class="card-sub">closed</th>
+            </tr>
+            <tr>
+              <th class="card-sub">Thursday</th>
+              <th class="card-sub">14 - 16 Uhr</th>
+            </tr>
+            <tr>
+              <th class="card-sub">Friday</th>
+              <th class="card-sub">14 - 16 Uhr</th>
+            </tr>
+            <tr>
+              <th class="card-sub">Saturday</th>
+              <th class="card-sub">12 - 13:30 Uhr</th>
+            </tr>
+            <tr>
+              <th class="card-sub">Sunday</th>
+              <th class="card-sub">13:30 - 16 Uhr</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shelter-card-maplinks">
+        <%= image_tag("map-dummy-shelter.png") %>
+        <br><br>
+        <div <%= link_to "Edit My Shelter", edit_shelter_path(@myshelter), class="btn allanimals-button btn-font"%> </div>
+        <br>
+        <div class="btn urgentcauses-button btn-font">Delete Shelter</div>
+      </div>
+    </div>
+  </div>
+</div>
