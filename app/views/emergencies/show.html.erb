@@ -44,8 +44,8 @@
       </div>
       <%# /////////////////////////////////////////////////////// %>
       <div class="fundraising-card-text">
-        <div class="card-head mb-3"><%= @sum_of_donations %> € collected already, <%= @fgoal %> € still needed!</div>
-        <% progress = (@sum_of_donations / @fgoal).round(2) * 100 %>
+        <div class="card-head mb-3"><%= @sum_of_donations %> € collected already, <%= @fgoal %> € still needed!</div>
+        <% progress = (@sum_of_donations.to_f / @fgoal).round(2) * 100 %>
         <% progress > 100 ? progress = 100 : progress = progress.to_i %>
         <div class="progress mb-4">
           <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
