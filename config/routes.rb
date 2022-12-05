@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   resources :shelters
 
   resources :animals do
-    resources :caretakings, only: [:create, :show, :destroy]
-    resources :emergencies, only: [:new, :create, :destroy]
+    resources :caretakings, only: [:create, :show]
+    resources :emergencies, only: [:new, :create]
   end
+  resources :caretaking, only: [:destroy]
+  put "/caretakings/:id/confirm", to: "caretakings#confirm!", as: 'confirm_caretaking'
 
   resources :emergencies, only: [:index, :show, :destroy] do
     resources :donations, only: [:create, :show]
   end
-  put "/caretakings/:id/confirm", to: "caretakings#confirm!", as: 'confirm_caretaking'
 end
