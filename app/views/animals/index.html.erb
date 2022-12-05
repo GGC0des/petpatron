@@ -46,6 +46,16 @@
             </tr>
           </tbody>
         </table>
+
+        <h5>Caretaking Categories</h5>
+        <% animal.categories.each do |category| %>
+          <span class="tag badge rounded-pill"><%= category.name %></span>
+        <% end %>
+
+
+
+
+
         <p><strong><%= link_to "Book date →", animal_path(animal), class: "card-link" %></a></strong></p>
       </div>
       <div class="shelter-card-image">
