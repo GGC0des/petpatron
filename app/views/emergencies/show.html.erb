@@ -17,7 +17,7 @@
         </div>
         <div class="card-link mb-2">Help <%= @emergency.animal.name %></div>
         <div class="card-sub mb-4"><%= @emergency.description %></div>
-        <div class="btn donate-button btn-font">Donate money</div>
+        <%= link_to "Donate money", new_emergency_donation_path(@emergency), class: "donate-button" %>
       </div>
     </div>
     <% @donations.each do |donation| %>
