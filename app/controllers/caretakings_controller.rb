@@ -5,9 +5,9 @@ class CaretakingsController < ApplicationController
     @caretaking.animal = @animal
     @caretaking.user = current_user if user_signed_in?
     if @caretaking.save
-      redirect_to animal_caretaking_path(@animal, @caretaking)
+      flash[:confirmation] = "your booking was made"
+      redirect_to animal_path(@animal.id)
     else
-      puts "h" * 200
       render "animals/show", status: :unprocessable_entity
     end
   end
