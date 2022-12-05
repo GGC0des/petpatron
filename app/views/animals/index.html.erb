@@ -24,9 +24,11 @@
   <div class="container-bottom">
     <% @animals.each do |animal| %>
       <div class="animal-card">
-        <div class="col p-4">
+
+        <%# //////////////////test start////////////////////////////////// %>
+        <div class="p-4" style="display: grid; row-gap: 5px;">
           <h5 class="card-head"><%= animal.name %></h5>
-          <table class="my-2">
+          <table class="mb-2">
             <tbody>
               <tr>
                 <th class="card-sub"><i class="fa-solid fa-hand-holding-heart"></i>&nbsp; Volunteer</th>
@@ -40,23 +42,19 @@
               </tr>
             </tbody>
           </table>
-          <p><strong><%= link_to "Book date →", animal_path(animal), class: "card-link" %></a></strong></p>
+          <%= link_to "Book date →", animal_path(animal), class: "card-link fw-bold" %>
         </div>
-          <!-- Force next columns to break to new line -->
-          <div class="w-100"></div>
+        <%# //////////////////test end////////////////////////////////// %>
 
-          <div class="col">
-            <div class="shelter-card-image">
-              <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
-              <% if animal.photos.attached? %>
-                <%= cl_image_tag(animal.photos[0].key) %>
-              <%# display defult pic if the user did'nt upload one %>
-              <% else %>
-                <%= image_tag "pets-icons.jpeg"%>
-              <% end #if %>
-            </div>
+          <div class="shelter-card-image">
+            <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+            <% if animal.photos.attached? %>
+              <%= cl_image_tag(animal.photos[0].key) %>
+            <%# display defult pic if the user did'nt upload one %>
+            <% else %>
+              <%= image_tag "pets-icons.jpeg"%>
+            <% end #if %>
           </div>
-
       </div>
     <% end %>
   </div>
