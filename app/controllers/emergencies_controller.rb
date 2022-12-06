@@ -77,7 +77,7 @@ class EmergenciesController < ApplicationController
     if @emergency.update(emergency_params)
       redirect_to dashboard_path
     else
-      render :update, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
