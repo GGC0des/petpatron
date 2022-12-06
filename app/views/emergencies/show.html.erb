@@ -68,6 +68,8 @@
       <div class="fund-comment-card my-3">
         <% if donation.user.avatar.key %>
           <%= image_tag donation.user.avatar, class: "avatar-large" %>
+        <% else %>
+          <%= image_tag "avatar.png", class: "avatar-large" %>
         <% end %>
         <div class="fund-comment-card-text">
           <div class="normal-head"><%= donation.user.first_name %> <%= donation.user.last_name %></div>

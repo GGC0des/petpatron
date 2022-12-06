@@ -5,7 +5,7 @@ class CaretakingsController < ApplicationController
     @caretaking.animal = @animal
     @caretaking.user = current_user if user_signed_in?
     if @caretaking.save
-      flash[:confirmation] = "Your request approval is currently pending. Please check your dashboard for updates."
+      flash[:confirmation] = "Your volunteering slot was successfully booked and is currently pending. Please check your dashboard for updates."
       redirect_to animal_path(@animal.id)
     else
       render "animals/show", status: :unprocessable_entity
