@@ -58,6 +58,7 @@
           <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <div class="card-link mb-2">Help <%= @emergency.animal.name %></div>
+        <div class="card-link mb-2">Shelter: <%= @emergency.animal.shelter.name %></div>
         <div class="card-sub mb-5"><%= @emergency.description %></div>
         <%= link_to "Donate money", new_emergency_donation_path(@emergency), class: "donate-button" %>
       </div>

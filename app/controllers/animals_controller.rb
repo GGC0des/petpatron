@@ -3,23 +3,46 @@ class AnimalsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR species ILIKE :query"
-      @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @animals = Animal.all
-      @shelters = Shelter.all
-      @markers = @shelters.geocoded.map do |shelter|
-        {
-          lat: shelter.latitude,
-          lng: shelter.longitude
-        }
+      sql_query = "name ILIKE :query OR location ILIKE :query"
+      @all_locations = Shelter.all.pluck(:location).join(",").downcase
+      if @all_locations.include? params[:query].downcase
+        @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+        @all_animals = Animal.all
+        @animals = []
+        @all_animals.each do |animal|
+          if @shelters.include? animal.shelter
+            @animals << animal
+          end
+        end
+        @markers = @shelters.geocoded.map do |shelter|
+          {
+            lat: shelter.latitude,
+            lng: shelter.longitude,
+            info_window: render_to_string(partial: "info_window", locals: {shelter: shelter})
+          }
+        end
+      else
+        @shelters = Shelter.all
+        @animals = Animal.all
       end
+    else
+      @shelters = Shelter.all
+      @animals = Animal.all
+    end
+    @markers = @shelters.geocoded.map do |shelter|
+      {
+        lat: shelter.latitude,
+        lng: shelter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
+        image_url: helpers.asset_url("marker")
+      }
     end
   end
 
   def show
     @animal = Animal.find(params[:id])
     @caretaking = Caretaking.new
+    store_location_for(:user, animal_path(params[:id]))
     @shelters = Shelter.all
     @markers = @shelters.geocoded.map do |shelter|
       {
