@@ -46,7 +46,7 @@ class EmergenciesController < ApplicationController
       @emergency = Emergency.new(emergency_params)
       @emergency.animal = @animal
       if @emergency.save
-        redirect_to emergency_path(@emergency.id)
+        redirect_to dashboard_path
       else
         render :new, status: :unprocessable_entity
       end
