@@ -1,15 +1,14 @@
-<h1>This is the emergency #new page </h1>
-<p>This should be a form</p>
-
-<h3> You are creating an urgent fundraising cause for <%= @emergency.animal.name %> </h3>
-      <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
-<% if @emergency.animal.photos.attached? %>
-  <%= image_tag(@emergency.animal.photos[0]) %>
-<% end %>
-<%# <%= cl_image_tag(@emergency.animal.photos[0].key) %> %>
-
-<div class="container mt-5">
+<h1 class="text-center m-4">Urgent fundraising cause for <%= @emergency.animal.name %> </h1>
+<div class="container w-50">
   <div class="bg-white rounded p-3 shadow">
+    <%# guard clause to prevent showing error if the user didn't upload photo %>
+    <% if @emergency.photos.attached? %>
+      <%= image_tag(@emergency.photos[0]) %>
+    <%# display defult pic if the user did'nt upload one %>
+    <% else %>
+      <%= image_tag "pets-icons.jpeg", width: 100 %>
+    <% end #if %>
+
     <%= simple_form_for([@animal,@emergency]) do |f| %>
       <%= f.input :title %>
       <%= f.input :description %>

@@ -29,11 +29,11 @@
         <h5 class="card-head"><%= emergency.title %></h5>
         <p class="card-sub txt-limit-3"><%= emergency.description %></p>
         <p><strong><%= link_to "See more info →", emergency_path(emergency), class: "card-link" %></a></strong></p>
-        <% fgoal = emergency.fundraising_goal %>
+        <% fgoal = emergency.fundraising_goal.to_i %>
         <% sum_of_donations = emergency.donations.sum(:donation_amount) %>
         <p class="fund-sub">Donations: <%= sum_of_donations %>€ | Goal: <%= fgoal %>€<%= "   🎉🎊🥳" if sum_of_donations > fgoal %></p>
-        <% progress = (emergency.donations.sum(:donation_amount).to_f / emergency.fundraising_goal).round(2) * 100 %>
-        <% progress > 100 ? progress = 100 : progress = progress.to_i %>
+        <% progress = (emergency.donations.sum(:donation_amount).to_f / emergency.fundraising_goal.to_i).round(2) * 100 %>
+        <% progress = 100 if progress > 100 %>
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
