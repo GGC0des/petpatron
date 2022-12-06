@@ -3,8 +3,9 @@
 }
 
 .mapboxgl-map {
-  margin-right: 36px;
   border-radius: 16px;
+  margin: 32px;
+  box-shadow: -10px -10px 25px #f6feff9b , 10px 10px 20px  #00000019;
 }
 
 .mapboxgl-popup {

@@ -180,7 +180,7 @@
 // on show-pages for shelters called "allanimals-button" & "urgentcauses-button"
 
 .allanimals-button {
-  width: 234px;
+  width: 100%;
   height: 35px;
   background-color: #42A8B1;
   color: #FFF;
@@ -201,7 +201,6 @@
   border-radius: 20px;
   padding: 6px 22px;
   font-weight: bold;
-  margin: 20px;
   box-shadow: -10px -10px 20px #a7f0f466 , 10px 10px 20px  #4e859c63;
   transition: 0.5s;
 }
@@ -218,7 +217,7 @@
 }
 
 .urgentcauses-button {
-  width: 234px;
+  width: 100%;
   height: 35px;
   background-color: #383838;
   color: #FFF;
@@ -239,7 +238,6 @@
   border-radius: 20px;
   padding: 6px 22px;
   font-weight: bold;
-  margin: 20px;
   box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
   transition: 0.5s;
 }
