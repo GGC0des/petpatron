@@ -176,31 +176,181 @@
 .example-card-pending {
   background-color: green;
   width: 1276px;
-  height: 200px;
   display: flex;
   gap: 5%;
 }
 
 .caretaking-shelterdashboard-confirmed {
+  background-color: #fff;
   width: 30%;
-  height: fit-content;
+  height: 150px;
   border-radius: 16px;
   display: flex;
+  overflow: hidden;
+  justify-content: space-between;
 }
 
 .caretaking-info-text {
   padding: 16px 0px 16px 24px;
-  width: 45%;
+  max-width: 46%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  p {
+    margin: 0;
+  }
 }
 
 .caretaking-shelterdashboard-confirmed-photos {
   width: 45%;
+  height: 100%;
   display: flex;
+  position: relative;
+}
+
+.caretaking-shelterdashboard-confirmed-animal-photo {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  object-fit: cover;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  align-self: center;
+  z-index: 999;
+}
+
+.caretaking-shelterdashboard-confirmed-user-photo {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  object-fit: cover;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  align-self: center;
 }
 
 .delete-caretaking-booking {
+  display: flex;
   width: 10%;
+  justify-content: center;
+  align-items: center;
+  background-color: #383838;
+  color: white;
+  object-fit: fill;
+  border: none;
+  height: 100%;
+
+  a {
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+  }
+}
+
+.delete-caretaking-booking:hover {
+  color: #000;
+  background-color: #8f181a;
+  transition: 0.3s
+}
+
+.caretaking-shelterdashboard-pending {
+  background-color: #fff;
+  width: 30%;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.info-and-photo {
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+}
+
+.confirm-decline {
+  height: 50px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.delete-caretaking-booking {
+  display: flex;
+  width: 10%;
+  justify-content: center;
+  align-items: center;
+  background-color: #383838;
+  color: white;
+  object-fit: fill;
+  border: none;
+  height: 100%;
+
+  a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+.decline-caretaking-booking {
+  display: flex;
+  margin: 0 20px;
+  width: 120px;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  background-color: #383838;
+  color: white;
+  object-fit: fill;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.confirm-caretaking-booking {
+  display: flex;
+  margin: 0 20px;
+  width: 120px;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  background-color: #D88351;
+  color: white;
+  object-fit: fill;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.confirm-caretaking-booking:hover {
+  color: white;
+  box-shadow: -4px -4px 10px #3838383f , 7px 7px 10px  #3838381f;
+  transition: 0.3s
+}
+
+.decline-caretaking-booking:hover {
+  color: white;
+  box-shadow: -4px -4px 10px #3838383f , 7px 7px 10px  #3838381f;
+  transition: 0.3s
 }
