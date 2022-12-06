@@ -60,7 +60,7 @@
             </tr>
             <tr>
               <th class="card-sub">Tuesday</th>
-              <th class="card-sub">14 - 16 Uhr</th>
+              <th class="card-sub">14:00 - 16:00 Uhr</th>
             </tr>
             <tr>
               <th class="card-sub">Wednesday</th>
@@ -68,29 +68,31 @@
             </tr>
             <tr>
               <th class="card-sub">Thursday</th>
-              <th class="card-sub">14 - 16 Uhr</th>
+              <th class="card-sub">14:00 - 16:00 Uhr</th>
             </tr>
             <tr>
               <th class="card-sub">Friday</th>
-              <th class="card-sub">14 - 16 Uhr</th>
+              <th class="card-sub">14:00 - 16:00 Uhr</th>
             </tr>
             <tr>
               <th class="card-sub">Saturday</th>
-              <th class="card-sub">12 - 13:30 Uhr</th>
+              <th class="card-sub">12:00 - 13:30 Uhr</th>
             </tr>
             <tr>
               <th class="card-sub">Sunday</th>
-              <th class="card-sub">13:30 - 16 Uhr</th>
+              <th class="card-sub">13:30 - 16:00 Uhr</th>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="shelter-card-maplinks">
-        <%= image_tag("map-dummy-shelter.png") %>
-        <br><br>
-        <div class="btn allanimals-button btn-font"><%= link_to "All animals", animals_path(query: @shelter.location)  %></div>
-        <br>
-        <div class="btn urgentcauses-button btn-font">Urgent causes</div>
+        <div style="width: 100%; height: 250px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <div class="btn allanimals-button btn-font shelter-links"><%= link_to "All animals", animals_path(query: @shelter.location) %></div>
+        <div class="btn urgentcauses-button btn-font shelter-links"><%= link_to "Urgent causes", emergencies_path(query: @shelter.location) %></div>
       </div>
     </div>
   </div>

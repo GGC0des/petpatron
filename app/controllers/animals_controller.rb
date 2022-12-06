@@ -4,8 +4,8 @@ class AnimalsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR location ILIKE :query"
-      @all_locations = Shelter.all.pluck(:location).join(",")
-      if @all_locations.include? params[:query].to_s.capitalize
+      @all_locations = Shelter.all.pluck(:location).join(",").downcase
+      if @all_locations.include? params[:query].downcase
         @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
         @all_animals = Animal.all
         @animals = []
