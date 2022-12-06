@@ -12,7 +12,7 @@
       <h2 class="normal-head"> Shelters</h2>
       <p class="normal-sub">Search for shelters close to you</p>
       <form class="input-group right-align container-top-search" role="search">
-        <input class="form-control" id="query" name="query" type="search" placeholder="Enter name or location" aria-label="Search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Search for " aria-label="Search">
         <button type="submit" class="btn border bg-white">Search</button>
       </form>
     </div>
@@ -26,8 +26,8 @@
     <% @shelters.each do |shelter| %>
     <div class="shelter-card">
       <div class="shelter-card-text shelter-card-element">
-        <h5 class="card-head"><%= shelter.name %></h5>
-        <p class="card-sub txt-limit-3"><%= shelter.description %></p>
+        <h5 class="card-head"><i class="fa-solid fa-shield-heart"></i>&nbsp;&nbsp;<%= shelter.name %></h5>
+        <p class="card-sub txt-limit-3"></i>&nbsp;<%= shelter.description %></p>
         <p><strong><%= link_to "See more info →", shelter_path(shelter), class: "card-link" %></a></strong></p>
       </div>
       <div class="shelter-card-image">
