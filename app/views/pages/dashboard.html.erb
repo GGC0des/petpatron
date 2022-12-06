@@ -28,7 +28,7 @@
                     <% end #each %>
                   <% else %>
                     <div class="carousel-item active">
-                      <%= image_tag "pets_icons.jpg", class: "d-block w-100" %>
+                      <%= image_tag "pet_icon.jpg", class: "d-block w-100" %>
                     </div>
                   <% end #if %>
                 </div>
@@ -122,7 +122,7 @@
                   <% if caretaking.animal.photos.attached? %>
                     <%= cl_image_tag(caretaking.animal.photos[0].key, class:"avatar-large") %>
                   <% else %>
-                    <%= image_tag "pets_icons.jpg", class: "avatar-large" %>
+                    <%= image_tag "pet_icon.jpg", class: "avatar-large" %>
                   <% end %>
                 </div>
               <div class="notification-content">
@@ -154,7 +154,7 @@
                   <% if caretaking.animal.photos.attached? %>
                     <%= cl_image_tag(caretaking.animal.photos[0].key, class:"avatar-large") %>
                   <% else %>
-                    <%= image_tag "pets_icons.jpg", class: "avatar-large" %>
+                    <%= image_tag "pet_icon.jpg", class: "avatar-large" %>
                   <% end %>
                 </div>
               <div class="notification-content">
@@ -184,7 +184,7 @@
                             <%= cl_image_tag(animal.photos[0].key, class:"animal-dashboard-img") %>
                         <% end #each %>
                       <% else %>
-                          <%= image_tag "pets_icons.jpg", style: "width: 50%" %>
+                          <%= image_tag "pet_icon.jpg", style: "width: 50%" %>
                       <% end #if %>
                     </div>
                     <div class="dashboard-links">
@@ -216,7 +216,7 @@
                               <%= cl_image_tag(emergency.photos[0].key, class:"animal-dashboard-img") %>
                           <% end #each %>
                         <% else %>
-                            <%= image_tag "pets_icons.jpg", style: "width: 50%" %>
+                            <%= image_tag "pet_icon.jpg", style: "width: 50%" %>
                         <% end #if %>
                   <%= link_to "Show", emergency_path(emergency) %>
                   <%= link_to "Edit", edit_emergency_path(emergency) %>
@@ -254,7 +254,7 @@
             <% if caretaking.animal.photos.attached? %>
               <%= cl_image_tag(caretaking.animal.photos[0].key, class:"avatar-large") %>
             <% else %>
-              <%= image_tag "pets_icons.jpg", class: "avatar-large" %>
+              <%= image_tag "pet_icon.jpg", class: "avatar-large" %>
             <% end %>
             <div class="notification-content">
               <p><small><%= caretaking.date %></small> for <small><%= caretaking.animal.name %></small></p>
