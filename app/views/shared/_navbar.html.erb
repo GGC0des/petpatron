@@ -30,7 +30,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <% if current_user.avatar.attached? %>
-                  <%= image_tag current_user.avatar, class: "avatar", width: 40, height: 40 %>
+                  <%= cl_image_tag current_user.avatar.key, class: "avatar", width: 40, height: 40 %>
                 <% else %>
                   <%= image_tag "avatar.png", class: "avatar", width: 60 %>
                 <% end %>
