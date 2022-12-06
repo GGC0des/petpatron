@@ -64,7 +64,7 @@ class EmergenciesController < ApplicationController
   def update
     @emergency = Emergency.find(params[:id])
     if @emergency.update(emergency_params)
-      redirect_to emergency_path(@emergency)
+      redirect_to dashboard_path
     else
       render :update, status: :unprocessable_entity
     end
