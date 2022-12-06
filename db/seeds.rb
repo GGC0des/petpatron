@@ -43,7 +43,6 @@ while i < 31 do
     email: Faker::Internet.email,
     password: "lewagon"
   )
-  file = URI.open(Faker::LoremFlickr.image(search_terms: ['animal', 'shelter']))
   shelter = Shelter.new(
     name: Faker::Company.name,
     description: Faker::Lorem.paragraph(sentence_count: rand(3..7)),
@@ -52,7 +51,10 @@ while i < 31 do
     email: Faker::Internet.email,
     user_id: user.id
   )
-  shelter.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
+  4.times do
+    file = URI.open(Faker::LoremFlickr.image(search_terms: ['animal', 'shelter']))
+    shelter.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
+  end
   shelter.save!
   print "x"
   i += 1
@@ -64,7 +66,6 @@ puts "Creating animals .."
 
 Shelter.all.each do |shelter|
   rand(0..3).times do
-    file = URI.open(Faker::LoremFlickr.image(search_terms: ['dog', 'cat', 'rabbit']))
     animal = Animal.new(
       name: Faker::Name.middle_name,
       description: Faker::Lorem.paragraph(sentence_count: 7),
@@ -73,7 +74,10 @@ Shelter.all.each do |shelter|
       species: Faker::Creature::Animal.name,
       shelter_id: shelter.id
     )
-    animal.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
+    4.times do
+      file = URI.open(Faker::LoremFlickr.image(search_terms: ['dog', 'cat', 'rabbit']))
+      animal.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
+    end
     animal.save!
   end
   print "x"
