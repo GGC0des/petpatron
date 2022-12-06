@@ -2,22 +2,33 @@ class EmergenciesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @emergencies = Emergency.all
     if params[:query].present?
       sql_query = "name ILIKE :query OR location ILIKE :query"
-      @all_locations = Shelter.all.pluck(:location).join(",")
-      if @all_locations.include? params[:query].to_s.capitalize
+      @all_locations = Shelter.all.pluck(:location).join(",").downcase
+      if @all_locations.include? params[:query].downcase
         @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+        @animals = []
+        @shelters.each do |shelter|
+          @animals << shelter.animals
+        end
+        @emergencies = []
+        @animals.flatten.each do |animal|
+          @emergencies << animal.emergency unless animal.emergency.nil?
+        end
       else
         @shelters = Shelter.all
+        @emergencies = Emergency.all
       end
     else
       @shelters = Shelter.all
+      @emergencies = Emergency.all
     end
     @markers = @shelters.geocoded.map do |shelter|
       {
         lat: shelter.latitude,
-        lng: shelter.longitude
+        lng: shelter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
+        image_url: helpers.asset_url("marker")
       }
     end
   end
@@ -46,7 +57,7 @@ class EmergenciesController < ApplicationController
       @emergency = Emergency.new(emergency_params)
       @emergency.animal = @animal
       if @emergency.save
-        redirect_to emergency_path(@emergency.id)
+        redirect_to dashboard_path
       else
         render :new, status: :unprocessable_entity
       end
@@ -64,7 +75,7 @@ class EmergenciesController < ApplicationController
   def update
     @emergency = Emergency.find(params[:id])
     if @emergency.update(emergency_params)
-      redirect_to emergency_path(@emergency)
+      redirect_to dashboard_path
     else
       render :update, status: :unprocessable_entity
     end
@@ -79,6 +90,6 @@ class EmergenciesController < ApplicationController
   private
 
   def emergency_params
-    params.require(:emergency).permit(:title, :description, :fundraising_goal, photos: [])
+    params.require(:emergency).permit(:animal_id, :title, :description, :fundraising_goal, photos: [])
   end
 end
