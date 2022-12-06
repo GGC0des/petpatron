@@ -4,7 +4,7 @@
     <div class="hero">
       <div class="hero-copy">
         <% if user_signed_in? %>
-          <h1>Hi, <%= current_user.first_name.capitalize+ " " + current_user.last_name.capitalize %> </h1>
+          <h1>Hi, <%= current_user.first_name.capitalize %> </h1>
         <% else %>
           <h1>Hi, animal lover!</h1>
         <% end %>
