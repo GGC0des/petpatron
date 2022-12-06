@@ -1,13 +1,16 @@
 <div>
-  <h1>Dashboard</h1>
+  <div class="emergency-show-body ">
+  <%##################SHELTER SHOW PAGE########################################################################%>
 
-  <% if @myshelter.present? %>
-    <div class="shelter-show-body ">
+    <% if @myshelter.present? %>
       <div class="em-show-container">
-        <div class="d-flex justify-content-between align-items-center mb-5">
-          <div class="normal-head"> Your Shelter: <%= @myshelter.name %></div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="normal-head my-5"><%= @myshelter.name %>'s Dashboard</div>
+          <div>
+            <%= link_to "← back to home", root_path, class: "card-link", style: "color: #D88351" %>
+          </div>
         </div>
-        <div class="shelters-card">
+        <div class="dash-shelter-card">
 
             <%# ///////////shelters photos slide show start///////////////////// %>
             <div class="animal-show-card-image">
@@ -87,36 +90,61 @@
           </table>
         </div>
         <div class="shelter-card-maplinks">
-          <%= image_tag("map-dummy-shelter.png") %>
-          <br><br>
-          <div> <%= link_to "Edit My Shelter", edit_shelter_path(@myshelter), class:"btn allanimals-button btn-font" %>  </div>
-          <br>
-          <div> <%= link_to "Delete Shelter", shelter_path(@myshelter), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your shelter and every animal and fundraising cause?"}, class:"btn allanimals-button btn-font" %>  </div>
+          <div style="width: 100%; height: 250px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <div class="btn allanimals-button btn-font shelter-links"> <%= link_to "Edit My Shelter", edit_shelter_path(@myshelter) %>  </div>
+          <div class="btn urgentcauses-button btn-font shelter-links"> <%= link_to "Delete Shelter", shelter_path(@myshelter), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your shelter and every animal and fundraising cause?"} %>  </div>
         </div>
       </div>
-    </div>
-  <% else %>
-    <%= link_to "Add shelter", new_shelter_path %>
-  <% end %>
+      <div class="shelter-desc-card">
+        <div class="card-head mb-2">Description</div>
+        <p><%= @myshelter.description %></p>
+      </div>
+    <% else %>
+      <%= link_to "Add shelter", new_shelter_path %>
+    <% end %>
+
+  <%##################BOOKED VOLUNTEERING SLOTS#######################################################################%>
 
   <div>
     <% if @myshelter.present? %>
       <%# <h2> Your Shelter Dashboard</h2> %>
 
-      <div> <h2> Booked Volunteering Slots </h2>
+      <div> <h2 class="my-5"> Booked Volunteering Slots </h2>
         <h3>Total: <%= @shelter_caretakings.count %> </h3>
        <div>
+         <%##################PENDING CARETAKINGS#######################################################################%>
         <% if @pending_shelter_caretakings.any? %>
           <h3> Pending: <%= @pending_shelter_caretakings.count %> </h3>
-          <% end %>
+        <% end %>
           <% @pending_shelter_caretakings.each do |caretaking| %>
+            <div class="care-slot-card">
+              <div class="care-slot-card-copy">
+                <h5><%= caretaking.animal.name  %></h5>
+                <p>Date: <%= caretaking.date %></p>
+                <p>Shelter: <%= caretaking.animal.shelter.name %></p>
+              </div>
+              <div>
+                <% if caretaking.user.avatar.key %>
+                  <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
+                <% else %>
+                  <%= image_tag "avatar.png", class: "avatar-large" %>
+                <% end %>
+              </div>
+              <div class="care-slot-card-close">
+                X
+              </div>
+            </div>
             <div class="notification shadow">
               <div>
                 <% if caretaking.user.avatar.key %>
-                    <%= image_tag caretaking.user.avatar, class: "avatar" %>
-                  <% else %>
-                    <%= image_tag "avatar.png", class: "avatar" %>
-                  <% end %>
+                  <%= image_tag caretaking.user.avatar, class: "avatar-large" %>
+                <% else %>
+                  <%= image_tag "avatar.png", class: "avatar-large" %>
+                <% end %>
                 </div>
                 <div>
                   <% if caretaking.animal.photos.attached? %>
@@ -138,6 +166,7 @@
           <% end %>
         </div>
       <div>
+      <%##################CONFIRMED CARETAKINGS#######################################################################%>
         <% if @confirmed_shelter_caretakings.any? %>
           <h3> Confirmed: <%= @confirmed_shelter_caretakings.count %></h3>
           <% end %>
@@ -167,38 +196,42 @@
             </div>
           <% end %>
       </div>
+      <%##################SHELTER ANIMALS#######################################################################%>
 
-      <div> <h3> My Shelter Animals </h3>
-        <%= link_to "Add animal", new_animal_path %>
-          <div class="row">
-              <% @shelter_animals.each do |animal| %>
-                <div class="col-4">
-                <h4> <%= animal.name %></h4>
-                <%= link_to(animal_path(animal)) do %>
-                  <div class="animal animal-overview">
-                    <div class="animal-dashboard-img">
-                      <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
-                      <%# iterate to show all photos %>
-                      <% if animal.photos.attached? %>
-                        <% animal.photos.each_with_index do |photo, index| %>
-                            <%= cl_image_tag(animal.photos[0].key, class:"animal-dashboard-img") %>
-                        <% end #each %>
-                      <% else %>
-                          <%= image_tag "pet_icon.jpg", style: "width: 50%" %>
-                      <% end #if %>
-                    </div>
-                    <div class="dashboard-links">
-                    <%= link_to "Show profile", animal_path(animal) %>
-                    <%= link_to "Edit profile", edit_animal_path(animal), class: "text-primary" %>
-                    <%= link_to "+ Add Emergency", new_animal_emergency_path(animal) %>
-                    <%= link_to "X (delete)", animal_path(animal), data: { "turbo-method": :delete }, class: "text-danger" %>
-                    </div>
-                  </div>
-                <%end%>
-                </div>
-              <% end %>
-            </div>
+      <div>
+        <div class="d-flex align-items-center">
+          <h3>Your Animals</h3>
+          <div class="btn allanimals-button btn-font shelter-links mx-3" style="width:auto;">
+            <%= link_to "+ Add animal", new_animal_path %>
           </div>
+        </div>
+        <div class="row gap-3 justify-content-between">
+            <% @shelter_animals.each do |animal| %>
+              <div class="care-slot-card">
+                <div class="care-slot-card-copy">
+                  <h5><%= animal.name  %></h5>
+                  <p class="mb-0"><%= link_to "Show profile", animal_path(animal) %></p>
+                  <p class="mb-0"><%= link_to "Edit profile", edit_animal_path(animal) %></p>
+                  <div class="btn allanimals-button btn-font shelter-links" style="width:auto;">
+                    <%= link_to "Add emergency", new_animal_emergency_path(animal) %>
+                  </div>
+                </div>
+                <div>
+                  <% if animal.photos.attached? %>
+                    <%= cl_image_tag(animal.photos[0].key, class:"avatar-xl") %>
+                  <% else %>
+                    <%= image_tag "pets-icons.jpeg", class:"avatar-large" %>
+                  <% end %>
+                </div>
+                <%= link_to animal_path(animal), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this animal from your Shelter?"} do %>
+                  <div class="care-slot-card-close">
+                    X
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
 
       <div> <h2> Your Fundraiser</h2>
@@ -315,5 +348,6 @@
       <% end %>
     <% end %>
   </div>
+    </div>
 
 </div>
