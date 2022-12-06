@@ -2,12 +2,15 @@
 <div class="container w-50">
   <div class="bg-white rounded p-3 shadow">
     <%# guard clause to prevent showing error if the user didn't upload photo %>
-    <% if @emergency.photos.attached? %>
-      <%= image_tag(@emergency.photos[0]), width: 100  %>
-    <%# display defult pic if the user did'nt upload one %>
-    <% else %>
-      <%= image_tag "pets-icons.jpeg", width: 100 %>
-    <% end #if %>
+    <div class="text-center">
+      <% if @animal.photos.attached? %>
+        <%= image_tag(@animal.photos[0], width: 90, class: "mb-3") %>
+      <%# display defult pic if the user did'nt upload one %>
+      <% else %>
+        <%= image_tag "pets-icons.jpeg", width: 100 %>
+      <% end #if %>
+    </div>
+
 
     <%= simple_form_for([@animal,@emergency]) do |f| %>
       <%= f.input :title %>
