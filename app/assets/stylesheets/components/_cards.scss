@@ -16,8 +16,8 @@
   box-shadow: -5px -12px 40px #FFF3ED, 8px 8px 32px #D9A88C;
   border-radius: 16px;
   display:flex;
-  justify-content: space-between;
   margin-bottom: 50px;
+  max-width: 1360px;
 }
 
 .shelters-card {
@@ -30,8 +30,9 @@
 }
 
 .fundraising-card-text {
-  width:622px;
-  padding: 116px 76px;
+  max-width: 860px;
+  margin: auto auto;
+  padding: 50px 100px;
 }
 
 .shelters-card-text {
