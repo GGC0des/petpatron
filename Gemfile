@@ -80,3 +80,4 @@ end
 gem 'faker'
 gem "cloudinary"
 gem "geocoder"
+gem 'sweetalert-rails', '~> 0.5.0'
