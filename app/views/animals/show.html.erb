@@ -99,24 +99,19 @@
     </div>
   <%# ////////////////////////Booking form end//////////////////// %>
   <%# ////////////////////////animal show card end//////////////////// %>
-
   </div>
 </div>
 
 
-
-
-
-
     <%# //////////////////model start///////////////////////// %>
-
     <div class="modal fade" id="animal-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content" style="border-radius: 16px;">
-          <div style="padding: 1rem;">
-            <h1 class="modal-title fs-5 text-center fw-bolder" id="exampleModalLabel">Thank you for taking care of <%= @animal.name %></h1>
+          <div style="padding: 1rem 1rem 0 1rem;" class="text-center">
+            <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel">Thank you for taking care of <%= @animal.name %></h1>
+            <%= image_tag "booking-confirmation-animation.gif", class: "w-50" %>
           </div>
-          <div class="modal-body text-center fst-italic lh-2">
+          <div class="modal-body text-center fst-italic lh-2" style="padding: 0 1rem 1rem 1rem;">
             <%= flash[:confirmation] %>
           </div>
           <div class="modal-footer bg-dark" style="justify-content: center; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
@@ -126,8 +121,6 @@
       </div>
     </div>
     <%# //////////////////model end////////////////////////// %>
-
-
 
 <% if flash[:confirmation] %>
   <script>
