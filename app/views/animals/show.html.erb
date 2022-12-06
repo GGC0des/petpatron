@@ -66,13 +66,9 @@
                 <th class="card-sub"><i class="fa-solid fa-maximize"></i>&nbsp;&nbsp; Size:&nbsp;&nbsp;</th>
                 <th class="card-sub"><%= @animal.size %></th>
               </tr>
-              <%# <tr>
-                <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i>&nbsp;&nbsp; Caretakings: &nbsp; &nbsp; &nbsp; &nbsp;</th>
-                <th class="card-sub"><%= @animal.categories.collect(&:name).join(', ') %></th>
-              </tr>
             </tbody>
           </table>
-          <h5>Volunteer</h5>
+          <h5><i class="fa-solid fa-hand-holding-heart"></i>&nbsp;&nbsp;Volunteer</h5>
           <% @animal.categories.each do |category| %>
             <span class="tag badge rounded-pill"><%= category.name %></span>
           <% end %>
