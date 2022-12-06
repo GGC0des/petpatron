@@ -90,7 +90,9 @@ class AnimalsController < ApplicationController
     if @animal.update(animal_params)
       redirect_to animal_path(@animal)
     else
-      render :update, status: :unprocessable_entity
+      # to show error if any input was left blank
+      # and to stay in the same page of the form
+      render :edit, status: :unprocessable_entity
     end
   end
 
