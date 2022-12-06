@@ -23,6 +23,7 @@ class EmergenciesController < ApplicationController
   end
 
   def show
+    @donated = params[:donated].present?
     @emergency = Emergency.find(params[:id])
     @fgoal = @emergency.fundraising_goal
     @sum_of_donations = @emergency.donations.sum(:donation_amount)

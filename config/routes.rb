@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   put "/caretakings/:id/confirm", to: "caretakings#confirm!", as: 'confirm_caretaking'
 
   resources :emergencies, only: [:index, :show, :destroy] do
-    resources :donations, only: [:create, :show]
+    resources :donations, only: [:new, :create, :show]
   end
 end
