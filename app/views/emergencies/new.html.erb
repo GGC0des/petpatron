@@ -3,7 +3,7 @@
   <div class="bg-white rounded p-3 shadow">
     <%# guard clause to prevent showing error if the user didn't upload photo %>
     <% if @emergency.photos.attached? %>
-      <%= image_tag(@emergency.photos[0]) %>
+      <%= image_tag(@emergency.photos[0]), width: 100  %>
     <%# display defult pic if the user did'nt upload one %>
     <% else %>
       <%= image_tag "pets-icons.jpeg", width: 100 %>
