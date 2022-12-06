@@ -273,7 +273,7 @@
     <% else %>
       <% unless current_user.shelter %>
         <h3> You have not booked any volunteering slots</h3>
-        <%= link_to "Check out volunteering possibilities near you", animals_path(animals) %>
+        <%= link_to "Check out volunteering possibilities near you", animals_path(@animals) %>
       <% end %>
     <% end %>
   </div>
@@ -308,6 +308,11 @@
         </div>
         <% end %>
       </div>
+    <% else %>
+      <% unless current_user.shelter %>
+        <h3> You have not donated to any urgent fundraising causes</h3>
+        <%= link_to "Help shelter animals in desperate need", emergencies_path(@emergencies) %>
+      <% end %>
     <% end %>
   </div>
 
