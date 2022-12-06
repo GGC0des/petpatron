@@ -88,7 +88,7 @@
       <div class="shelter-card-maplinks">
         <%= image_tag("map-dummy-shelter.png") %>
         <br><br>
-        <div class="btn allanimals-button btn-font">All animals</div>
+        <div class="btn allanimals-button btn-font"><%= link_to "All animals", animals_path(query: @shelter.location)  %></div>
         <br>
         <div class="btn urgentcauses-button btn-font">Urgent causes</div>
       </div>

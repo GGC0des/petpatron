@@ -70,10 +70,6 @@
                 <th class="card-sub"><i class="fa-sharp fa-solid fa-house"></i>&nbsp;&nbsp; Shelter:</th>
                 <th class="card-sub"><%= @animal.shelter.name %>, <%= @animal.shelter.location %></th>
               </tr>
-              <tr>
-                <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i>&nbsp;&nbsp; Caretakings: &nbsp; &nbsp; &nbsp; &nbsp;</th>
-                <th class="card-sub"><%= @animal.categories.collect(&:name).join(', ') %></th>
-              </tr>
             </tbody>
           </table>
           <h5>Volunteer</h5>
