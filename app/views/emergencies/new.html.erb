@@ -1,10 +1,10 @@
 <h1 class="text-center m-4">Create urgent fundraising cause for <%= @emergency.animal.name %> </h1>
 <div class="container w-50">
   <div class="bg-white rounded p-3 shadow">
-    <%# guard clause to prevent showing error if the user didn't upload photo %>
     <div class="text-center">
+      <%# guard clause to prevent showing error if the user didn't upload photo %>
       <% if @animal.photos.attached? %>
-        <%= image_tag(@animal.photos[0], width: 90, class: "mb-3") %>
+        <%= image_tag(@animal.photos[0], width: 100, class: "mb-3") %>
       <%# display defult pic if the user did'nt upload one %>
       <% else %>
         <%= image_tag "pets-icons.jpeg", width: 100 %>
