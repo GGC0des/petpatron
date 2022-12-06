@@ -57,7 +57,7 @@ class EmergenciesController < ApplicationController
       @emergency = Emergency.new(emergency_params)
       @emergency.animal = @animal
       if @emergency.save
-        redirect_to emergency_path(@emergency.id)
+        redirect_to dashboard_path
       else
         render :new, status: :unprocessable_entity
       end
@@ -75,7 +75,7 @@ class EmergenciesController < ApplicationController
   def update
     @emergency = Emergency.find(params[:id])
     if @emergency.update(emergency_params)
-      redirect_to emergency_path(@emergency)
+      redirect_to dashboard_path
     else
       render :update, status: :unprocessable_entity
     end
@@ -90,6 +90,6 @@ class EmergenciesController < ApplicationController
   private
 
   def emergency_params
-    params.require(:emergency).permit(:title, :description, :fundraising_goal, photos: [])
+    params.require(:emergency).permit(:animal_id, :title, :description, :fundraising_goal, photos: [])
   end
 end
