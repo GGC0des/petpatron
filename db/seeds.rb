@@ -89,14 +89,16 @@ puts "Creating emergencies"
 
 Animal.all.each do |animal|
   rand(0..2).times do
-    file = URI.open(Faker::LoremFlickr.image(search_terms: ['emergency', 'animal']))
     emergency = Emergency.new(
       title: Faker::Food.vegetables,
       description: Faker::Lorem.paragraph(sentence_count: 7),
       fundraising_goal: rand(1..1000),
       animal_id: animal.id
     )
-    emergency.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
+    4.times do
+      file = URI.open(Faker::LoremFlickr.image(search_terms: ['emergency', 'animal']))
+      emergency.photos.attach(io: file, filename: "#{Faker::Hobby.activity}.jpg", content_type: "image/jpg")
+    end
     emergency.save!
   end
   print "x"
