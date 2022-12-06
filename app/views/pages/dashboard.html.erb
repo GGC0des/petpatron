@@ -294,9 +294,9 @@
               <%= caretaking.category.name %>
               <p> Your comment: <%= caretaking.comment %></p>
               <% if caretaking.accepted? %>
-                <p class="btn btn-dark disabled">Waiting for confirmation</p>
-              <% else %>
                 <p class="btn btn-success disabled">Volunteer slot confirmed</p>
+              <% else %>
+                <p class="btn btn-dark disabled">Waiting for confirmation</p>
               <% end %>
               <%= link_to "X", caretaking_path(caretaking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-danger" %>
             </div>
