@@ -66,44 +66,43 @@
                 <th class="card-sub"><i class="fa-solid fa-maximize"></i>&nbsp;&nbsp; Size:&nbsp;&nbsp;</th>
                 <th class="card-sub"><%= @animal.size %></th>
               </tr>
-              <%# <tr>
-                <th class="card-sub"><i class="fa-solid fa-heart-pulse"></i>&nbsp;&nbsp; Caretakings: &nbsp; &nbsp; &nbsp; &nbsp;</th>
-                <th class="card-sub"><%= @animal.categories.collect(&:name).join(', ') %></th>
+              <tr>
+                <th class="card-sub"><i class="fa-sharp fa-solid fa-house"></i>&nbsp;&nbsp; Shelter:</th>
+                <th class="card-sub"><%= @animal.shelter.name %>, <%= @animal.shelter.location %></th>
               </tr>
             </tbody>
           </table>
-          <h5>Volunteer</h5>
+          <h5><i class="fa-solid fa-hand-holding-heart"></i>&nbsp;&nbsp;Volunteer</h5>
           <% @animal.categories.each do |category| %>
             <span class="tag badge rounded-pill"><%= category.name %></span>
           <% end %>
         </div>
       </div>
     </div>
-  </div>
-  <%# ////////////////////////animal show card end//////////////////// %>
-
-  <%# ////////////////////////Booking form start//////////////////// %>
-  <div class="container" id="booking">
-    <div class="bg-white rounded-4 p-5 shadow">
-      <h2 class="mb-4"> Book a volunteering slot for <%= @animal.name %> now </h2>
-      <% if current_user.present? %>
-        <%= simple_form_for [@animal, @caretaking] do |f| %>
-          <%= f.input :comment, class: "mb-4 " %>
-          <%= f.input :date, as: :datetime, html5: true, class: "mb-4 " %>
-          <%= f.association :category, collection: @animal.categories, class: "mb-4 " %>
+    <%# ////////////////////////Booking form start//////////////////// %>
+    <div id="booking">
+      <div class="bg-white rounded-4 p-5 shadow">
+        <h2 class="mb-4" style="text-align:center"> Book a volunteering slot for <%= @animal.name %> now </h2>
+        <% if current_user.present? %>
+          <%= simple_form_for [@animal, @caretaking] do |f| %>
+            <%= f.input :comment, class: "mb-4 " %>
+            <%= f.input :date, as: :datetime, html5: true, class: "mb-4 " %>
+            <%= f.association :category, collection: @animal.categories, class: "mb-4 " %>
+            <div class="d-grid gap-2 col-6 mx-auto">
+            <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
+            </div>
+          <% end %>
+        <% else %>
           <div class="d-grid gap-2 col-6 mx-auto">
-          <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
+          <%= link_to "Please log in", user_session_path, class: "btn bookdate-button" %>
           </div>
         <% end %>
-      <% else %>
-        <div class="d-grid gap-2 col-6 mx-auto">
-        <%= link_to "Please log in", user_session_path, class: "btn bookdate-button" %>
-        </div>
-      <% end %>
+      </div>
     </div>
-  </div>
   <%# ////////////////////////Booking form end//////////////////// %>
+  <%# ////////////////////////animal show card end//////////////////// %>
 
+  </div>
 </div>
 
 

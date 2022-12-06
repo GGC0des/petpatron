@@ -4,8 +4,8 @@ class SheltersController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR location ILIKE :query"
-      @all_locations = Shelter.all.pluck(:location).join(",")
-      if @all_locations.include? params[:query].to_s.capitalize
+      @all_locations = Shelter.all.pluck(:location).join(",").downcase
+      if @all_locations.include? params[:query].downcase
         @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
       else
         @shelters = Shelter.all
@@ -16,13 +16,22 @@ class SheltersController < ApplicationController
     @markers = @shelters.geocoded.map do |shelter|
       {
         lat: shelter.latitude,
-        lng: shelter.longitude
+        lng: shelter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
+        image_url: helpers.asset_url("marker")
       }
     end
   end
 
   def show
     @shelter = Shelter.find(params[:id])
+
+    @markers = [{
+      lat: @shelter.latitude,
+      lng: @shelter.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { shelter: @shelter }),
+      image_url: helpers.asset_url("marker")
+    }]
   end
 
   def new
