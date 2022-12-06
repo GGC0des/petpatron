@@ -34,7 +34,7 @@ class AnimalsController < ApplicationController
         lat: shelter.latitude,
         lng: shelter.longitude,
         info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
-        image_url: helpers.asset_url("marker")
+        image_url: "/marker.png"
       }
     end
   end
