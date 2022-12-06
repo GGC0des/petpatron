@@ -220,7 +220,7 @@
                   <% if animal.photos.attached? %>
                     <%= cl_image_tag(animal.photos[0].key, class:"avatar-xl") %>
                   <% else %>
-                    <%= image_tag "pets-icons.jpeg", class:"avatar-large" %>
+                    <%= image_tag "pet_icon.jpg", class:"avatar-large" %>
                   <% end %>
                 </div>
                 <%= link_to animal_path(animal), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this animal from your Shelter?"} do %>
