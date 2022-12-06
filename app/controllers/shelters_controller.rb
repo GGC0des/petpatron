@@ -4,8 +4,11 @@ class SheltersController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR location ILIKE :query"
+      @all_names = Shelter.all.pluck(:name).join(",").downcase
       @all_locations = Shelter.all.pluck(:location).join(",").downcase
       if @all_locations.include? params[:query].downcase
+        @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+      elsif @all_names.include? params[:query].downcase
         @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
       else
         @shelters = Shelter.all
