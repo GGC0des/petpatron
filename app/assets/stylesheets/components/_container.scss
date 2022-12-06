@@ -10,6 +10,14 @@
 
 }
 
+.container-avatar-edit {
+  display: flex;
+  margin: 100px auto;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+}
+
 .emergency-show-body {
   background: $emergency;
   display: flex;
