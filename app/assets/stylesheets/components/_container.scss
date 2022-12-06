@@ -1,5 +1,5 @@
 .container{
-  max-width: 1700px;
+  max-width: 1512px;
   position: relative;
   margin: 0 auto;
 }
@@ -7,13 +7,13 @@
 .create-don-container {
   max-width: 800px;
   margin: 0 auto;
-  
+
 }
 
 .emergency-show-body {
   background: $emergency;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 .shelter-show-body {
@@ -23,20 +23,18 @@
 }
 
 .shelter-container {
-  margin: 80px;
   border-radius: 16px;
   background: $shelter;
   width: 90%;
-  max-width: 1800px;
+  max-width: 1360px;
   margin: 80px auto;
 }
 
 .animal-container {
-  margin: 80px;
   border-radius: 16px;
   background: $animal;
   width: 90%;
-  max-width: 1800px;
+  max-width: 1360px;
   margin: 80px auto;
 }
 
@@ -55,17 +53,18 @@
 }
 
 .emergencies-container {
-  margin: 80px;
   border-radius: 16px;
-  background: $emergency;
   width: 90%;
-  max-width: 1800px;
+  max-width: 1360px;
   margin: 80px auto;
 }
 
 .em-show-container {
   margin: 0 80px;
   border-radius: 16px;
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 90%;
 }
 
 
