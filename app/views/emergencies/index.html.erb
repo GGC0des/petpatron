@@ -12,7 +12,7 @@
       <h2 class="normal-head"> Emergencies</h2>
       <p class="normal-sub">Search for emergencies from shelters close to you</p>
       <form class="input-group right-align container-top-search" role="search">
-        <input class="form-control" id="query" name="query" type="search" placeholder="Search for emergencies" aria-label="Search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Search for shelters and their emergencies" aria-label="Search">
         <button type="submit" class="btn border bg-white">Search</button>
       </form>
     </div>
@@ -40,7 +40,7 @@
       </div>
       <div class="shelter-card-image">
       <% if emergency.photos.attached? %>
-         <%= image_tag(emergency.photos[0]) %>
+        <%= image_tag(emergency.photos[0]) %>
       <% end %>
       </div>
     </div>
