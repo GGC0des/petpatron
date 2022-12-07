@@ -13,6 +13,7 @@ class DonationsController < ApplicationController
     @donation.emergency = @emergency
     @donation.user = current_user if user_signed_in?
     if @donation.save!
+      flash[:confirmation] = @donation.donation_amount
       redirect_to emergency_path(@emergency, donated: true)
     else
       render :new, status: :unprocessable_entity

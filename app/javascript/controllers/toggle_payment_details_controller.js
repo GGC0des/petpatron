@@ -1,6 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import swal from 'sweetalert';
-
 
 // Connects to data-controller="toggle-payment-details"
 export default class extends Controller {
@@ -39,7 +37,7 @@ export default class extends Controller {
       event.currentTarget.classList.add("payment-button-selected")
     }
   }
-  
+
   toggle3(event) {
     this.pinputs1Target.classList.add("d-none")
     this.pinputs2Target.classList.add("d-none")
