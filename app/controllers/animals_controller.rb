@@ -22,6 +22,11 @@ class AnimalsController < ApplicationController
       @shelters = Shelter.all
       @animals = Animal.all
     end
+
+    if params[:categories]
+      @categories = Category.where(name: params[:categories])
+      @animals = @animals.joins(animal_categories: :category).where(category: {id: @categories})
+    end
     @markers = @shelters.map do |shelter|
       {
         lat: shelter.latitude,

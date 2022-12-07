@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
 import TogglePaymentDetailsController from "./toggle_payment_details_controller"
 application.register("toggle-payment-details", TogglePaymentDetailsController)
