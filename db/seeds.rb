@@ -70,7 +70,7 @@ Shelter.all.each do |shelter|
       name: Faker::Name.middle_name,
       description: Faker::Lorem.paragraph(sentence_count: 7),
       sex: ["male", "female"].sample,
-      size: "#{rand(0.1..1.5)} m",
+      size: ["Small", "Medium", "Large"].sample,
       species: Faker::Creature::Animal.name,
       shelter_id: shelter.id
     )

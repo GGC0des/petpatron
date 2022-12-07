@@ -27,7 +27,7 @@
     <div class="emergency-card">
       <div class="shelter-card-text emergency-card-element">
         <h5 class="card-head"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; <%= emergency.title %></h5>
-        <p class="card-sub txt-limit-3"></i>&nbsp; <%= emergency.description %></p>
+        <p class="card-sub txt-limit-3"><%= emergency.description %></p>
         <p><strong><%= link_to "See more info →", emergency_path(emergency), class: "card-link" %></a></strong></p>
         <% fgoal = emergency.fundraising_goal.to_i %>
         <% sum_of_donations = emergency.donations.sum(:donation_amount) %>
