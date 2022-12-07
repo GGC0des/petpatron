@@ -1,7 +1,7 @@
 <div class="intro-banner" style="background-image: url(<%= image_path("banner_pig.png") %>)">
   <div class="intro-copy">
     <h2 class="normal-head"> Animals</h2>
-    <p class="normal-sub">Not sure if subline is needed – maybe just some short explanation</p>
+    <p class="normal-sub"> Find shelter animals near you and discover ways to volunteer </p>
     <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
   </div>
 </div>
@@ -11,7 +11,7 @@
       <h2 class="normal-head"> Animals</h2>
       <p class="normal-sub">Search for animals close to you</p>
       <form class="input-group right-align container-top-search" role="search">
-        <input class="form-control" id="query" name="query" type="search" placeholder="Search for shelters and their animals" aria-label="Search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Type city name to search for animals near you" aria-label="Search">
         <button type="submit" class="btn border bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
     </div>
@@ -26,7 +26,7 @@
       <div class="animal-card">
 
         <div class="p-4" style="display: grid; row-gap: 5px;">
-          <h5 class="card-head"><i class="fa-solid fa-paw"></i>&nbsp; <%= animal.name %></h5>
+          <h5 class="card-head"> <%= animal.name %></h5>
 
 
         <%# //////////////////test start////////////////////////////////// %>
