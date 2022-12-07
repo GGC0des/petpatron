@@ -92,7 +92,8 @@
           Thanks for your <%= flash[:confirmation] %> € donation for <%= @emergency.animal.name %>
         </div>
       </div>
-      <a class="text-center mb-4" href="https://www.facebook.com/sharer/sharer.php?u=http://www.petpatron.help/emergencies/<%= @emergency.id %>" target="_blank">
+      <%= image_tag "thankyou.gif"%>
+      <a class="text-center my-4" href="https://www.facebook.com/sharer/sharer.php?u=http://www.petpatron.help/emergencies/<%= @emergency.id %>" target="_blank">
         <%= image_tag "facebook-share.png", style: "width: 85px;" %>
       </a>
 
