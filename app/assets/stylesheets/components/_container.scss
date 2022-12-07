@@ -18,9 +18,14 @@
   max-width: 800px;
 }
 
+.background-body-dashboard {
+  background-image: $emergency;
+}
+
 .emergency-show-body {
   background: $emergency;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -76,7 +81,6 @@
   width: 90%;
 }
 
-
 .container-top {
   height: 300px;
   display: flex;
@@ -91,8 +95,29 @@
   grid-gap: 32px;
 }
 
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 32px;
+}
+
 .stuff-container-dashboard {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 32px;
+}
+
+.dashboard-container {
+  padding: 64px 0px;
+  width: 90%;
+  max-width: 1360px;
+  margin: 0px auto;
+}
+
+.dashboard-big-group {
+  margin: 64px 0px;
+}
+
+.dashboard-small-group {
+  margin: 32px 0px;
 }
