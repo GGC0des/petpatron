@@ -115,6 +115,7 @@
   --bs-btn-color: white !important;
   --bs-btn-disabled-opacity: 100%;
   text-decoration:none;
+  transition: 0.5s;
 }
 
 .donate-button:hover {
@@ -125,11 +126,55 @@
   padding: 6px 22px;
   font-weight: bold;
   box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
-  transition: 0.5s;
   text-decoration:none;
 }
 
 .donate-button:active {
+  --bs-btn-active-bg: #D88351;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 6px 22px;
+  --bs-btn-active-font-weight: bold;
+  box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
+}
+
+.donate-button2 {
+  background-color: #D88351 !important;
+  margin-top: 24px;
+  color: #FFF;
+  border: none;
+  font-size: small;
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  --bs-btn-bg: #D88351 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+  text-decoration:none;
+}
+
+.add-emergency-link {
+  a {
+    color: #D88351;
+    text-decoration: none;
+    font-weight: 500;
+  }
+}
+
+.donate-button2:hover {
+  background-color: #D88351;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-weight: bold;
+  box-shadow: -5px -5px 10px #f4cca743 , 5px 5px 10px  #9c704e7a;
+  transition: 0.5s;
+  text-decoration:none;
+}
+
+.donate-button2:active {
   --bs-btn-active-bg: #D88351;
   --bs-btn-active-color: white;
   --bs-btn-active-border: none;
@@ -316,4 +361,44 @@
 
 .swal-footer {
   text-align: center;
+}
+
+.add-emergency-button {
+  font-size: 0.8em;
+}
+
+.add-shelter-dashboard-button {
+  height: 35px;
+  background-color: #383838;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  --bs-btn-bg: #383838 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.add-shelter-dashboard-button:hover {
+  background-color: #383838;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
+  transition: 0.5s;
+}
+
+.add-shelter-dashboard-button:active {
+  --bs-btn-active-bg: #383838;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
 }

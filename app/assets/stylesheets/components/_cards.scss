@@ -42,6 +42,7 @@
   max-width: 860px;
   margin: auto auto;
   padding: 50px 100px;
+  min-width: 50%;
 }
 
 .shelters-card-text {
@@ -104,11 +105,29 @@
   background: #FFFFFF;
   box-shadow: -5px -12px 24px #FFF3ED, 8px 8px 25px #D9A88C;
   border-radius: 16px;
-  height:480px;
   display:flex;
   flex-direction: column;
   justify-content: space-between;
   overflow:hidden;
+}
+
+.donation-card-dashboard{
+  background-color: white;
+  background: #FFFFFF;
+  box-shadow: -5px -12px 24px #FFF3ED, 8px 8px 25px #D9A88C;
+  border-radius: 16px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow:hidden;
+}
+
+.donation-card-image {
+  img {
+    width: -webkit-fill-available;
+    height: 150px;
+    object-fit: cover;
+  }
 }
 
 .emergency-card-element {
@@ -119,6 +138,7 @@
 }
 .shelter-card-text {
   padding: 28px 28px;
+  height: 90%;
 }
 
 .animal-card-element {
@@ -191,7 +211,198 @@
   padding: 16px;
 }
 
-.care-slot-card {
+.example-card-pending {
+  background-color: green;
+  width: 1276px;
+  display: flex;
+  gap: 5%;
+}
+
+.caretaking-shelterdashboard-confirmed {
+  background-color: #fff;
+  height: 150px;
+  border-radius: 16px;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.caretaking-info-text {
+  padding: 16px 0px 16px 24px;
+  max-width: 46%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+.caretaking-shelterdashboard-confirmed-photos {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.caretaking-shelterdashboard-confirmed-animal-photo {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  object-fit: cover;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  align-self: center;
+  z-index: 999;
+}
+
+.caretaking-shelterdashboard-animal {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: flex;
+  aspect-ratio: 1/1;
+  align-self: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.caretaking-shelterdashboard-confirmed-user-photo {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  object-fit: cover;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  align-self: center;
+}
+
+.delete-caretaking-booking {
+  display: flex;
+  width: 10%;
+  justify-content: center;
+  align-items: center;
+  background-color: #383838;
+  color: white;
+  object-fit: fill;
+  border: none;
+  height: 100%;
+
+  a {
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+  }
+}
+
+.delete-caretaking-booking:hover {
+  color: #000;
+  background-color: #8f181a;
+  transition: 0.3s
+}
+
+.caretaking-shelterdashboard-pending {
+  background-color: #fff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.info-and-photo {
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+}
+
+.confirm-decline {
+  height: 50px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.delete-caretaking-booking {
+  display: flex;
+  width: 10%;
+  justify-content: center;
+  align-items: center;
+  background-color: #383838;
+  color: white;
+  object-fit: fill;
+  border: none;
+  height: 100%;
+
+  a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+.decline-caretaking-booking {
+  display: flex;
+  margin: 0 20px;
+  width: 120px;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  background-color: #383838;
+  color: white;
+  object-fit: fill;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.confirm-caretaking-booking {
+  display: flex;
+  margin: 0 20px;
+  width: 120px;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  background-color: #D88351;
+  color: white;
+  object-fit: fill;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.confirm-caretaking-booking:hover {
+  color: white;
+  box-shadow: -4px -4px 10px #3838383f , 7px 7px 10px  #3838381f;
+  transition: 0.3s
+}
+
+.decline-caretaking-booking:hover {
+  color: white;
+  box-shadow: -4px -4px 10px #3838383f , 7px 7px 10px  #3838381f;
+  transition: 0.3s
+}
+
+.animal-slot-card {
   padding:0;
   width:400px;
   height:164px;
@@ -205,12 +416,12 @@
   // display: grid;
 }
 
-.care-slot-card-copy {
+.animal-slot-card-copy {
   width:auto;
   padding:24px;
 }
 
-.care-slot-card-close {
+.animal-slot-card-close {
   background-color: #383838;
   width:40px;
   color: white;
@@ -234,8 +445,16 @@
   margin-top:24px;
 }
 
+.txt-limit-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .dash-emerg-card {
-  width:400px;
   height:172px;
   display:flex;
   justify-content: space-between;
@@ -247,7 +466,7 @@
 
 .dash-emerg-left {
   height:172px;
-  width:230px;
+  width:60%;
   padding:24px;
   display:flex;
   flex-direction: column;
@@ -256,10 +475,27 @@
 
 .dash-emerg-right {
   height:172px;
-  width:170px;
+  width: 40%;
   padding:24px 24px 24px 0;
   display:flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
+}
+
+.dash-emerg-card-img {
+  width: 111px;
+  height: 90px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.dash-card-links-grey {
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration:none;
+  font-size: 12px;
+}
+
+.dash-card-links-grey:hover {
+  color: rgba(0, 0, 0, 0.90);
 }
