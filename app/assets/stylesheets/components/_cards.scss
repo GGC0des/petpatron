@@ -111,6 +111,25 @@
   overflow:hidden;
 }
 
+.donation-card-dashboard{
+  background-color: white;
+  background: #FFFFFF;
+  box-shadow: -5px -12px 24px #FFF3ED, 8px 8px 25px #D9A88C;
+  border-radius: 16px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow:hidden;
+}
+
+.donation-card-image {
+  img {
+    width: -webkit-fill-available;
+    height: 150px;
+    object-fit: cover;
+  }
+}
+
 .emergency-card-element {
   flex-wrap: wrap;
   align-items: center;
@@ -182,7 +201,6 @@
   padding: 16px;
 }
 
-<<<<<<< HEAD
 .example-card-pending {
   background-color: green;
   width: 1276px;
@@ -192,7 +210,6 @@
 
 .caretaking-shelterdashboard-confirmed {
   background-color: #fff;
-  width: 30%;
   height: 150px;
   border-radius: 16px;
   display: flex;
@@ -363,8 +380,9 @@
   color: white;
   box-shadow: -4px -4px 10px #3838383f , 7px 7px 10px  #3838381f;
   transition: 0.3s
-=======
-.care-slot-card {
+}
+
+.animal-slot-card {
   padding:0;
   width:400px;
   height:164px;
@@ -378,12 +396,12 @@
   // display: grid;
 }
 
-.care-slot-card-copy {
+.animal-slot-card-copy {
   width:auto;
   padding:24px;
 }
 
-.care-slot-card-close {
+.animal-slot-card-close {
   background-color: #383838;
   width:40px;
   color: white;
@@ -404,5 +422,4 @@
   background: #FFFFFF;
   /* Inside auto layout */
   margin-top:24px;
->>>>>>> master
 }

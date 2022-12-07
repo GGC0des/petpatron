@@ -317,3 +317,40 @@
 .swal-footer {
   text-align: center;
 }
+
+
+.add-shelter-dashboard-button {
+  height: 35px;
+  background-color: #383838;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  --bs-btn-bg: #383838 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.add-shelter-dashboard-button:hover {
+  background-color: #383838;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
+  transition: 0.5s;
+}
+
+.add-shelter-dashboard-button:active {
+  --bs-btn-active-bg: #383838;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
+}

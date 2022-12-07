@@ -29,36 +29,36 @@
     </div>
 
   <%# pending caretaking shelter dashboard %>
-    <div class="caretaking-shelterdashboard-pending notification shadow">
-    <div class="info-and-photo">
-      <div class="caretaking-info-text">
-        <p style="font-weight: 700"><%= caretaking.animal.name %></p>
-        <p><%= caretaking.date.strftime("%d.%m.%Y") %></p>
-        <p><%= caretaking.date.strftime("%H:%M Uhr") %></p>
-        <p><%= caretaking.user.first_name%> <%= caretaking.user.last_name%></p>
-      </div>
-      <div class="caretaking-shelterdashboard-confirmed-photos">
-        <% if caretaking.animal.photos.attached? %>
-          <%= cl_image_tag(caretaking.animal.photos[0].key, class:"caretaking-shelterdashboard-confirmed-animal-photo") %>
-        <% else %>
-          <%= image_tag "pets-icons.jpeg", class: "avatar-large" %>
-        <% end %>
+          <div class="caretaking-shelterdashboard-pending notification shadow">
+          <div class="info-and-photo">
+            <div class="caretaking-info-text">
+              <p style="font-weight: 700"><%= caretaking.animal.name %></p>
+              <p><%= caretaking.date.strftime("%d.%m.%Y") %></p>
+              <p><%= caretaking.date.strftime("%H:%M Uhr") %></p>
+              <p><%= caretaking.user.first_name%> <%= caretaking.user.last_name%></p>
+            </div>
+            <div class="caretaking-shelterdashboard-confirmed-photos">
+              <% if caretaking.animal.photos.attached? %>
+                <%= cl_image_tag(caretaking.animal.photos[0].key, class:"caretaking-shelterdashboard-confirmed-animal-photo") %>
+              <% else %>
+                <%= image_tag "pets-icons.jpeg", class: "avatar-large" %>
+              <% end %>
 
-        <% if caretaking.user.avatar.key %>
-        <%= image_tag caretaking.user.avatar, class: "caretaking-shelterdashboard-confirmed-user-photo" %>
-        <% else %>
-        <%= image_tag "avatar.png", class: "avatar avatar-large" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="confirm-decline">
-      <div class="confirm-caretaking-booking">
-        <%= link_to "Confirm", confirm_caretaking_path(caretaking), data: { turbo_method: :put } %>
-      </div>
-      <div class="decline-caretaking-booking">
-        <%= link_to "Decline", caretaking_path(caretaking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"} %>
-      </div>
-    </div>
-    </div>
+              <% if caretaking.user.avatar.key %>
+              <%= image_tag caretaking.user.avatar, class: "caretaking-shelterdashboard-confirmed-user-photo" %>
+              <% else %>
+              <%= image_tag "avatar.png", class: "avatar avatar-large" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="confirm-decline">
+            <div class="confirm-caretaking-booking">
+              <%= link_to "Confirm", confirm_caretaking_path(caretaking), data: { turbo_method: :put } %>
+            </div>
+            <div class="decline-caretaking-booking">
+              <%= link_to "Decline", caretaking_path(caretaking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"} %>
+            </div>
+          </div>
+          </div>
   <% end %>
 </div>
