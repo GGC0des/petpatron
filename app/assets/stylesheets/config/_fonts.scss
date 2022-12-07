@@ -80,3 +80,22 @@ $headers-font: "Inter", "Helvetica", "sans-serif";
   text-decoration:none;
   color:white;
 }
+
+.dash-card-links-grey {
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration:none;
+  font-size: 12px;
+}
+
+.dash-card-links-grey:hover {
+  color: rgba(0, 0, 0, 0.90);
+}
+
+.grey-link {
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration:none;
+}
+
+.grey-link:hover {
+  color: rgba(0, 0, 0, 0.90);
+}
