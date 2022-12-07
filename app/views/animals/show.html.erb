@@ -84,10 +84,18 @@
         <% if current_user.present? %>
           <%= simple_form_for [@animal, @caretaking] do |f| %>
             <%= f.input :comment, class: "mb-4 " %>
-            <%= f.input :date, as: :datetime, html5: true, class: "mb-4 " %>
-            <%= f.association :category, collection: @animal.categories, class: "mb-4 " %>
+            <div class="row">
+                <div class="col">
+                  <%= f.input :date, as: :datetime, html5: true, class: "mb-4 " %>
+                </div>
+                <div class="col">
+                  <%= f.association :category, collection: @animal.categories, class: "mb-4 " %>
+                </div>
+                <div class="col-auto">
+                  <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
+                </div>
+            </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-            <%= f.submit class: "btn bookdate-button", value:"Book volunteering"%>
             </div>
           <% end %>
         <% else %>
