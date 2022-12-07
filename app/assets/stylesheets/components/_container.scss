@@ -67,7 +67,6 @@
 
 .emergencies-container {
   border-radius: 16px;
-  background: $emergency;
   width: 90%;
   max-width: 1360px;
   margin: 80px auto;
@@ -108,7 +107,7 @@
 }
 
 .dashboard-container {
-  padding: 64px 0px;
+  padding: 0px 0px 64px 0px;
   width: 90%;
   max-width: 1360px;
   margin: 0px auto;
@@ -116,6 +115,10 @@
 
 .dashboard-big-group {
   margin: 64px 0px;
+  padding: 24px 36px;
+  background-color: rgba(255, 255, 255, 0.277);
+  border-radius: 16px;
+  box-shadow: 8px 8px 25px rgba(157, 66, 66, 0.16), -5px -12px 24px rgba(255, 221, 195, 0.5);
 }
 
 .dashboard-small-group {
