@@ -5,5 +5,12 @@
 .dashboard-links {
   display: flex;
   flex-direction: column;
-  
+
+}
+
+.dash-emerg-card-img {
+  width: 111px;
+  height: 90px;
+  object-fit: cover;
+  object-position: top;
 }
