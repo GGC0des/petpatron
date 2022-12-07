@@ -81,20 +81,28 @@
 </div>
 
 <%# //////////////////model start///////////////////////// %>
-    <div class="modal fade" id="donation-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 16px;">
-          <div style="padding: 1rem;">
-            <%= image_tag "Paw-dontaion-modal.svg" %>
-            <h1 class="modal-title fs-5 text-center fw-bolder" id="exampleModalLabel">Thanks for your <%= flash[:confirmation] %> € donation for <%= @emergency.animal.name %></h1>
-          </div>
-          <div class="modal-footer bg-dark" style="justify-content: center; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
+<div class="modal fade" id="donation-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-radius: 18px;">
+      <div class="row m-4">
+        <div class="col-4 text-center">
+          <%= image_tag "Paw-dontaion-modal.svg" %>
+        </div>
+        <div class="col-8 modal-title fs-5 text-center fw-bolder" id="exampleModalLabel">
+          Thanks for your <%= flash[:confirmation] %> € donation for <%= @emergency.animal.name %>
         </div>
       </div>
+      <a class="text-center mb-4" href="https://www.facebook.com/sharer/sharer.php?u=http://www.petpatron.help/emergencies/<%= @emergency.id %>" target="_blank">
+        <%= image_tag "facebook-share.png", style: "width: 85px;" %>
+      </a>
+
+      <div class="modal-footer bg-dark" style="justify-content: center; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
     </div>
-    <%# //////////////////model end////////////////////////// %>
+  </div>
+</div>
+<%# //////////////////model end////////////////////////// %>
 
 <% if flash[:confirmation] %>
   <script>
