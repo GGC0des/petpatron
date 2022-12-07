@@ -28,7 +28,7 @@ class EmergenciesController < ApplicationController
         lat: shelter.latitude,
         lng: shelter.longitude,
         info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
-        image_url: helpers.asset_url("marker")
+        image_url: "/marker.png"
       }
     end
   end
@@ -77,7 +77,7 @@ class EmergenciesController < ApplicationController
     if @emergency.update(emergency_params)
       redirect_to dashboard_path
     else
-      render :update, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 

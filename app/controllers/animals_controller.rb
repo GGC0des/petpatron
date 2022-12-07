@@ -34,7 +34,7 @@ class AnimalsController < ApplicationController
         lat: shelter.latitude,
         lng: shelter.longitude,
         info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
-        image_url: helpers.asset_url("marker")
+        image_url: "/marker.png"
       }
     end
   end
@@ -65,11 +65,11 @@ class AnimalsController < ApplicationController
     if user_signed_in?
       @animal = Animal.new(animal_params)
       @animal.shelter = current_user.shelter
-      animal_categories = params[:animal][:category_ids].reject { |category| category.empty? }
-      animal_categories.each do |category|
-        AnimalCategory.create(animal: @animal, category_id: category)
-      end
       if @animal.save
+        animal_categories = params[:animal][:category_ids].reject { |category| category.empty? }
+        animal_categories.each do |category|
+          AnimalCategory.create(animal: @animal, category_id: category)
+        end
         redirect_to dashboard_path
       else
         render :new, status: :unprocessable_entity
@@ -90,7 +90,9 @@ class AnimalsController < ApplicationController
     if @animal.update(animal_params)
       redirect_to animal_path(@animal)
     else
-      render :update, status: :unprocessable_entity
+      # to show error if any input was left blank
+      # and to stay in the same page of the form
+      render :edit, status: :unprocessable_entity
     end
   end
 

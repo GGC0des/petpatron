@@ -21,7 +21,7 @@ class SheltersController < ApplicationController
         lat: shelter.latitude,
         lng: shelter.longitude,
         info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
-        image_url: helpers.asset_url("marker")
+        image_url: "/marker.png"
       }
     end
   end
@@ -33,7 +33,7 @@ class SheltersController < ApplicationController
       lat: @shelter.latitude,
       lng: @shelter.longitude,
       info_window: render_to_string(partial: "info_window", locals: { shelter: @shelter }),
-      image_url: helpers.asset_url("marker")
+      image_url: "/marker.png"
     }]
   end
 
@@ -58,11 +58,12 @@ class SheltersController < ApplicationController
 
   def update
     @shelter = Shelter.find(params[:id])
-    if current_user.shelter.present?
-      @shelter.update(shelter_params)
+    if current_user.shelter.present? && @shelter.update(shelter_params)
       redirect_to shelter_path(@shelter)
     else
-      render :update, status: :unprocessable_entity
+      # to show error if any input was left blank
+      # and to stay in the same page of the form
+      render :edit, status: :unprocessable_entity
     end
   end
 
