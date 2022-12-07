@@ -11,10 +11,9 @@
       <h2 class="normal-head"> Animals</h2>
       <p class="normal-sub">Search for animals close to you</p>
       <%= form_with url: animals_path, method: :get, class: "input-group right-align container-top-search" do %>
-        <div class="d-flex">
+        <div class="d-flex w-100" >
           <%= text_field_tag :query, params[:query], class:  "form-control", id: "query", placeholder: "Type city name or animal species" %>
-          <%= submit_tag "Search", class:"btn border bg-white" do %>
-          <% end %>
+          <button type="submit" class="btn border bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <div>
           <% Category.all.each do |category| %>
