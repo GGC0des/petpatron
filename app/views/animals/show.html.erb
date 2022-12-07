@@ -3,7 +3,6 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h2> <%= @animal.name %> </h2>
       </div>
       <div class="col-md-auto">
         <%= link_to "← back to all animals", animals_path %>
@@ -48,7 +47,7 @@
       <%# ///////////////photo slider end/////////////////////// %>
       <div class="col-8">
         <div class="p-5">
-          <h4>Animal Profile</h4>
+          <h4><%= @animal.name %></h4>
           <p class="txt-limit-3"><%= @animal.description %></p>
           <table class="mb-3">
             <tbody>
