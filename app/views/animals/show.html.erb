@@ -53,20 +53,14 @@
           <table class="mb-3">
             <tbody>
               <tr>
-                <th class="card-sub"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; Species:&nbsp;&nbsp;</th>
-                <th class="card-sub"><%= @animal.species %></th>
+                <th class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp;&nbsp; <%= @animal.sex %></th>
               </tr>
               <tr>
-                <th class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp;&nbsp; Sex:&nbsp;&nbsp;</th>
-                <th class="card-sub"><%= @animal.sex %></th>
+                <th class="card-sub"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; <%= @animal.size %> </th>
               </tr>
               <tr>
-                <th class="card-sub"><i class="fa-solid fa-maximize"></i>&nbsp;&nbsp; Size:&nbsp;&nbsp;</th>
-                <th class="card-sub"><%= @animal.size %></th>
-              </tr>
-              <tr>
-                <th class="card-sub"><i class="fa-sharp fa-solid fa-house"></i>&nbsp;&nbsp; Shelter:</th>
-                <th class="card-sub"><%= @animal.shelter.name %>, <%= @animal.shelter.location %></th>
+                <th class="card-sub"><i class="fa-sharp fa-solid fa-house"></i>&nbsp;&nbsp; <%= @animal.shelter.name %></th>
+                <th class="card-sub">, <%= @animal.shelter.location %></th>
               </tr>
             </tbody>
           </table>
