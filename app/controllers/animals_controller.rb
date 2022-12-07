@@ -3,33 +3,31 @@ class AnimalsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR location ILIKE :query"
-      @all_locations = Shelter.all.pluck(:location).join(",").downcase
-      if @all_locations.include? params[:query].downcase
-        @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
-        @all_animals = Animal.all
-        @animals = []
-        @all_animals.each do |animal|
-          if @shelters.include? animal.shelter
-            @animals << animal
-          end
-        end
-        @markers = @shelters.geocoded.map do |shelter|
-          {
-            lat: shelter.latitude,
-            lng: shelter.longitude,
-            info_window: render_to_string(partial: "info_window", locals: {shelter: shelter})
-          }
-        end
+      sql_query = "
+        animals.species ILIKE :query
+        OR shelters.location ILIKE :query
+        OR categories.name ILIKE :query
+      "
+      @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%")
+      if @items.first.is_a?(Animal)
+        @animals = @items
+        @shelters = @items.map{|animal|animal.shelter}
+      elsif @items.first.is_a?(Category)
+        @animals = @items.map{|category|category.animals}
+        @shelters = @animals.map{|animal|animal.shelter}
       else
-        @shelters = Shelter.all
-        @animals = Animal.all
+        @shelters = @items
       end
     else
       @shelters = Shelter.all
       @animals = Animal.all
     end
-    @markers = @shelters.geocoded.map do |shelter|
+
+    if params[:categories]
+      @categories = Category.where(name: params[:categories])
+      @animals = @animals.joins(animal_categories: :category).where(category: {id: @categories})
+    end
+    @markers = @shelters.map do |shelter|
       {
         lat: shelter.latitude,
         lng: shelter.longitude,
