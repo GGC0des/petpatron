@@ -26,7 +26,7 @@
     <% @emergencies.each do |emergency| %>
     <div class="emergency-card">
       <div class="shelter-card-text emergency-card-element">
-        <h5 class="card-head"><i class="fa-solid fa-paw"></i>&nbsp;&nbsp; <%= emergency.title %></h5>
+        <h5 class="card-head"> <%= emergency.title %></h5>
         <p class="card-sub txt-limit-3"><%= emergency.description %></p>
         <p><strong><%= link_to "See more info →", emergency_path(emergency), class: "card-link" %></a></strong></p>
         <% fgoal = emergency.fundraising_goal.to_i %>

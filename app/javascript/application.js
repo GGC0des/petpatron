@@ -8,3 +8,10 @@ function animal_modal() {
   myModal.show()
 }
 window.animal_modal = animal_modal
+
+
+function donation_modal() {
+  const myModal = new bootstrap.Modal(document.getElementById('donation-modal'))
+  myModal.show()
+}
+window.donation_modal = donation_modal
