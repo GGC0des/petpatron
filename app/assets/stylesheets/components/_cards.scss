@@ -20,6 +20,15 @@
   max-width: 1360px;
 }
 
+.dash-shelter-card {
+  box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.16), -5px -12px 24px rgba(255, 255, 255, 0.5);
+  height: 500px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  display:flex;
+  justify-content: space-between;
+}
+
 .shelters-card {
   height: 500px;
   background: #FFFFFF;
@@ -173,6 +182,7 @@
   padding: 16px;
 }
 
+<<<<<<< HEAD
 .example-card-pending {
   background-color: green;
   width: 1276px;
@@ -353,4 +363,46 @@
   color: white;
   box-shadow: -4px -4px 10px #3838383f , 7px 7px 10px  #3838381f;
   transition: 0.3s
+=======
+.care-slot-card {
+  padding:0;
+  width:400px;
+  height:164px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.16), -5px -12px 24px rgba(255, 255, 255, 0.5);
+  // overflow: hidden;
+  // display: grid;
+}
+
+.care-slot-card-copy {
+  width:auto;
+  padding:24px;
+}
+
+.care-slot-card-close {
+  background-color: #383838;
+  width:40px;
+  color: white;
+  height:164px;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.shelter-desc-card {
+  padding: 24px 36px;
+  gap: 36px;
+  box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.16), -5px -12px 24px rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  background-color: white;
+  background: #FFFFFF;
+  /* Inside auto layout */
+  margin-top:24px;
+>>>>>>> master
 }

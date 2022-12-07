@@ -10,6 +10,7 @@
 }
 
 .animal-show-container a {
+  color: #b36db9;
   text-decoration: none;
 }
 
@@ -17,7 +18,12 @@
   border-radius: 16px 0 0 16px;
   height: 100%;
   overflow: hidden;
+<<<<<<< HEAD
   width: 38%;
+=======
+  width: 100%;
+  max-width: 38%;
+>>>>>>> master
 }
 
 #animals-show-photos {

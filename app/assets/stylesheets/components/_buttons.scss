@@ -105,11 +105,11 @@
   background-color: #D88351;
   margin-top: 24px;
   color: #FFF;
-  width: 260px;
-  height: 56px;
+  // width: 260px;
+  // height: 56px;
   border: none;
   border-radius: 20px;
-  padding: 16px 22px;
+  padding: 6px 22px;
   font-weight: bold;
   --bs-btn-bg: #D88351 !important;
   --bs-btn-color: white !important;
@@ -122,7 +122,7 @@
   color: white;
   border: none;
   border-radius: 20px;
-  padding: 16px 22px;
+  padding: 6px 22px;
   font-weight: bold;
   box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
   transition: 0.5s;
@@ -134,7 +134,7 @@
   --bs-btn-active-color: white;
   --bs-btn-active-border: none;
   --bs-btn-active-border-radius: 20px;
-  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-padding: 6px 22px;
   --bs-btn-active-font-weight: bold;
   box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
 }
