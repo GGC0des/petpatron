@@ -13,7 +13,9 @@ class EmergenciesController < ApplicationController
         end
         @emergencies = []
         @animals.flatten.each do |animal|
-          @emergencies << animal.emergency unless animal.emergency.nil?
+          animal.emergencies.each do |e|
+            @emergencies << e if animal.emergencies.any?
+          end
         end
       else
         @shelters = Shelter.all
