@@ -11,40 +11,38 @@
     </div>
 
     <div class="row bg-white rounded-4 shadow gx-0">
-    <%# ///////////////photo slider start/////////////////////// %>
+      <%# ///////////////photo slider start/////////////////////// %>
       <div class="col-4">
-        <div class="animal-show-card-image">
-          <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
+        <div id="animals-show-photos" class=" carousel slide" data-bs-ride="true">
 
-            <div class="carousel-indicators"> <%# switch buttons %>
-                <% @animal.photos.each_with_index do |photo, index| %>
-                <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
-                <% end %>
-            </div>
-
-            <div class="carousel-inner"> <%# photos %>
-              <% if @animal.photos.attached? %>
-                <% @animal.photos.each_with_index do |photo, index| %>
-                  <div class="carousel-item <%= "active" if index == 0 %>">
-                    <%= image_tag photo, class: "d-block w-100" %>
-                  </div>
-                <% end #each %>
-              <% else %>
-                <div class="carousel-item active">
-                  <%= image_tag "pet_icon.jpg", class: "d-block w-100" %>
-                </div>
-              <% end #if %>
-            </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+          <div class="carousel-indicators"> <%# switch buttons %>
+              <% @animal.photos.each_with_index do |photo, index| %>
+              <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+              <% end %>
           </div>
+
+          <div class="carousel-inner"> <%# photos %>
+            <% if @animal.photos.attached? %>
+              <% @animal.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= "active" if index == 0 %>">
+                  <%= image_tag photo, class: "d-block w-100", style: "border-radius: 16px 0 0 16px;" %>
+                </div>
+              <% end #each %>
+            <% else %>
+              <div class="carousel-item active">
+                <%= image_tag "pet_icon.jpg", class: "d-block w-100" %>
+              </div>
+            <% end #if %>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
       <%# ///////////////photo slider end/////////////////////// %>
@@ -101,35 +99,28 @@
     </div>
   <%# ////////////////////////Booking form end//////////////////// %>
   <%# ////////////////////////animal show card end//////////////////// %>
-
   </div>
 </div>
 
 
-
-
-
-
     <%# //////////////////model start///////////////////////// %>
-
     <div class="modal fade" id="animal-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content" style="border-radius: 16px;">
-          <div style="padding: 1rem;">
-            <h1 class="modal-title fs-5 text-center fw-bolder" id="exampleModalLabel">Thank you for taking care of <%= @animal.name %></h1>
+          <div style="padding: 1rem 1rem 0 1rem;" class="text-center">
+            <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel">Thank you for taking care of <%= @animal.name %></h1>
+            <%= image_tag "booking-confirmation-animation.gif", class: "w-50" %>
           </div>
-          <div class="modal-body text-center fst-italic lh-2">
+          <div class="modal-body text-center fst-italic lh-2" style="padding: 0 1rem 1rem 1rem;">
             <%= flash[:confirmation] %>
           </div>
-          <div class="modal-footer bg-dark" style="justify-content: center; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
+          <div class="modal-footer bg-dark" style="justify-content: center; border-bottom-right-radius: 14px; border-bottom-left-radius: 14px;">
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
         </div>
       </div>
     </div>
     <%# //////////////////model end////////////////////////// %>
-
-
 
 <% if flash[:confirmation] %>
   <script>
