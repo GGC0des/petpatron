@@ -18,31 +18,6 @@ class AnimalsController < ApplicationController
       else
         @shelters = @items
       end
-    #   sql_query = "
-    #     name ILIKE :query OR location ILIKE :query
-    #     OR animal.species ILIKE :query
-    #     "
-    #   @all_locations = Shelter.all.pluck(:location).join(",").downcase
-    #   if @all_locations.include? params[:query].downcase
-    #     @shelters = Shelter.joins(:animal).where(sql_query, query: "%#{params[:query]}%")
-    #     @all_animals = Animal.all
-    #     @animals = []
-    #     @all_animals.each do |animal|
-    #       if @shelters.include? animal.shelter
-    #         @animals << animal
-    #       end
-    #     end
-        # @markers = @shelters.map do |shelter|
-        #   {
-        #     lat: shelter.latitude,
-        #     lng: shelter.longitude,
-        #     info_window: render_to_string(partial: "info_window", locals: {shelter: shelter})
-        #   }
-        # end
-      # else
-      #   @shelters = Shelter.all
-      #   @animals = Animal.all
-      # end
     else
       @shelters = Shelter.all
       @animals = Animal.all
