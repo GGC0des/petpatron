@@ -45,7 +45,7 @@ puts "Creating shelters and owners ..."
 puts "Creating shelter owners and their shelters"
 
 
-puts "x"
+print "x"
 
 bailey = User.create!(
   first_name: "Bailey",
@@ -70,7 +70,7 @@ shelter1 = Shelter.create!(
   file3 = URI.open("https://images.unsplash.com/photo-1583786693544-e352f898888d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1hbCUyMHNoZWx0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
   shelter1.photos.attach(io: file3, filename: "shelter.png", content_type: "image/png")
 
-puts "x"
+print "x"
 
   georgina = User.create!(
     first_name: "Georgina",
@@ -97,7 +97,7 @@ puts "x"
   shelter2.photos.attach(io: file6, filename: "shelter.png", content_type: "image/png")
 
 
-puts "x"
+print "x"
 
 maxi = User.create!(
   first_name: "Maxi",
@@ -119,7 +119,7 @@ file10 = URI.open("https://images.unsplash.com/photo-1542715234-4bafcfc68bd9?ixl
 shelter5.photos.attach(io: file10, filename: "shelter.png", content_type: "image/png")
 
 
-puts "x"
+print "x"
 
 amar = User.create!(
   first_name: "Amar",
@@ -140,7 +140,7 @@ shelter4 = Shelter.create!(
   file9 = URI.open("https://images.unsplash.com/photo-1594004844563-536a03a6e532?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
   shelter4.photos.attach(io: file9, filename: "shelter.png", content_type: "image/png")
 
-puts "x"
+print "x"
 
 bruna = User.create!(
   first_name: "Bruna",
@@ -164,7 +164,7 @@ shelter3 = Shelter.create!(
   shelter3.photos.attach(io: file8, filename: "shelter.png", content_type: "image/png")
 
 
-puts "x"
+print "x"
 
 itzi = User.create!(
   first_name: "Itziar",
@@ -186,7 +186,7 @@ shelter6 = Shelter.create!(
   shelter6.photos.attach(io: file11, filename: "shelter.png", content_type: "image/png")
 
 
-  puts "x"
+  print "x"
 
   rico = User.create!(
     first_name: "Rico",
@@ -207,7 +207,7 @@ shelter6 = Shelter.create!(
     file12 = URI.open("https://images.unsplash.com/photo-1444212477490-ca407925329e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RyZWV0JTIwZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
     shelter7.photos.attach(io: file12, filename: "shelter.png", content_type: "image/png")
 
-  puts "x"
+  print "x"
 
   nadia  = User.create!(
     first_name: "Nadia",
@@ -229,7 +229,7 @@ shelter6 = Shelter.create!(
      shelter8.photos.attach(io: file13, filename: "shelter.png", content_type: "image/png")
 
 
-puts "x"
+print "x"
 
 lars = User.create!(
   first_name: "Lars",
@@ -251,7 +251,7 @@ shelter9 = Shelter.create!(
   shelter9.photos.attach(io: file14, filename: "shelter.png", content_type: "image/png")
 
 
-puts "x"
+print "x"
 
 kim = User.create!(
   first_name: "Kim",
@@ -273,7 +273,7 @@ shelter10 = Shelter.create!(
   shelter10.photos.attach(io: file15, filename: "shelter.png", content_type: "image/png")
 
 
-puts "x"
+print "x"
 
 patty = User.create!(
   first_name: "Patty",
@@ -296,7 +296,7 @@ shelter11 = Shelter.create!(
 
 
 
-puts "x"
+print "x"
 
 rory = User.create!(
   first_name: "Rory",
@@ -322,23 +322,78 @@ puts "#{Shelter.all.size} shelters created."
 
 puts "Creating dogs .."
 
-Shelter.all.each do |shelter|
-  3.times do
-    animal = Animal.new(
-      name: Faker::Name.first_name,
-      description: "Timid towards strangers, but once you become friends you'll receive a lot of kisses and licksies.",
-      sex: ["Male", "Female"].sample,
-      size: ["Small", "Medium", "Large"].sample,
-      species: "Dog",
-      shelter_id: shelter.id
-    )
-    4.times do
-      file = URI.open(Faker::LoremFlickr.image(search_terms: ['dog', 'cat', 'rabbit']))
-      animal.photos.attach(io: file, filename: "animal.jpg", content_type: "image/jpg")
-    end
-    animal.save!
-  end
+21_healthy_dogs = ["https://dogshome.net/wp-content/uploads/2022/12/image0-1-scaled.jpeg",
+  "https://dogshome.net/wp-content/uploads/2022/12/Snapshot_19.png",
+  "https://dogshome.net/wp-content/uploads/2022/12/318379495_953295968965959_4606654393297871824_n-scaled.jpg",
+  "https://dogshome.net/wp-content/uploads/2022/12/318123781_601851681943653_1658591900367286302_n-scaled.jpg",
+  "https://dogshome.net/wp-content/uploads/2022/11/6ADE9443-F39D-4C62-BA30-E74A3AF4CB2F.jpeg",
+  "https://dogshome.net/wp-content/uploads/2022/11/315434482_1469255270254489_8724683098723830880_n-scaled.jpg",
+  "https://dogshome.net/wp-content/uploads/2022/11/Snapshot_2.png",
+  "https://dogshome.net/wp-content/uploads/2022/09/Snapshot_11.png",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1262504/0686M00000VdWpWQAV.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1259629/0686M00000TPIrTQAX.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1262596/0686M00000VeMGeQAN.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1244920/0686M00000Ui56NQAR.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1238743/0686M00000VeGc2QAF.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1260533/0686M00000VeE4GQAV.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1252234/0686M00000T0PuMQAV.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1259143/0686M00000QkpWQQAZ.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1258018/0686M00000TOli0QAD.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1257403/0686M00000TQ57AQAT.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1151904/0686M00000QkIvNQAV.jpg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1113716/0686M00000QjUsxQAF.jpeg",
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg"]
+
+21_healthy_dogs.each do |img|
+  file = URI.open(img)
+
+  animal = Animal.new(
+    name: Faker::Name.first_name,
+    description: "Timid towards strangers, but once you become friends you'll receive a lot of kisses and licksies.",
+    sex: ["Male", "Female"].sample,
+    size: ["Small", "Medium", "Large"].sample,
+    species: "Dog",
+    shelter_id: shelter.id.sample
+  )
+
+  animal.photos.attach(io: file, filename: "animal.jpg", content_type: "image/jpg")
+  animal.save!
+
   print "x"
 end
 
 puts "#{Animal.all.size} animals created."
+
+
+puts "Creating emergencies"
+
+
+emergency1 = Emergency.create!(
+  title: "Nala needs urgent hip surgery",
+  description: "Nala was found on the side of the road, hours after she was hit by a car. She had to get immediate surgery. She still has an issue with her hip from an old injury and will need a metal plate and physiotherapy in the future.",
+  fundraising_goal: 980,
+  animal_id: animal.id.sample
+)
+
+  file1 = URI.open("https://www.craigmcginty.com/.a/6a00d8341c7e8653ef02a308dbd3e7200c-600wi")
+  emergency1.photos.attach(io: file1, filename: "emergency.jpg", content_type: "image/jpg")
+
+print "x"
+
+emergency2 = Emergency.create!(
+  title: "Help Toffee's recovery - sponsor her surgery & meds ",
+  description: "Sweet gentle Toffee has had a really sad past. She was abused",
+  fundraising_goal: 980,
+  animal_id: animal.id.sample
+)
+
+  file1 = URI.open("https://www.podenco-in-not.de/wp-content/uploads/Tadisa_0918_15.png")
+  emergency1.photos.attach(io: file1, filename: "emergency.jpg", content_type: "image/jpg")
+
+  print "x"
+
+
+
+
+
+puts "#{Emergency.all.size} emergencies created."
