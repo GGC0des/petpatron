@@ -32,38 +32,40 @@
     </div>
   </div>
   <div class="container-bottom">
-    <% @animals.each do |animal| %>
-      <div class="animal-card">
+    <% if @animals %>
+      <% @animals.each do |animal| %>
+        <div class="animal-card">
 
-        <div class="p-4" style="display: grid; row-gap: 5px;">
-          <h5 class="card-head"> <%= animal.name %></h5>
+          <div class="p-4" style="display: grid; row-gap: 5px;">
+            <h5 class="card-head"> <%= animal.name %></h5>
 
 
-        <%# //////////////////test start////////////////////////////////// %>
-          <div class="mb-2">
-            <p class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp; <%= animal.sex %></p>
-            <p class="card-sub"><i class="fa-solid fa-hand-holding-heart"></i>&nbsp; Volunteer</p>
-            <div style="height: 3em;">
-              <% animal.categories.each do |category| %>
-                <span class="tag badge rounded-pill"><%= category.name %></span>
-              <% end %>
+          <%# //////////////////test start////////////////////////////////// %>
+            <div class="mb-2">
+              <p class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp; <%= animal.sex %></p>
+              <p class="card-sub"><i class="fa-solid fa-hand-holding-heart"></i>&nbsp; Volunteer</p>
+              <div style="height: 3em;">
+                <% animal.categories.each do |category| %>
+                  <span class="tag badge rounded-pill"><%= category.name %></span>
+                <% end %>
+              </div>
             </div>
+          <%# //////////////////test end////////////////////////////////// %>
+
+
+            <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Book date →", animal_path(animal), class: "card-link fw-bold" %></span>
           </div>
-        <%# //////////////////test end////////////////////////////////// %>
-
-
-          <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Book date →", animal_path(animal), class: "card-link fw-bold" %></span>
+            <div class="shelter-card-image">
+              <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+              <% if animal.photos.attached? %>
+                <%= cl_image_tag(animal.photos[0].key) %>
+              <%# display defult pic if the user did'nt upload one %>
+              <% else %>
+                <%= image_tag "pet_icon.jpg"%>
+              <% end #if %>
+            </div>
         </div>
-          <div class="shelter-card-image">
-            <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
-            <% if animal.photos.attached? %>
-              <%= cl_image_tag(animal.photos[0].key) %>
-            <%# display defult pic if the user did'nt upload one %>
-            <% else %>
-              <%= image_tag "pet_icon.jpg"%>
-            <% end #if %>
-          </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
