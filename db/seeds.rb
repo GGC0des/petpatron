@@ -341,11 +341,10 @@ healthy_dogs = [
   "https://www.dogstrust.org.uk/images/800x600/dogs/1257403/0686M00000TQ57AQAT.jpg",
   "https://www.dogstrust.org.uk/images/800x600/dogs/1151904/0686M00000QkIvNQAV.jpg",
   "https://www.dogstrust.org.uk/images/800x600/dogs/1113716/0686M00000QjUsxQAF.jpeg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg",
-  "https://www.southernliving.com/thmb/a4b73J7C4S4wgSmymmEgXRCmACA=/1500x0/filters:no_upsca[…]mages-185743593-2000-507c6c8883a44851885ea4fbc10a2c9e.jpg"
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg"
 ]
 
-dog_names = [  "Fuzzy",  "Snuggles",  "Bubbles",  "Tootsie",  "Cuddles",  "Wiggles",  "Kissy",  "Snoopy",  "Peanut",  "Gizmo",  "Cotton",  "Muffin",  "Trixie",  "Buttercup",  "Puddles",  "Gizmo",  "Taco",  "Porkchop",  "Rufus",  "Snickers",  "Biscuit"]
+dog_names = ["Fuzzy", "Snuggles", "Bubbles", "Tootsie", "Cuddles", "Wiggles", "Kissy", "Snoopy", "Peanut", "Gizmo", "Cotton", "Muffin", "Trixie", "Buttercup", "Puddles", "Gizmo", "Taco", "Porkchop", "Rufus", "Snickers", "Biscuit"]
 
 healthy_dogs.each do |img|
   dog_file = URI.open(img)
