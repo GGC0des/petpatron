@@ -69,7 +69,7 @@ Shelter.all.each do |shelter|
     animal = Animal.new(
       name: Faker::Name.middle_name,
       description: Faker::Lorem.paragraph(sentence_count: 7),
-      sex: ["male", "female"].sample,
+      sex: ["Male", "Female"].sample,
       size: ["Small", "Medium", "Large"].sample,
       species: Faker::Creature::Animal.name,
       shelter_id: shelter.id
