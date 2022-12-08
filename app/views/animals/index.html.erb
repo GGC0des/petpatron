@@ -5,18 +5,18 @@
 <div class="intro-banner" style="background-image: url(<%= image_path("banner_pig.png") %>)">
   <div class="intro-copy">
     <h2 class="normal-head"> Animals</h2>
-    <p class="normal-sub"> Find shelter animals near you and discover ways to volunteer </p>
+    <p class="normal-sub"> All these animals are looking for their forever home and are waiting for your help !  </p>
     <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
   </div>
 </div>
 <div class="animal-container">
   <div class="container-top" data-controller="search">
     <div class="container-top-copy">
-      <h2 class="normal-head"> Animals</h2>
-      <p class="normal-sub">Search for animals close to you</p>
+      <h2 class="normal-head"> Caretaking</h2>
+      <p class="normal-sub">Find shelter animals close to you and ways to volunteer to take care of them.  </p>
       <%= form_with url: animals_path, method: :get, class: "input-group right-align container-top-search" do %>
         <div class="d-flex w-100" >
-          <%= text_field_tag :query, params[:query], class:  "form-control", id: "query", placeholder: "Type city name or animal species" %>
+          <%= text_field_tag :query, params[:query], class:  "form-control", id: "query", placeholder: "Search by city name or animal species" %>
           <button type="submit" class="btn border bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <div style="margin-top: 7px">

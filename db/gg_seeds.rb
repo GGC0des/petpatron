@@ -42,7 +42,6 @@ puts "Creating shelters and owners ..."
 # ]
 
 
-
 puts "Creating shelter owners and their shelters"
 
 
@@ -321,16 +320,16 @@ shelter12 = Shelter.create!(
 
 puts "#{Shelter.all.size} shelters created."
 
-puts "Creating animals .."
+puts "Creating dogs .."
 
 Shelter.all.each do |shelter|
   3.times do
     animal = Animal.new(
-      name: Faker::Hipster.word,
+      name: Faker::Name.first_name,
       description: "Timid towards strangers, but once you become friends you'll receive a lot of kisses and licksies.",
       sex: ["Male", "Female"].sample,
       size: ["Small", "Medium", "Large"].sample,
-      species: ["Dog", "Cat"].sample,
+      species: "Dog",
       shelter_id: shelter.id
     )
     4.times do
