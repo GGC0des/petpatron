@@ -32,7 +32,7 @@
                   <% end #each %>
                 <% else %>
                   <div class="carousel-item active">
-                    <%= image_tag "pet_icon", class: "d-block w-100" %>
+                    <%= image_tag "pet_icon.jpg", class: "d-block w-100" %>
                   </div>
                 <% end #if %>
               </div>
@@ -326,7 +326,7 @@
                       <% if caretaking.animal.photos.attached? %>
                         <%= cl_image_tag(caretaking.animal.photos[0].key, class:"caretaking-shelterdashboard-confirmed-animal-photo") %>
                       <% else %>
-                        <%= image_tag "pet_icon", class: "caretaking-shelterdashboard-confirmed-animal-photo" %>
+                        <%= image_tag "pet_icon.jpg", class: "caretaking-shelterdashboard-confirmed-animal-photo" %>
                       <% end %>
                       <% if caretaking.user.avatar.key %>
                       <%= image_tag caretaking.user.avatar, class: "caretaking-shelterdashboard-confirmed-user-photo" %>
