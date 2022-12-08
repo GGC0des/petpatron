@@ -1,3 +1,9 @@
+<!-- Facebook Open Graph data -->
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Pet Patron | Book a volunteering slot for #{@animal.name}" %>
+<% content_for :meta_description, @animal.description %>
+<% content_for :meta_image, cl_image_path(@animal.photos[0].key) if @animal.photos.attached? %>
+
 <%# ////////////////////////animal show card start//////////////////// %>
 <div class="animal-show-container">
   <div class="container">
@@ -115,7 +121,7 @@
         <div class="modal-content" style="border-radius: 16px;">
           <div style="padding: 1rem 1rem 0 1rem;" class="text-center">
             <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel">Thank you for taking care of <%= @animal.name %></h1>
-            <%= image_tag "booking-confirmation-animation.gif", class: "w-50" %>
+            <%= image_tag "booking.gif", class: "w-50 py-3" %>
           </div>
           <div class="modal-body text-center fst-italic lh-2" style="padding: 0 1rem 1rem 1rem;">
             <%= flash[:confirmation] %>

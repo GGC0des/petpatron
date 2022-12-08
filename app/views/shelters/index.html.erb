@@ -1,7 +1,11 @@
+<!-- Facebook Open Graph data -->
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Pet Patron | Shelters List | Search for shelters close to you" %>
+
 <div class="intro-banner" style="background-image: url(<%= image_path("shelters_banner.jpg") %>)">
   <div class="intro-copy">
     <h2 class="normal-head"> Shelters</h2>
-    <p class="normal-sub">Not sure if subline is needed; maybe just some short explanation</p>
+    <p class="normal-sub">Discover shelters, sanctuaries or other animal protection organisations near you </p>
     <a href="/" class="card-sub"><i class="fa-solid fa-arrow-left-long font-weight-light"></i> back to home</a>
   </div>
 </div>
@@ -9,10 +13,10 @@
 <div class="shelter-container">
   <div class="container-top">
     <div class="container-top-copy">
-      <h2 class="normal-head"> Shelters</h2>
-      <p class="normal-sub">Search for shelters close to you</p>
+      <h2 class="normal-head"> Who is helping animals near you ?</h2>
+      <p class="normal-sub">Find shelters or smaller organisations close to you</p>
       <form class="input-group right-align container-top-search" role="search">
-        <input class="form-control" id="query" name="query" type="search" placeholder="Type city name" aria-label="Search">
+        <input class="form-control" id="query" name="query" type="search" placeholder="Search by city name " aria-label="Search">
         <button type="submit" class="btn border bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
     </div>
