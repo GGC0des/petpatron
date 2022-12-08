@@ -5,7 +5,7 @@
       <div class="col">
       </div>
       <div class="col-md-auto">
-        <%= link_to "← back to all animals", animals_path, class: "card-link" %>
+        <%= link_to "← back to all animals", animals_path, class: "card-link", style: "color: #b36db9" %>
       </div>
     </div>
 
@@ -24,12 +24,14 @@
             <% if @animal.photos.attached? %>
               <% @animal.photos.each_with_index do |photo, index| %>
                 <div class="carousel-item <%= "active" if index == 0 %>">
-                  <%= image_tag photo, class: "d-block w-100", style: "border-radius: 16px 0 0 16px;" %>
+                  <%= image_tag photo, class: "d-block w-100", style: "border-radius: 16px 0 0 16px; height: 100%;
+    object-fit: cover;" %>
                 </div>
               <% end #each %>
             <% else %>
               <div class="carousel-item active">
-                <%= image_tag "pet_icon.jpg", class: "d-block w-100" %>
+                <%= image_tag "pet_icon.jpg", class: "d-block w-100", style: "height: 100%;
+    object-fit: cover;" %>
               </div>
             <% end #if %>
           </div>
