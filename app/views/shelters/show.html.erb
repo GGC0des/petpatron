@@ -97,8 +97,8 @@
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-        <div class="btn allanimals-button btn-font shelter-links"><%= link_to "All animals", animals_path(query: @shelter.location) %></div>
-        <div class="btn urgentcauses-button btn-font shelter-links"><%= link_to "Urgent causes", emergencies_path(query: @shelter.location) %></div>
+        <%= link_to "All animals", animals_path(query: @shelter.location), class:"btn allanimals-button btn-font shelter-links" %>
+        <%= link_to "Urgent causes", emergencies_path(query: @shelter.location), class:"btn urgentcauses-button btn-font shelter-links" %>
       </div>
     </div>
   </div>

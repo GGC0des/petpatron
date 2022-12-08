@@ -36,37 +36,39 @@
     </div>
   </div>
   <div class="container-bottom">
-    <% @animals.each do |animal| %>
-      <div class="animal-card">
-        <div style="padding: 28px 28px;">
-          <div class="name-gender-size">
-            <div class="animal-name">
-              <h5 class="card-head"> <%= animal.name %></h5>
+    <% if @animals.present? %>
+      <% @animals.each do |animal| %>
+        <div class="animal-card">
+          <div style="padding: 28px 28px;">
+            <div class="name-gender-size">
+              <div class="animal-name">
+                <h5 class="card-head"> <%= animal.name %></h5>
+              </div>
+              <div class="gender-size">
+                <p><i class="fa-solid fa-mars-and-venus"></i>&nbsp; <%= animal.sex %></p>
+                <p><i class="fa-solid fa-arrows-up-down-left-right"></i>&nbsp; <%= animal.size %></p>
+              </div>
             </div>
-            <div class="gender-size">
-              <p><i class="fa-solid fa-mars-and-venus"></i>&nbsp; <%= animal.sex %></p>
-              <p><i class="fa-solid fa-arrows-up-down-left-right"></i>&nbsp; <%= animal.size %></p>
-            </div>
-          </div>
-          <div style="margin-bottom: 16px;">
-            <% animal.categories.each do |category| %>
-              <span class="tag badge rounded-pill"><%= category.name %></span>
-            <% end %>
-          </div>
-          <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Read more & book volunteering →", animal_path(animal), class: "card-link fw-bold" %></span>
-        </div>
-          <%= link_to animal_path(animal), style:"text-decoration: none" do %>
-            <div class="shelter-card-image" >
-              <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
-              <% if animal.photos.attached? %>
-                <%= cl_image_tag(animal.photos[0].key) %>
-              <%# display defult pic if the user did'nt upload one %>
-              <% else %>
-                <%= image_tag "pet_icon.jpg"%>
+            <div style="margin-bottom: 16px;">
+              <% animal.categories.each do |category| %>
+                <span class="tag badge rounded-pill"><%= category.name %></span>
               <% end %>
             </div>
-          <% end %>
-      </div>
+            <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Read more & book volunteering →", animal_path(animal), class: "card-link fw-bold" %></span>
+          </div>
+            <%= link_to animal_path(animal), style:"text-decoration: none" do %>
+              <div class="shelter-card-image" >
+                <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+                <% if animal.photos.attached? %>
+                  <%= cl_image_tag(animal.photos[0].key) %>
+                <%# display defult pic if the user did'nt upload one %>
+                <% else %>
+                  <%= image_tag "pet_icon.jpg"%>
+                <% end %>
+              </div>
+            <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
