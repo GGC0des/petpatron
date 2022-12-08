@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    { host: ENV["DOMAIN"] || "https://www.petpatron.help/" } # need check
+    { host: ENV["DOMAIN"] || "localhost:3000" } # need change
   end
 end
