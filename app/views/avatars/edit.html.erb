@@ -1,3 +1,7 @@
+<!-- Facebook Open Graph data -->
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Pet Patron | Edit your profile " %>
+
 <div class="container-avatar-edit">
 
   <% if current_user && current_user.avatar.attached? %>
