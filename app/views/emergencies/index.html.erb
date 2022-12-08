@@ -26,7 +26,9 @@
     <% @emergencies.each do |emergency| %>
     <div class="emergency-card">
       <div class="shelter-card-text emergency-card-element">
-        <h5 class="card-head"> <%= emergency.title %></h5>
+        <%= link_to emergency_path(emergency), style: "text-decoration:none;" do %>
+          <h5 class="card-head"> <%= emergency.title %></h5>
+        <% end %>
         <p class="card-sub txt-limit-3"><%= emergency.description %></p>
         <p><strong><%= link_to "See more info →", emergency_path(emergency), class: "card-link" %></a></strong></p>
         <% fgoal = emergency.fundraising_goal.to_i %>
@@ -38,11 +40,13 @@
           <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
-      <div class="shelter-card-image">
-      <% if emergency.photos.attached? %>
-        <%= image_tag(emergency.photos[0]) %>
+      <%= link_to emergency_path(emergency), style: "text-decoration:none;" do %>
+        <div class="shelter-card-image">
+        <% if emergency.photos.attached? %>
+          <%= image_tag(emergency.photos[0]) %>
+        <% end %>
+        </div>
       <% end %>
-      </div>
     </div>
     <% end %>
   </div>
