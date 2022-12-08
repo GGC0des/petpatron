@@ -88,10 +88,11 @@
               </tbody>
             </table>
           </div>
+
           <div class="shelter-card-maplinks">
             <div style="width: 100%; height: 250px;"
               data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-markers-value="[<%= @markers.to_json %>]"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
             <div class="btn allanimals-button btn-font shelter-links"> <%= link_to "Edit My Shelter", edit_shelter_path(@myshelter) %>  </div>
