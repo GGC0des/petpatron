@@ -370,7 +370,7 @@
 .add-shelter-dashboard-button {
   height: 35px;
   background-color: #383838;
-  color: #FFF;
+  color: #fdf3dd;
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
@@ -383,7 +383,7 @@
 
 .add-shelter-dashboard-button:hover {
   background-color: #383838;
-  color: white;
+  color: #fdf3dd;
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
@@ -400,5 +400,25 @@
   --bs-btn-active-padding: 16px 22px;
   --bs-btn-active-font-weight: bold;
   --bs-btn-active-margin: 20px;
+  box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
+}
+
+.check-volunteering {
+  color: #383838;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #383838;
+  border-radius: 20px;
+  transition: 0.35s;
+  font-weight: bold;
+}
+
+.check-volunteering:hover {
+  color: #fdf3dd;
+  background-color: #383838;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #383838;
+  border-radius: 20px;
   box-shadow: -7px -7px 20px #3838383f , 10px 10px 20px  #3838381f;
 }
