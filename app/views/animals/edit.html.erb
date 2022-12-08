@@ -1,2 +1,8 @@
+<!-- Facebook Open Graph data -->
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Pet Patron | Edit #{@animal.name.capitalize}'s profile " %>
+<% content_for :meta_description, @animal.description %>
+<% content_for :meta_image, cl_image_path(@animal.photos[0].key) if @animal.photos.attached? %>
+
 <h1 class="text-center m-4">Animal edit page</h1>
 <%= render "animals/form" %>
