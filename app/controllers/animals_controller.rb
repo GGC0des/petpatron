@@ -8,7 +8,8 @@ class AnimalsController < ApplicationController
         OR shelters.location ILIKE :query
         OR categories.name ILIKE :query
       "
-      @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%")
+      @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%").distinct
+      # .distinct to avoid repeated result
       if @items.first.is_a?(Animal)
         @animals = @items
         @shelters = @items.map{|animal|animal.shelter}
