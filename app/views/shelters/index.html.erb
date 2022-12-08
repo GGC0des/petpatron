@@ -26,17 +26,21 @@
     <% @shelters.each do |shelter| %>
     <div class="shelter-card">
       <div class="shelter-card-text shelter-card-element">
-        <h5 class="card-head"><i class="fa-solid fa-shield-heart"></i>&nbsp;&nbsp;<%= shelter.name %></h5>
+        <%= link_to shelter_path(shelter), style: "text-decoration:none;" do %>
+          <h5 class="card-head"><i class="fa-solid fa-shield-heart"></i>&nbsp;&nbsp;<%= shelter.name %></h5>
+        <% end %>
         <p class="card-sub txt-limit-3"><%= shelter.description %></p>
         <p><strong><%= link_to "See more info →", shelter_path(shelter), class: "card-link" %></a></strong></p>
       </div>
-      <div class="shelter-card-image">
-      <% if shelter.photos.attached? %>
-         <%= image_tag(shelter.photos[0]) %>
-      <% else %>
-        <%= image_tag "defult-shelter.png" %>
+      <%= link_to shelter_path(shelter), style: "text-decoration:none;" do %>
+        <div class="shelter-card-image">
+        <% if shelter.photos.attached? %>
+          <%= image_tag(shelter.photos[0]) %>
+        <% else %>
+          <%= image_tag "defult-shelter.png" %>
+        <% end %>
+        </div>
       <% end %>
-      </div>
     </div>
     <% end %>
   </div>
