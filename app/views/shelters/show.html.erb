@@ -1,6 +1,6 @@
 <!-- Facebook Open Graph data -->
 <% content_for :meta_url, "#{request.original_url}" %>
-<% content_for :meta_title, "Pet Patron - #{@shelter.name} Shelter" %>
+<% content_for :meta_title, "Pet Patron | #{@shelter.name} Shelter" %>
 <% content_for :meta_description, @shelter.description %>
 <% content_for :meta_image, cl_image_path(@shelter.photos[0].key) if @shelter.photos.attached? %>
 
