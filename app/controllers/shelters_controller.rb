@@ -20,7 +20,7 @@ class SheltersController < ApplicationController
       {
         lat: shelter.latitude,
         lng: shelter.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
+        info_window: render_to_string(partial: "info_window", locals: { shelter: shelter }),
         image_url: "/marker.png"
       }
     end
