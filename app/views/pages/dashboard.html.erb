@@ -189,37 +189,37 @@
     <%# Shelter Dashboard - Animals %>
     <% if @myshelter.present? %>
       <div class="dashboard-big-group">
-          <div class="d-flex align-items-center mb-3">
-            <h3>Your Animals</h3>
-            <div style="width:auto;margin:0 16px 8px 16px;">
-              <%= link_to "| + Animal", new_animal_path, style: "text-decoration: none; color: #666666;" %>
-            </div>
-          </div>
-          <div class="grid-dashboard">
-            <% @shelter_animals.each do |animal| %>
-              <div class="caretaking-shelterdashboard-confirmed notification shadow">
-                <div class="caretaking-info-text">
-                  <p style="font-weight: 700"><%= animal.name %></p>
-                  <p class="mb-0"><%= link_to "Show profile", animal_path(animal), style: "text-decoration:none;color:black" %></p>
-                  <p class="mb-0"><%= link_to "Edit profile", edit_animal_path(animal), style: "text-decoration:none;color:black" %></p>
-                  <div class="add-emergency-link" style="width: max-content; margin-top: 10px; height: 15px">
-                    <%= link_to "+ Emergency", new_animal_emergency_path(animal) %>
-                  </div>
-                </div>
-                <div class="caretaking-shelterdashboard-animal">
-                  <% if animal.photos.attached? %>
-                    <%= cl_image_tag(animal.photos[0].key, class:"caretaking-shelterdashboard-animal") %>
-                  <% else %>
-                    <%= image_tag "pet_icon.jpg", class: "caretaking-shelterdashboard-animal" %>
-                  <% end %>
-                </div>
-                <div class="delete-caretaking-booking">
-                  <%= link_to "X", animal_path(animal), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "delete-caretaking-booking" %>
-                </div>
-              </div>
-            <% end %>
+        <div class="d-flex align-items-center mb-3">
+          <h3>Your Animals</h3>
+          <div style="width:auto;margin:0 16px 8px 16px;">
+            <%= link_to "| + Animal", new_animal_path, style: "text-decoration: none; color: #666666;" %>
           </div>
         </div>
+        <div class="grid-dashboard">
+          <% @shelter_animals.each do |animal| %>
+            <div class="caretaking-shelterdashboard-confirmed notification shadow">
+              <div class="caretaking-info-text">
+                <p style="font-weight: 700"><%= animal.name %></p>
+                <p class="mb-0"><%= link_to "Show profile", animal_path(animal), style: "text-decoration:none;color:black" %></p>
+                <p class="mb-0"><%= link_to "Edit profile", edit_animal_path(animal), style: "text-decoration:none;color:black" %></p>
+                <div class="add-emergency-link" style="width: max-content; margin-top: 10px; height: 15px">
+                  <%= link_to "+ Emergency", new_animal_emergency_path(animal) %>
+                </div>
+              </div>
+              <div class="caretaking-shelterdashboard-animal">
+                <% if animal.photos.attached? %>
+                  <%= cl_image_tag(animal.photos[0].key, class:"caretaking-shelterdashboard-animal") %>
+                <% else %>
+                  <%= image_tag "pet_icon.jpg", class: "caretaking-shelterdashboard-animal" %>
+                <% end %>
+              </div>
+              <div class="delete-caretaking-booking">
+                <%= link_to "X", animal_path(animal), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "delete-caretaking-booking" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     <%# Shelter Dashboard - Emergencies / Fundraisers %>
         <div class="dashboard-big-group">
             <% if @shelter_emergencies.any? %>
@@ -270,10 +270,10 @@
     <% end %>
     <%# AnimalLover Dashboard %>
     <% unless @myshelter.present? %>
-      <h2 style="padding-top: 60px; margin-bottom: 25px; margin-left: 36px">Are you a shelter owner?</h2>
-      <%= link_to "Add your shelter", new_shelter_path, class: "add-shelter-dashboard-button", style: "margin-left: 36px"  %>
+      <h2 style="padding-top: 60px; margin-bottom: 25px;">Are you a shelter owner?</h2>
+      <%= link_to "Add your shelter", new_shelter_path, class: "add-shelter-dashboard-button" %>
+      <%# Your booked Volunteering %>
       <div class="dashboard-big-group">
-        <%# Your booked Volunteering %>
         <% if @user_caretakings.any? %>
           <h2> Your Booked Volunteering </h2>
           <%# Pending Volunteering %>
@@ -344,13 +344,14 @@
           <% end %>
         <% else %>
           <% unless current_user.shelter %>
-            <h3> You have not booked any volunteering slots</h3>
-            <%= link_to "Check out volunteering possibilities near you", animals_path(@animals) %>
+            <h3 style="margin-bottom: 30px; margin-top: 6px;"> You have not booked any volunteering slots</h3>
+            <%= link_to "Check out volunteering possibilities near you", animals_path(@animals), class: "check-volunteering" %>
+            <br> <br>
           <% end %>
         <% end %>
       </div>
+      <%# Your Donations %>
       <div class="dashboard-big-group">
-        <%# Your Donations %>
         <% if @user_donations.any? %>
           <h2 style="margin-bottom: 32px"> Your Donations </h2>
           <div class="grid-dashboard">
@@ -381,8 +382,9 @@
           </div>
         <% else %>
           <% unless current_user.shelter %>
-            <h3> You have not donated to any urgent fundraising causes</h3>
-            <%= link_to "Help shelter animals in desperate need", emergencies_path(@emergencies) %>
+            <h3 style="margin-bottom: 30px; margin-top: 6px;"> You have not donated to any urgent fundraising causes</h3>
+            <%= link_to "Help shelter animals in desperate need", emergencies_path(@emergencies), class: "check-volunteering" %>
+            <br> <br>
           <% end %>
         <% end %>
       </div>
