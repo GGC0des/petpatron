@@ -17,5 +17,13 @@ class PagesController < ApplicationController
     @shelter_emergencies = Emergency.where(animal: @shelter_animals)
     @shelter_donations = Donation.where(emergencies: @shelter_emergencies)
     @user_donations = Donation.where(user: current_user)
+    if @myshelter.present?
+      @markers = {
+        lat: @myshelter.latitude,
+        lng: @myshelter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { shelter: @myshelter }),
+        image_url: "/marker.png"
+      }
+    end
   end
 end
