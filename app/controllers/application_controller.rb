@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
 
     store_location_for(:user, request.env['PATH_INFO'])
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "https://www.petpatron.help/" } # need check
+  end
 end
