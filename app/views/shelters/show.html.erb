@@ -1,3 +1,9 @@
+<!-- Facebook Open Graph data -->
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Pet Patron - Come to  #{@emergency.animal.name}'s aid!" %>
+<% content_for :meta_description, @emergency.description %>
+<% content_for :meta_image, cl_image_path(@emergency.photos[0].key) if @emergency.photos.attached? %>
+
 <div class="shelter-show-body ">
   <div class="em-show-container">
     <div class="d-flex justify-content-between align-items-center mb-5">
