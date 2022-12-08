@@ -4,9 +4,11 @@
   background-color: #FDE3FF;
   color: #B36DB9;
   border: none;
+  font-size: 16px;
   border-radius: 20px;
   padding: 16px 22px;
   font-weight: bold;
+  transition: 0.3s;
   margin: 20px;
   --bs-btn-bg: #B36DB9 !important;
   --bs-btn-color: white !important;
@@ -21,6 +23,7 @@
   padding: 16px 22px;
   font-weight: bold;
   margin: 20px;
+  box-shadow: -15px -15px 20px #eaa7f443 , 15px 15px 20px  #8a4e9c5f;
 }
 
 .add-animal-button:active {
@@ -31,16 +34,20 @@
   --bs-btn-active-padding: 16px 22px;
   --bs-btn-active-font-weight: bold;
   --bs-btn-active-margin: 20px;
+  box-shadow: -15px -15px 20px #eaa7f443 , 15px 15px 20px  #8a4e9c5f;
 }
 
 .add-emergency-button {
   background-color: #FFE2D0;
+  font-size: 16px;
   color: #D88351;
   border: none;
   border-radius: 20px;
   padding: 16px 22px;
   font-weight: bold;
+  text-decoration: none;
   margin: 20px;
+  transition: 0.3s;
   --bs-btn-bg: #D88351 !important;
   --bs-btn-color: white !important;
   --bs-btn-disabled-opacity: 100%;
@@ -54,6 +61,7 @@
   padding: 16px 22px;
   font-weight: bold;
   margin: 20px;
+  box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
 }
 
 .add-emergency-button:active {
@@ -64,16 +72,56 @@
   --bs-btn-active-padding: 16px 22px;
   --bs-btn-active-font-weight: bold;
   --bs-btn-active-margin: 20px;
+  box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
 }
+
+.add-emergency-button2 {
+  background-color: #D88351;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  --bs-btn-bg: #D88351 !important;
+  --bs-btn-color: white !important;
+  --bs-btn-disabled-opacity: 100%;
+}
+
+.add-emergency-button2:hover {
+  background-color: #D88351;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 22px;
+  font-weight: bold;
+  box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
+}
+
+.add-emergency-button2:active {
+  --bs-btn-active-bg: #D88351;
+  --bs-btn-active-color: white;
+  --bs-btn-active-border: none;
+  --bs-btn-active-border-radius: 20px;
+  --bs-btn-active-padding: 16px 22px;
+  --bs-btn-active-font-weight: bold;
+  --bs-btn-active-margin: 20px;
+  box-shadow: -15px -15px 20px #f4cca743 , 15px 15px 20px  #9c704e7a;
+}
+
 
 .add-shelter-button {
   background-color: #E5FFFE;
   color: #42A8B1;
+  font-size: 16px;
   border: none;
   border-radius: 20px;
   padding: 16px 22px;
   font-weight: bold;
   margin: 20px;
+  transition: 0.3s;
   --bs-btn-bg: #42A8B1 !important;
   --bs-btn-color: white !important;
   --bs-btn-disabled-opacity: 100%;
@@ -104,7 +152,9 @@
 .donate-button {
   background-color: #D88351;
   margin-top: 24px;
+  font-size: 16px;
   color: #FFF;
+  font-size: 1rem;
   // width: 260px;
   // height: 56px;
   border: none;
@@ -115,7 +165,7 @@
   --bs-btn-color: white !important;
   --bs-btn-disabled-opacity: 100%;
   text-decoration:none;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .donate-button:hover {
@@ -142,6 +192,7 @@
 .donate-button2 {
   background-color: #D88351 !important;
   margin-top: 24px;
+  font-size: 16px;
   color: #FFF;
   border: none;
   font-size: small;
@@ -151,6 +202,7 @@
   --bs-btn-bg: #D88351 !important;
   --bs-btn-color: white !important;
   --bs-btn-disabled-opacity: 100%;
+  transition: 0.3s;
   text-decoration:none;
 }
 
@@ -170,7 +222,6 @@
   padding: 6px 22px;
   font-weight: bold;
   box-shadow: -5px -5px 10px #f4cca743 , 5px 5px 10px  #9c704e7a;
-  transition: 0.5s;
   text-decoration:none;
 }
 
@@ -190,10 +241,12 @@
   background-color: #B36DB9;
   color: #FFF;
   border: none;
+  font-size: 16px;
   border-radius: 20px;
   padding: 16px 22px;
   font-weight: bold;
   margin: 20px;
+  transition: 0.3s;
   --bs-btn-bg: #B36DB9 !important;
   --bs-btn-color: white !important;
   --bs-btn-disabled-opacity: 100%;
@@ -208,7 +261,6 @@
   font-weight: bold;
   margin: 20px;
   box-shadow: -15px -15px 20px #eaa7f443 , 15px 15px 20px  #8a4e9c5f;
-  transition: 0.5s;
 }
 
 .bookdate-button:active {
@@ -361,10 +413,6 @@
 
 .swal-footer {
   text-align: center;
-}
-
-.add-emergency-button {
-  font-size: 0.8em;
 }
 
 .add-shelter-dashboard-button {

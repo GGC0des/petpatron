@@ -96,8 +96,8 @@
               data-map-markers-value="[<%= @markers.to_json %>]"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
-            <div class="btn allanimals-button btn-font shelter-links"> <%= link_to "Edit My Shelter", edit_shelter_path(@myshelter) %>  </div>
-            <div class="btn urgentcauses-button btn-font shelter-links"> <%= link_to "Delete Shelter", shelter_path(@myshelter), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your shelter and every animal and fundraising cause?"} %>  </div>
+            <%= link_to "Edit My Shelter", edit_shelter_path(@myshelter), class:"btn allanimals-button btn-font shelter-links" %>
+            <%= link_to "Delete Shelter", shelter_path(@myshelter), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your shelter and every animal and fundraising cause?"}, class:"btn urgentcauses-button btn-font shelter-links" %>
           </div>
         </div>
         <div class="shelter-desc-card">
