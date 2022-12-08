@@ -43,6 +43,10 @@
               <p><i class="fa-solid fa-mars-and-venus"></i>&nbsp; <%= animal.sex %></p>
               <p><i class="fa-solid fa-arrows-up-down-left-right"></i>&nbsp; <%= animal.size %></p>
             </div>
+          <%# //////////////////test end////////////////////////////////// %>
+
+
+            <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Book date →", animal_path(animal), class: "card-link fw-bold" %></span>
           </div>
           <div style="margin-bottom: 16px;">
             <% animal.categories.each do |category| %>
