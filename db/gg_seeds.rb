@@ -371,7 +371,7 @@ puts "Creating emergencies"
 emergency1 = Emergency.create!(
   title: "Nala needs urgent hip surgery",
   description: "Nala was found on the side of the road, hours after she was hit by a car. She had to get immediate surgery. She still has an issue with her hip from an old injury and will need a metal plate and physiotherapy in the future.",
-  fundraising_goal: 980,
+  fundraising_goal: "980",
   animal_id: animal.id.sample
 )
 
@@ -382,18 +382,54 @@ print "x"
 
 emergency2 = Emergency.create!(
   title: "Help Toffee's recovery - sponsor her surgery & meds ",
-  description: "Sweet gentle Toffee has had a really sad past. She was abused",
-  fundraising_goal: 980,
+  description: "Sweet gentle Toffee has had a really sad past. She was abused and beaten by her previous owner and rescued by one of our volunteers. She is at a loving foste home and is recovering from her surgery.",
+  fundraising_goal: "430",
   animal_id: animal.id.sample
 )
 
-  file1 = URI.open("https://www.podenco-in-not.de/wp-content/uploads/Tadisa_0918_15.png")
-  emergency1.photos.attach(io: file1, filename: "emergency.jpg", content_type: "image/jpg")
+  file2 = URI.open("https://www.podenco-in-not.de/wp-content/uploads/Tadisa_0918_15.png")
+  emergency2.photos.attach(io: file2, filename: "emergency.jpg", content_type: "image/jpg")
 
-  print "x"
+print "x"
+
+emergency3 = Emergency.create!(
+  title: "Puppy Alert! Please help us cover the costs for special puppy food & vacinations",
+  description: "Our volunteers found a litter of 7 abandoned puppies in a box in a back alley. We immediately took them into our care and need your help to cover all the costs!",
+  fundraising_goal: "480",
+  animal_id: animal.id.sample
+)
+
+  file3 = URI.open("https://images.unsplash.com/photo-1632236542159-809925d85fc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmV0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60")
+  emergency3.photos.attach(io: file3, filename: "emergency.jpg", content_type: "image/jpg")
 
 
+print "x"
 
+emergency4 = Emergency.create!(
+  title: "Maxi  ",
+  description: " ",
+  fundraising_goal: "",
+  animal_id: animal.id.sample
+)
+
+  file4 = URI.open("https://images.unsplash.com/photo-1599443015574-be5fe8a05783?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmV0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60")
+  emergency4.photos.attach(io: file4, filename: "emergency.jpg", content_type: "image/jpg")
+
+
+print "x"
+
+emergency2 = Emergency.create!(
+  title: " ",
+  description: " ",
+  fundraising_goal: " ",
+  animal_id: animal.id.sample
+)
+
+  file2 = URI.open("")
+  emergency2.photos.attach(io: file2, filename: "emergency.jpg", content_type: "image/jpg")
+
+
+print "x"
 
 
 puts "#{Emergency.all.size} emergencies created."
