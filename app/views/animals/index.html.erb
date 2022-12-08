@@ -15,7 +15,7 @@
           <%= text_field_tag :query, params[:query], class:  "form-control", id: "query", placeholder: "Type city name or animal species" %>
           <button type="submit" class="btn border bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-        <div style="margin-top: 7px;">
+        <div style="margin-top: 7px">
           <% Category.all.each do |category| %>
           <div class="tag-item">
             <%= check_box_tag 'categories[]', category.name, params[:categories] ? params[:categories].include?(category.name) : false, class: "tag-selector", item_wrapper_class: "tag-item" %>
