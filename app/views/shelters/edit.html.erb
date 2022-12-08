@@ -1,3 +1,9 @@
+<!-- Facebook Open Graph data -->
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Pet Patron | Edit #{@shelter.name.capitalize}'s profile " %>
+<% content_for :meta_description, @shelter.description %>
+<% content_for :meta_image, cl_image_path(@shelter.photos[0].key) if @shelter.photos.attached? %>
+
 <div class="container w-50">
   <h1 class="text-center m-4">Edit Shelter</h1>
   <%= render "shelters/form" %>
