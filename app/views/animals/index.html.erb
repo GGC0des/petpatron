@@ -19,11 +19,11 @@
           <%= text_field_tag :query, params[:query], class:  "form-control", id: "query", placeholder: "Type city name or animal species" %>
           <button type="submit" class="btn border bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-        <div>
+        <div style="margin-top: 7px">
           <% Category.all.each do |category| %>
           <div class="tag-item">
             <%= check_box_tag 'categories[]', category.name, params[:categories] ? params[:categories].include?(category.name) : false, class: "tag-selector", item_wrapper_class: "tag-item" %>
-            <%= label_tag category.name, nil, data: { search_target: "filter", action: "click->search#selectCategory"} %>
+            <%= label_tag category.name, nil, style: "border: 1px solid #cc99cc;", data: { search_target: "filter", action: "click->search#selectCategory"} %>
           </div>
           <% end %>
         </div>
@@ -38,35 +38,34 @@
   <div class="container-bottom">
     <% @animals.each do |animal| %>
       <div class="animal-card">
-
-        <div class="p-4" style="display: grid; row-gap: 5px;">
-          <h5 class="card-head"> <%= animal.name %></h5>
-
-
-        <%# //////////////////test start////////////////////////////////// %>
-          <div class="mb-2">
-            <p class="card-sub"><i class="fa-solid fa-mars-and-venus"></i>&nbsp; <%= animal.sex %></p>
-            <p class="card-sub"><i class="fa-solid fa-hand-holding-heart"></i>&nbsp; Volunteer</p>
-            <div style="height: 3em;">
-              <% animal.categories.each do |category| %>
-                <span class="tag badge rounded-pill"><%= category.name %></span>
-              <% end %>
+        <div style="padding: 28px 28px;">
+          <div class="name-gender-size">
+            <div class="animal-name">
+              <h5 class="card-head"> <%= animal.name %></h5>
+            </div>
+            <div class="gender-size">
+              <p><i class="fa-solid fa-mars-and-venus"></i>&nbsp; <%= animal.sex %></p>
+              <p><i class="fa-solid fa-arrows-up-down-left-right"></i>&nbsp; <%= animal.size %></p>
             </div>
           </div>
-        <%# //////////////////test end////////////////////////////////// %>
-
-
-          <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Book date →", animal_path(animal), class: "card-link fw-bold" %></span>
-        </div>
-          <div class="shelter-card-image">
-            <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
-            <% if animal.photos.attached? %>
-              <%= cl_image_tag(animal.photos[0].key) %>
-            <%# display defult pic if the user did'nt upload one %>
-            <% else %>
-              <%= image_tag "pet_icon.jpg"%>
-            <% end #if %>
+          <div style="margin-bottom: 16px;">
+            <% animal.categories.each do |category| %>
+              <span class="tag badge rounded-pill"><%= category.name %></span>
+            <% end %>
           </div>
+          <span><i class="fa-regular fa-calendar-check"></i> <%= link_to "Read more & book volunteering →", animal_path(animal), class: "card-link fw-bold" %></span>
+        </div>
+          <%= link_to animal_path(animal), style:"text-decoration: none" do %>
+            <div class="shelter-card-image" >
+              <%# guard clause to prevent showing error if the user didn't apply photos for the animal %>
+              <% if animal.photos.attached? %>
+                <%= cl_image_tag(animal.photos[0].key) %>
+              <%# display defult pic if the user did'nt upload one %>
+              <% else %>
+                <%= image_tag "pet_icon.jpg"%>
+              <% end %>
+            </div>
+          <% end %>
       </div>
     <% end %>
   </div>

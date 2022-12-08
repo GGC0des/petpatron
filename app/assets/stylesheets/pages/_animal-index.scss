@@ -1,0 +1,16 @@
+.name-gender-size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.gender-size {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+
+  p {
+    margin: 0;
+  }
+}
