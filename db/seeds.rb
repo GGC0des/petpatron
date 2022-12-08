@@ -322,14 +322,13 @@ puts "#{Shelter.all.size} shelters created."
 
 puts "Creating dogs .."
 
-healthy_dogs = ["https://dogshome.net/wp-content/uploads/2022/12/image0-1-scaled.jpeg",
-  "https://dogshome.net/wp-content/uploads/2022/12/Snapshot_19.png",
+healthy_dogs = [
+  "https://filmdaily.co/wp-content/uploads/2020/05/dog-videos-lede-1300x868.jpg",
+  "http://cdn.akc.org/content/article-body-image/havanesesmalldogs.jpg",
   "https://dogshome.net/wp-content/uploads/2022/12/318379495_953295968965959_4606654393297871824_n-scaled.jpg",
   "https://dogshome.net/wp-content/uploads/2022/12/318123781_601851681943653_1658591900367286302_n-scaled.jpg",
   "https://dogshome.net/wp-content/uploads/2022/11/6ADE9443-F39D-4C62-BA30-E74A3AF4CB2F.jpeg",
   "https://dogshome.net/wp-content/uploads/2022/11/315434482_1469255270254489_8724683098723830880_n-scaled.jpg",
-  "https://dogshome.net/wp-content/uploads/2022/11/Snapshot_2.png",
-  "https://dogshome.net/wp-content/uploads/2022/09/Snapshot_11.png",
   "https://www.dogstrust.org.uk/images/800x600/dogs/1262504/0686M00000VdWpWQAV.jpg",
   "https://www.dogstrust.org.uk/images/800x600/dogs/1259629/0686M00000TPIrTQAX.jpg",
   "https://www.dogstrust.org.uk/images/800x600/dogs/1262596/0686M00000VeMGeQAN.jpg",
@@ -342,29 +341,27 @@ healthy_dogs = ["https://dogshome.net/wp-content/uploads/2022/12/image0-1-scaled
   "https://www.dogstrust.org.uk/images/800x600/dogs/1257403/0686M00000TQ57AQAT.jpg",
   "https://www.dogstrust.org.uk/images/800x600/dogs/1151904/0686M00000QkIvNQAV.jpg",
   "https://www.dogstrust.org.uk/images/800x600/dogs/1113716/0686M00000QjUsxQAF.jpeg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg"]
+  "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg",
+  "https://www.southernliving.com/thmb/a4b73J7C4S4wgSmymmEgXRCmACA=/1500x0/filters:no_upsca[…]mages-185743593-2000-507c6c8883a44851885ea4fbc10a2c9e.jpg"
+]
 
-i = 0
 dog_names = [  "Fuzzy",  "Snuggles",  "Bubbles",  "Tootsie",  "Cuddles",  "Wiggles",  "Kissy",  "Snoopy",  "Peanut",  "Gizmo",  "Cotton",  "Muffin",  "Trixie",  "Buttercup",  "Puddles",  "Gizmo",  "Taco",  "Porkchop",  "Rufus",  "Snickers",  "Biscuit"]
 
 healthy_dogs.each do |img|
   dog_file = URI.open(img)
 
-  while i < 21 do
     animal = Animal.new(
-      name: dog_names[i],
+      name: dog_names.sample,
       description: "Timid towards strangers, but once you become friends you'll receive a lot of kisses and licksies.",
       sex: ["Male", "Female"].sample,
       size: ["Small", "Medium", "Large"].sample,
       species: "Dog",
-      shelter_id: shelter.sample.id
+      shelter_id: Shelter.all.sample.id
     )
 
-    animal.photos.attach(io: dog_file, filename: "animal.jpg", content_type: "image/jpg")
+    animal.photos.attach(io: dog_file, filename: "animal.jpg")
     animal.save!
-    i += 1
     print "x"
-  end
 end
 
 puts "#{Animal.all.size} animals created."
@@ -377,7 +374,7 @@ emergency1 = Emergency.create!(
   title: "Nala needs urgent hip surgery",
   description: "Nala was found on the side of the road, hours after she was hit by a car. She had to get immediate surgery. She still has an issue with her hip from an old injury and will need a metal plate and physiotherapy in the future.",
   fundraising_goal: "980",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file1 = URI.open("https://www.craigmcginty.com/.a/6a00d8341c7e8653ef02a308dbd3e7200c-600wi")
@@ -389,7 +386,7 @@ emergency2 = Emergency.create!(
   title: "Help Toffee's recovery - sponsor her surgery & meds ",
   description: "Sweet gentle Toffee has had a really sad past. She was abused and beaten by her previous owner and rescued by one of our volunteers. She is at a loving foste home and is recovering from her surgery.",
   fundraising_goal: "430",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file2 = URI.open("https://www.podenco-in-not.de/wp-content/uploads/Tadisa_0918_15.png")
@@ -401,7 +398,7 @@ emergency3 = Emergency.create!(
   title: "Puppy Alert! Please help us cover the costs for special puppy food & vacinations",
   description: "Our volunteers found a litter of 7 abandoned puppies in a box in a back alley. We immediately took them into our care and need your help to cover all the costs!",
   fundraising_goal: "480",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file3 = URI.open("https://images.unsplash.com/photo-1632236542159-809925d85fc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmV0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60")
@@ -414,7 +411,7 @@ emergency4 = Emergency.create!(
   title: "Maxi's Medical Fund",
   description: "Maxi is a sweet and loving dog who was recently hit by a car. He needs urgent medical care to recover, but his previous owner couldn't afford the treatment. Your donation will help us pay for Maxi's medical bills and give him a second chance at a happy and healthy life.",
   fundraising_goal: "680",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file4 = URI.open("https://images.unsplash.com/photo-1599443015574-be5fe8a05783?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmV0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60")
@@ -428,7 +425,7 @@ emergency5 = Emergency.create!(
   title: "Become Charlie's Godparent",
   description: "Charlie is a lovable and playful pupper who was left at a shelter when his previous owner could no longer care for him. Your donation will help us provide food, shelter, and medical care for Charlie until he is ready to be adopted into a forever home.",
   fundraising_goal: "325",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file5 = URI.open("https://images.unsplash.com/photo-1595738792475-9a29c39aa307?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c3RyZWV0JTIwZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60")
@@ -442,7 +439,7 @@ emergency6 = Emergency.create!(
   title: "Puppy Rescue Mission",
   description: "There are so many streets on the streets right now and our volunteers have worked day and night to catch them and transport them safely to our shelter. We will have a lost of costs to cover, please donate for the puppies food, blankets & toys.",
   fundraising_goal: "1050",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file6 = URI.open("https://images.unsplash.com/photo-1553434133-96822a8e94af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3RyZWV0JTIwZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60")
@@ -455,7 +452,7 @@ emergency7 = Emergency.create!(
   title: "Provide a safe haven for Sasha ",
   description: "Sasha is a sweet and gentle dog who was found wandering the streets. She was malnourished and injured, but now she is recovering in our shelter. Your donation will help us provide food, shelter, and medical care for Sasha as she recovers and waits for her forever home.",
   fundraising_goal: "350",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file7 = URI.open("https://d2g8igdw686xgo.cloudfront.net/68580875_1665065919228655_r.jpeg")
@@ -468,7 +465,7 @@ emergency8 = Emergency.create!(
   title: "Bella's second chance",
   description: "Bella was a victim of abuse and neglect before she was rescued by our organization. She is now recovering and ready for a new home, but she needs your help. Your donation will help us provide essential care and support for Bella as she starts her new life in a loving home.",
   fundraising_goal: "190",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file8 = URI.open("https://d2g8igdw686xgo.cloudfront.net/69645275_1669842582247515_r.jpg")
@@ -482,7 +479,7 @@ emergency9 = Emergency.create!(
   title: "Rocky's Rehabilitation",
   description: "Rocky is a brave and resilient dog who was rescued from a puppy mill. He has been through a lot, but he is now ready to start his new life in a loving home. Your donation will help us provide essential care and support for Rocky as he recovers and learns to trust and love again.",
   fundraising_goal: "265",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file9 = URI.open("https://animal-clinic-of-woodruff.imgix.net/surgery-blog370895757.jpg")
@@ -496,7 +493,7 @@ emergency10 = Emergency.create!(
   title: "Fundraiser for Sweet Lily ",
   description: "Lily was rescued from a hoarding situation. She is now safe and got medical attention she badly needed. Your donation will help us provide food and essential supplies for Lily and other dogs like her.",
   fundraising_goal: "210",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file10 = URI.open("https://d2g8igdw686xgo.cloudfront.net/68183481_1663502048407073_r.jpeg")
@@ -510,7 +507,7 @@ emergency11 = Emergency.create!(
   title: "Daisy's Medical Fund",
   description: "Daisy was rescued from a neglectful situation and needed a lot of surgeries and medication. She is now safe in our shelter, but she needs urgent medical care. Your donation will help us pay for Daisy's medical bills and give her the chance to recover and find a loving home.",
   fundraising_goal: "370",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file11 = URI.open("https://d2g8igdw686xgo.cloudfront.net/69716583_1670353073258906_r.jpeg")
@@ -524,7 +521,7 @@ emergency12 = Emergency.create!(
   title: "Luna needs your help",
   description: "Luna was in bad shape when she was found. She deserves a happy and healthy life. Your donation will help us pay medical bills and build a playground for Luna and other shelter cats to enjoy, and provide them with essential supplies and care.",
   fundraising_goal: "480",
-  animal_id: animal.sample.id
+  animal_id: Animal.all.sample.id
 )
 
   e_file12 = URI.open("https://d2g8igdw686xgo.cloudfront.net/69686357_1670013976397684_r.jpeg")
