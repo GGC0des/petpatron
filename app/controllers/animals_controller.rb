@@ -7,7 +7,9 @@ class AnimalsController < ApplicationController
         animals.species ILIKE :query
         OR shelters.location ILIKE :query
         OR categories.name ILIKE :query
+        OR animals.name ILIKE :query
       "
+      # to get results from searching by name
       @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%").distinct
       # .distinct to avoid repeated result
       if @items.first.is_a?(Animal)
