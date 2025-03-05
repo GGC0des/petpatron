@@ -13,7 +13,7 @@
 .home-dog {
   background-image: url("Slot-1-Hero-Isolated");
   background-repeat: no-repeat;
-  background-position: 65% 0%;
+  background-position: 70% 0%;
 }
 
 .hero-copy {
@@ -24,7 +24,7 @@
 }
 
 .hero h1 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 64px;
 }
 
@@ -36,19 +36,19 @@
   letter-spacing: 1px;
 }
 
-.hero-eyecatcher {
-  background-image: url("Homepage_Eyecatcher");
-  background-size: cover;
-  width: 240px;
-  height: 250px;
-  position: absolute;
-  right: 82px;
-  transition: 0.5s;
-}
+// .hero-eyecatcher {
+//   background-image: url("Homepage_Eyecatcher");
+//   background-size: cover;
+//   width: 240px;
+//   height: 250px;
+//   position: absolute;
+//   right: 82px;
+//   transition: 0.5s;
+// }
 
-.hero-eyecatcher:hover {
-  background-image: url("Homepage_Eyecatcher_Hover");
-  filter: saturate(1.5)
-}
+// .hero-eyecatcher:hover {
+//   background-image: url("Homepage_Eyecatcher_Hover");
+//   filter: saturate(1.5)
+// }
 
 // for category cards => stylesheet/components/_category_card

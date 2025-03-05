@@ -1,6 +1,6 @@
 <!-- Facebook Open Graph data -->
 <% content_for :meta_url, "#{request.original_url}" %>
-<% content_for :meta_title, "Pet Patron | Home | Welcome to PetPatron, where you can help animals" %>
+<% content_for :meta_title, "Pet Patron | Home | Welcome" %>
 
 <div class="background-body">
   <div class="container">
@@ -10,9 +10,10 @@
           <% if user_signed_in? %>
             <h1>Hi, <%= current_user.first_name.capitalize %> </h1>
           <% else %>
-            <h1>Hi, animal lover!</h1>
+            <h1>Help Animals In Need</h1>
           <% end %>
-          <p>Easily connect with local shelters & support animals you love</p>
+          <p>Connect with shelters nearby! Book a volunteering slot to care for
+              an animal or donate to emergency fundraisers.</p>
         </div>
       </div>
 
