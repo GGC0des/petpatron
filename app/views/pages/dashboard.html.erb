@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="normal-head my-5">
             <%= @myshelter.name %>'s Dashboard
-          </div>
+          </div> 
           <div>
             <%= link_to "← back to home", root_path, class: "card-link", style: "color: #D88351" %>
           </div>
@@ -319,7 +319,7 @@
                     <div class="caretaking-info-text">
                       <p style="font-weight: 700"><%= caretaking.animal.name %></p>
                       <p><%= caretaking.date.strftime("%d.%m.%Y") %></p>
-                      <p><%= caretaking.date.strftime("%H:%M") %></p>
+                      <p><%= caretaking.date.strftime("%H:%Mode") %></p>
                       <p><%= caretaking.animal.shelter.name%></p>
                     </div>
                     <div class="caretaking-shelterdashboard-confirmed-photos">
