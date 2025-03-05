@@ -52,6 +52,11 @@
                 <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
               </li>
             <% end %>
+            <% if !user_signed_in? && !current_page?(new_user_session_path) && !current_page?(new_user_registration_path) && !current_page?(new_shelter_path) %>
+              <li class="nav-item">
+                <%= link_to "For Shelters", new_shelter_path, class: "nav-link" %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>
