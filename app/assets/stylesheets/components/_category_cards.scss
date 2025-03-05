@@ -71,3 +71,64 @@
   position: inherit;
 
 }
+
+/* Make sure all images cover the card and display similarly */
+.emergency-img,
+.animal-img,
+.shelter-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 16px;
+}
+
+/* Ensure all category cards behave the same way */
+.emergency-category-card,
+.animal-category-card,
+.shelter-category-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-height: 340px; /* Make sure all cards have the same height */
+}
+
+/* Make sure the image is properly placed inside each card */
+.emergency-category-card .emergency-img,
+.animal-category-card .animal-img,
+.shelter-category-card .shelter-img {
+  display: block;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .three-cards-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .emergency-category-card,
+  .animal-category-card,
+  .shelter-category-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .three-cards-row {
+    padding: 8px;
+  }
+
+  .emergency-category-card,
+  .animal-category-card,
+  .shelter-category-card {
+    padding: 12px;
+    box-shadow: none;
+  }
+}
