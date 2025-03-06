@@ -158,7 +158,7 @@
 @media (max-width: 768px) {
 
    .container-top {
-    flex-direction: column; /* Stack content vertically */
+    // flex-direction: column; /* Stack content vertically */
     height: auto; /* Remove fixed height to allow content to grow naturally */
     justify-content: center;
     align-items: center;
