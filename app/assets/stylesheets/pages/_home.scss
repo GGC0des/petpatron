@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .background-body {
-  background-image: $hero;
+   background-image: $hero;
 }
 
 .hero {
@@ -8,18 +8,11 @@
   height: 478px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.home-dog {
-  background-image: url("Slot-1-Hero-Isolated");
-  background-repeat: no-repeat;
-  background-position: 75% 0%;
-}
-
-.hero-copy {
+.hero-content {
   margin: 0px 82px;
-  display: flex;
-  flex-direction: column;
   line-height: 478px;
 }
 
@@ -36,22 +29,41 @@
   letter-spacing: 1px;
 }
 
+.hero-img {
+  content: url("Slot-1-Hero-Isolated");
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0%;
+  left: 65%;
+}
+
+
+@media (max-width: 820px) {
+
+  .hero h1 {
+    font-size: 48;
+  }
+}
+
 
 @media (max-width: 768px) {
 
+  .hero {
+    max-height: 300px;
+  }
+
   .hero h1 {
-    font-size: 36px; /* Reduce font size on mobile */
+    font-size: 32px;
   }
 
   .hero p {
-    font-size: 18px; /* Reduce font size on mobile */
-    line-height: 28px; /* Adjust line height for better readability */
-    letter-spacing: 0.5px; /* Decrease letter spacing for mobile */
-    max-width: 100%; /* Ensure the text doesn't get cut off on small screens */
+    font-size: 18px;
+    max-width: 360px;
   }
 
-  .home-dog {
-    // background-image: none;
+  .hero-img {
+    max-height: 240px;
   }
 
 }
@@ -69,7 +81,15 @@
     max-width: 100%; /* Ensure the text takes up the full screen width */
   }
 
-  .home-dog {
-    // background-image: none;
+  .hero-img {
+    max-height: 200px; /* Adjust for mobile */
+    object-fit: contain;
+    display: block;
+    position: relative;
+    left: 50%;
+    margin-top: 20px; /* Adds spacing when stacked */
+    margin-bottom: 20px;
+    transform: translateX(-50%);
   }
+
 }
