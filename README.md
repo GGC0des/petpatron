@@ -21,6 +21,7 @@
 - **Animal Search & Volunteering** – A searchable directory of shelter animals, filtered by postal code, allowing users to explore volunteering opportunities. Available caretaking options include fostering, dog walking, grooming, playtime, and adoption. 
 - **Shelter Listings & Profiles** – A comprehensive listing of registered shelters, featuring their contact details, open hours, ongoing fundraisers, and available animals.  
 
+![alt text](https://github.com/GGC0des/portfolio/blob/main/img/works/WebApp-PetPatron.jpg)
 
 ---
 ## Features
@@ -36,11 +37,14 @@
 
 ## **User Roles & Interfaces**
 
-- **Personal Accounts** – Individuals seeking to participate in volunteering or donations can create an account. This enables shelters to confirm or reschedule booked time slots.  
-- **Personal Dashboard** - Individuals supporting animals can manage their personal information, profile picture, manage volunteer booking, manage their donations to fundraisers.
+### **Personal Accounts**
+Individuals seeking to participate in volunteering or donations can create an account. This enables shelters to confirm or reschedule booked time slots. The dashboard for personal accounts allows animal lovers to manage their personal information, profile picture, manage the booking and status of their voluteering slot, as well as manange their donations to fundraisers.
+![alt text](https://github.com/GGC0des/portfolio/blob/main/img/works/AnimalLoverDashboard.png)
+
  
-- **Shelter Accounts** – Any shelter can register and create an administrative account to manage shelter information, confirm or reschedule volunteer bookings, list adoptable animals, and post urgent fundraising campaigns.
-- **Shelter Admin Dashboard** – Shelters can manage their information, approve or reschedule volunteer bookings, list animals, and create urgent fundraising campaigns.  
+### **Shelter Accounts**
+Any shelter can register and create an administrative account to manage shelter information, confirm, reschedule or decline volunteer bookings, list animals and add tags to specify volunteering options, as well as create, edit and manage fundraising campaigns.
+![alt text](https://github.com/GGC0des/portfolio/blob/main/img/works/ShelterDashboardBooking.png)
 
 ---
 ## **Technologies Used**  
