@@ -1,9 +1,34 @@
-.navbar-lewagon {
+.navbar-list {
   justify-content: space-between;
   background: white;
+  display: flex;
+  column-gap: 46px;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.15px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.nav-btn {
+  display: none;
+}
+
+.nav-link {
+  // color: var(--main-text-color);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: $primary-accent;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  text-decoration-color: $secondary-accent;
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 7px;
+}
+
+.navbar-list .navbar-collapse {
   flex-grow: 0;
 }
 
