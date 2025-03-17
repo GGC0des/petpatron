@@ -11,14 +11,14 @@
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #ffffff83 , 15px 15px 30px  #00000024;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .emergency-category-card:hover {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #f4cca743 , 15px 15px 30px  #9c704e7a;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .emergency-img {
@@ -30,14 +30,14 @@
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #ffffff83 , 15px 15px 30px  #00000024;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .animal-category-card:hover {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #eaa7f443 , 15px 15px 30px  #8a4e9c5f;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .animal-img {
@@ -49,14 +49,14 @@
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #ffffff83 , 15px 15px 30px  #00000024;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .shelter-category-card:hover {
   padding: 32px 0px 0px 32px;
   border-radius: 16px;
   box-shadow: -15px -15px 30px #a7f0f466 , 15px 15px 30px  #4e859c63;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .shelter-img {
@@ -71,21 +71,6 @@
   position: inherit;
 }
 
-/* Make sure all images cover the card and display similarly */
-.emergency-img,
-.animal-img,
-.shelter-img {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 16px;
-}
-
 /* Ensure all category cards behave the same way */
 .emergency-category-card,
 .animal-category-card,
@@ -95,29 +80,79 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  min-height: 340px; /* Make sure all cards have the same height */
+  min-height: 340px;
 }
 
-/* Make sure the image is properly placed inside each card */
-.emergency-category-card .emergency-img,
-.animal-category-card .animal-img,
-.shelter-category-card .shelter-img {
+/* Make sure all images cover the card and display similarly */
+.emergency-img,
+.animal-img,
+.shelter-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 340px;
+  position: relative;
   display: block;
+  top: 0;
+  left: 0;
+  border-radius: 16px;
+  transition: transform 0.3s ease-in-out;
 }
 
 
+/* Image Hover Effect - Zooms the background image */
+.emergency-category-card:hover .emergency-img,
+.animal-category-card:hover .animal-img,
+.shelter-category-card:hover .shelter-img {
+  transform:scale(1.5);
+}
+
+/* Text Styling */
+.emergency-category-card p,
+.animal-category-card p,
+.shelter-category-card p {
+  position: relative;
+  z-index: 2; /* Ensure text is above image */
+  font-size: 1em;
+  color: #335556;
+  text-transform: uppercase;
+  padding: 16px;
+  transition: font-size 0.3s ease-in-out;
+}
+
+/* Text Hover Effect */
+.emergency-category-card:hover p,
+.animal-category-card:hover p,
+.shelter-category-card:hover p {
+  font-size: 1.3em;
+}
 
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
+/* Responsive Fix: Stack cards earlier before images are cut */
+@media (max-width: 1024px) {
   .three-cards-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
 
   .emergency-category-card,
   .animal-category-card,
   .shelter-category-card {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .three-cards-row {
+    grid-template-columns: 1fr; /* Stack into a single column */
+    gap: 16px;
+  }
+
+  .emergency-category-card,
+  .animal-category-card,
+  .shelter-category-card {
+    min-height: 280px;
     padding: 16px;
   }
 }
@@ -130,6 +165,7 @@
   .emergency-category-card,
   .animal-category-card,
   .shelter-category-card {
+    min-height: 240px;
     padding: 12px;
     box-shadow: none;
   }
