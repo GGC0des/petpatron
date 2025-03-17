@@ -69,7 +69,6 @@
   display: inherit;
   text-decoration: none;
   position: inherit;
-
 }
 
 /* Make sure all images cover the card and display similarly */
@@ -94,7 +93,7 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: flex-start;
   min-height: 340px; /* Make sure all cards have the same height */
 }
@@ -105,6 +104,9 @@
 .shelter-category-card .shelter-img {
   display: block;
 }
+
+
+
 
 /* Responsive Fixes */
 @media (max-width: 768px) {
