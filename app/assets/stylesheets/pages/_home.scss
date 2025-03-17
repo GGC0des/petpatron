@@ -42,7 +42,7 @@
 @media (max-width: 820px) {
 
   .hero h1 {
-    font-size: 48;
+    font-size: 48px;
   }
 }
 
@@ -70,24 +70,25 @@
 
 
 @media (max-width: 480px) {
+
   .hero h1 {
-    font-size: 28px; /* Further reduce font size for very small screens */
+    font-size: 28px; 
   }
 
   .hero p {
-    font-size: 16px; /* Even smaller font size for small screens */
-    line-height: 24px; /* Adjust line height for mobile */
-    letter-spacing: 0px; /* Reset letter-spacing for readability */
-    max-width: 100%; /* Ensure the text takes up the full screen width */
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    max-width: 100%;
   }
 
   .hero-img {
-    max-height: 200px; /* Adjust for mobile */
+    max-height: 200px;
     object-fit: contain;
     display: block;
     position: relative;
     left: 50%;
-    margin-top: 20px; /* Adds spacing when stacked */
+    margin-top: 20px;
     margin-bottom: 20px;
     transform: translateX(-50%);
   }
