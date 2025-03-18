@@ -1,16 +1,36 @@
-.navbar-list {
-  justify-content: space-between;
+/* Navbar Container */
+.navbar {
+  width: 100%;
   background: white;
-  display: flex;
-  column-gap: 46px;
-  font-weight: 400;
-  font-size: 18px;
-  letter-spacing: -0.15px;
   padding: 12px 20px;
 }
 
+/*Navbar Layout*/
+.navbar-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.15px;
+  width: 100%;
+}
+
+
+/* Navbar brand (logo) stays aligned left */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 34px;
+  max-width: 100%;
+}
+
+/*Navbar links*/
 .nav-link {
-  // color: var(--main-text-color);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -25,30 +45,32 @@
   text-underline-offset: 7px;
 }
 
-.navbar-list .navbar-collapse {
-  flex-grow: 0;
+/* Navbar Collapse */
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.navbar-brand img {
-  height: 34px;
+/* Navbar items stay inline */
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.container-fluid {
-  margin: 0px 65px;
+/* Buttons & Avatar stay on the right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto !important;
 }
 
-.navbar-toggler {
-  display: none;
-  border: none;
-  background: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Style for User Login Buttons */
 /* General Button Styling */
 .nav-btn, .nav-btn-white {
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 6px;
   font-size: 16px;
   font-weight: 600;
@@ -61,25 +83,13 @@
   white-space: nowrap;
 }
 
-/* Get Started / Register / Signup Button */
+/* Get Started / Register Button */
 .nav-btn {
   background-color: #84c4c6;
   border: none;
   box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative; /* Needed for pseudo-elements */
-  padding: 6px 14px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 6px;
   transition: all 0.3s ease-in-out;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  min-width: 100px;
-  white-space: nowrap;
 }
-
 
 .nav-btn:hover {
   background-color: #84c4c6;
@@ -103,95 +113,99 @@
   transform: scale(1.05);
 }
 
+/* Prevents Text from Shrinking Too Much */
+.nav-link, .nav-btn, .nav-btn-white {
+  font-size: clamp(16px, 1vw, 18px); /* Sets a min size of 16px */
+}
 
-/* Show the Navbar Toggler on Small Screens */
-@media (max-width: 768px) {
+/* Ensure Avatar Stays Circular & Right */
+.nav-right .dropdown {
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+
+
+/* ======== RESPONSIVENESS =========== */
+
+/* Desktop View */
+@media (min-width: 769px) {
   .container-fluid {
-    margin: 0px 30px;
+    padding: 0 3vw;
   }
 
   .navbar-toggler {
-    display: block;
-    border: none;
-    background: none;
-    font-size: 24px;
-    cursor: pointer;
+    display: none;
   }
 
-  /* Collapse the Navbar */
+  /* Buttons and Avatar stay on the right */
+  .nav-right {
+    margin-left: auto;
+  }
+
+  .nav-btn, .nav-btn-white {
+    font-size: 0.9vw; /* Smaller font for compact screens */
+  }
+}
+
+/* Tablet & Mobile View */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 4vw;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   .navbar-collapse {
-    display: none; /* Hide menu by default */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
     background: white;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 8px;
   }
 
-  /* When toggled, show the navbar */
   .navbar-collapse.show {
     display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav-right {
     flex-direction: column;
     align-items: center;
-    row-gap: 12px;
-  }
-
-  /* Navbar Items in Mobile View */
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    gap: 8px;
+    margin-left: 0;
     width: 100%;
-    gap: 12px;
   }
 
-  /* Adjust Navbar List */
-  .navbar-list {
-    flex-direction: column;
-    text-align: center;
-    gap: 16px;
-  }
-
-  /* Ensure Dropdown Aligns Correctly */
-  .dropdown-menu {
+  .nav-btn, .nav-btn-white {
     width: 100%;
     text-align: center;
-  }
-}
-
-/* Further Adjustments for Smaller Screens */
-@media (max-width: 768px) {
-  .container-fluid {
-    margin: 0px 15px;
-  }
-
-  .navbar-brand img {
-    height: 28px;
   }
 
   .navbar-toggler {
-    font-size: 20px;
-  }
-
-  .navbar-collapse {
-    top: 50px;
-    padding: 15px;
-  }
-
-  .nav-link {
-    font-size: 16px;
+    display: block;
   }
 }
 
+/* Small screens */
 @media (max-width: 480px) {
-  .navbar-collapse {
-    top: 45px;
-    padding: 10px;
-  }
-
   .navbar-brand img {
     height: 24px;
   }
@@ -199,11 +213,16 @@
   .nav-link {
     font-size: 14px;
   }
+
+  .nav-btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
 }
 
 @media (max-width: 400px) {
   .nav-btn {
-    font-size: 13px; /* Reduce font size */
-    padding: 5px 12px; /* Adjust padding */
+    font-size: 13px;
+    padding: 5px 12px;
   }
 }
