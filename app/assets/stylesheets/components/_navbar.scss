@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  // margin-left: auto !important;
+
 }
 
 /* General Button Styling */
@@ -112,11 +112,6 @@
   font-size: clamp(16px, 1vw, 18px); /* Sets a min size of 16px */
 }
 
-/* Ensure Avatar Stays Circular & Right */
-.nav-right .dropdown {
-  position: relative;
-}
-
 .avatar {
   border-radius: 50%;
   width: 40px;
@@ -128,20 +123,11 @@
 /* ======== RESPONSIVENESS =========== */
 
 /* Desktop View */
-// @media (min-width: 769px) {
-//   .container-fluid {
-//     padding: 0 3vw;
-//   }
-
-//   .navbar-toggler {
-//     display: none;
-//   }
-
-
-//   .nav-btn, .nav-btn-white {
-//     font-size: 0.9vw; /* Smaller font for compact screens */
-//   }
-// }
+@media (min-width: 769px) {
+  .container-fluid {
+    padding: 0 3vw;
+  }
+}
 
 /* Tablet & Mobile View */
 @media (max-width: 768px) {
@@ -153,6 +139,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    align-items: center;
   }
 
   .navbar-collapse {
@@ -176,12 +167,6 @@
     width: 100%;
   }
 
-  .nav-right {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-  }
 
   .nav-btn, .nav-btn-white {
     width: 100%;
