@@ -130,18 +130,18 @@
 
 
 /* Responsive Fix: Stack cards earlier before images are cut */
-@media (max-width: 1024px) {
-  .three-cards-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+// @media (max-width: 1024px) {
+//   .three-cards-row {
+//     // grid-template-columns: 1fr 1fr;
+//     gap: 16px;
+//   }
 
-  .emergency-category-card,
-  .animal-category-card,
-  .shelter-category-card {
-    min-height: 300px;
-  }
-}
+//   .emergency-category-card,
+//   .animal-category-card,
+//   .shelter-category-card {
+//     min-height: 300px;
+//   }
+// }
 
 @media (max-width: 768px) {
   .three-cards-row {
