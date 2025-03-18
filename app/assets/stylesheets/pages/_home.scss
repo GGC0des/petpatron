@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .background-body {
-  background-image: $hero;
+   background-image: $hero;
 }
 
 .hero {
@@ -8,23 +8,16 @@
   height: 478px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.home-dog {
-  background-image: url("Slot-1-Hero-Isolated");
-  background-repeat: no-repeat;
-  background-position: 65% 0%;
-}
-
-.hero-copy {
+.hero-content {
   margin: 0px 82px;
-  display: flex;
-  flex-direction: column;
   line-height: 478px;
 }
 
 .hero h1 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 64px;
 }
 
@@ -36,19 +29,68 @@
   letter-spacing: 1px;
 }
 
-.hero-eyecatcher {
-  background-image: url("Homepage_Eyecatcher");
-  background-size: cover;
-  width: 240px;
-  height: 250px;
+.hero-img {
+  content: url("Slot-1-Hero-Isolated");
+  display: flex;
+  justify-content: flex-end;
   position: absolute;
-  right: 82px;
-  transition: 0.5s;
+  top: 0%;
+  left: 65%;
 }
 
-.hero-eyecatcher:hover {
-  background-image: url("Homepage_Eyecatcher_Hover");
-  filter: saturate(1.5)
+
+@media (max-width: 820px) {
+
+  .hero h1 {
+    font-size: 48px;
+  }
 }
 
-// for category cards => stylesheet/components/_category_card
+
+@media (max-width: 768px) {
+
+  .hero {
+    max-height: 300px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    max-width: 360px;
+  }
+
+  .hero-img {
+    max-height: 240px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 28px; 
+  }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    max-width: 100%;
+  }
+
+  .hero-img {
+    max-height: 200px;
+    object-fit: contain;
+    display: block;
+    position: relative;
+    left: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transform: translateX(-50%);
+  }
+
+}

@@ -2,6 +2,7 @@
   max-width: 1512px;
   position: relative;
   margin: 0 auto;
+  // padding: 0 16px;
 }
 
 .create-don-bg {
@@ -142,4 +143,36 @@
 
 .dashboard-small-group {
   margin: 32px 0px;
+}
+
+
+/* Tablet: Two cards per row */
+@media (max-width: 1024px) {
+  .container-bottom {
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-gap: 24px;
+  }
+}
+
+/* Mobile: One card per row */
+@media (max-width: 768px) {
+
+   .container-top {
+    // flex-direction: column; /* Stack content vertically */
+    height: auto; /* Remove fixed height to allow content to grow naturally */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container-bottom {
+    grid-template-columns: 1fr; /* Single column for small screens */
+    padding: 16px;
+    grid-gap: 24px;
+  }
+
+  .container-bottom > * {
+    // border: 3px solid currentColor;
+    border-radius: 16px;
+    padding: 20px;
+  }
 }
