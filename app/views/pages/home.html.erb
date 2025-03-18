@@ -1,39 +1,38 @@
 <!-- Facebook Open Graph data -->
 <% content_for :meta_url, "#{request.original_url}" %>
-<% content_for :meta_title, "Pet Patron | Home | Welcome to PetPatron, where you can help" %>
+<% content_for :meta_title, "Pet Patron | Home | Welcome" %>
 
 <div class="background-body">
   <div class="container">
-    <div class="home-dog">
-      <div class="hero">
-        <div class="hero-copy">
+    <div class="hero">
+        <div class="hero-content">
           <% if user_signed_in? %>
             <h1>Hi, <%= current_user.first_name.capitalize %> </h1>
           <% else %>
-            <h1>Hi, animal lover!</h1>
+            <h1>Help Animals In Need</h1>
           <% end %>
-          <p>Easily connect with local shelters & support animals you love</p>
+          <p>Connect with shelters nearby! Book a volunteering slot to care for
+              an animal or donate to emergency fundraisers.</p>
+          <div class="hero-img"> </div>
         </div>
-        <%= link_to "", new_shelter_path, class: "hero-eyecatcher" %>
       </div>
 
-      <div class="three-cards-row">
+    <div class="three-cards-row">
         <%= link_to emergencies_path, class: "display-inherit" do %>
           <div class="category-card emergency-category-card emergency-img">
-            <p class="card-headline">Urgent Causes →</p>
+            <p class="card-headline">Fundraisers</p>
           </div>
         <% end %>
         <%= link_to animals_path, class: "display-inherit" do %>
           <div class="category-card animal-category-card animal-img">
-            <p class="card-headline">Caretaking →</p>
+            <p class="card-headline">Volunteering</p>
           </div>
         <% end %>
         <%= link_to shelters_path, class: "display-inherit" do %>
           <div class="category-card shelter-category-card shelter-img">
-            <p class="card-headline">Shelters →</p>
+            <p class="card-headline">Shelters</p>
           </div>
         <% end %>
       </div>
-    </div>
   </div>
 </div>

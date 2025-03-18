@@ -1,16 +1,200 @@
-.navbar-lewagon {
-  justify-content: space-between;
+/* Navbar Container */
+.navbar {
+  width: 100%;
   background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
+  padding: 12px 20px;
   flex-grow: 0;
 }
 
-.navbar-brand img {
-  height: 34.09px;
+/*Navbar Layout*/
+.navbar-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.15px;
+  width: 100%;
 }
 
-.container-fluid {
-  margin: 0px 65px;
+
+/* Navbar brand (logo) stays aligned left */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 34px;
+  max-width: 100%;
+}
+
+/*Navbar links*/
+.nav-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: $primary-accent;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  text-decoration-color: $secondary-accent;
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 7px;
+}
+
+
+/* Navbar items stay inline */
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Buttons & Avatar stay on the right */
+.nav-right {
+  align-items: center;
+  gap: 12px;
+}
+
+/* General Button Styling */
+.nav-btn, .nav-btn-white {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+/* Get Started / Register Button */
+.nav-btn {
+  background-color: #84c4c6;
+  border: none;
+  box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+  background-color: #84c4c6;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+
+  .nav-link:hover {
+    color: #0000008C !important;
+  }
+}
+
+/* White Button */
+.nav-btn-white {
+  background-color: transparent;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.nav-btn-white:hover {
+  background-color: #c0eaec;
+  color: $primary-accent !important;
+  transform: scale(1.05);
+}
+
+/* Prevents Text from Shrinking Too Much */
+.nav-link, .nav-btn, .nav-btn-white {
+  font-size: clamp(16px, 1vw, 18px); /* Sets a min size of 16px */
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+
+
+/* ======== RESPONSIVENESS =========== */
+
+/* Desktop View */
+@media (min-width: 769px) {
+  .container-fluid {
+    padding: 0 3vw;
+  }
+}
+
+/* Tablet & Mobile View */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 4vw;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-collapse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: white;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+
+  .nav-btn, .nav-btn-white {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .navbar-brand img {
+    height: 24px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .nav-btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-btn {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
 }

@@ -1,5 +1,5 @@
 <!-- Facebook Open Graph data -->
-<% content_for :meta_title, "Pet Patron | #{@myshelter.name} Shelter" if @myshelter.present? %>
+<% content_for :meta_title, "#{@myshelter.name} Shelter" if @myshelter.present? %>
 
 <div class="background-body-dashboard">
   <div class="dashboard-container">
@@ -11,7 +11,7 @@
             <%= @myshelter.name %>'s Dashboard
           </div>
           <div>
-            <%= link_to "← back to home", root_path, class: "card-link", style: "color: #D88351" %>
+            <%# <%= link_to "← back to home", root_path, class: "card-link", style: "color: #D88351" %>
           </div>
         </div>
         <div class="dash-shelter-card">
@@ -319,7 +319,7 @@
                     <div class="caretaking-info-text">
                       <p style="font-weight: 700"><%= caretaking.animal.name %></p>
                       <p><%= caretaking.date.strftime("%d.%m.%Y") %></p>
-                      <p><%= caretaking.date.strftime("%H:%M") %></p>
+                      <p><%= caretaking.date.strftime("%H:%Mode") %></p>
                       <p><%= caretaking.animal.shelter.name%></p>
                     </div>
                     <div class="caretaking-shelterdashboard-confirmed-photos">

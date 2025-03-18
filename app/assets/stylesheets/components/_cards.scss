@@ -499,3 +499,82 @@
 .dash-card-links-grey:hover {
   color: rgba(0, 0, 0, 0.90);
 }
+
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .shelter-card,
+  .fundraising-card,
+  .dash-shelter-card,
+  .shelters-card,
+  .animal-card,
+  .emergency-card,
+  .donation-card-dashboard {
+    height: auto; /* Allow flexible height */
+    flex-direction: column; /* Stack elements */
+    padding: 16px; /* Reduce padding */
+  }
+
+  .fundraising-card-text,
+  .shelters-card-text,
+  .shelter-card-maplinks {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  /* Ensure images scale */
+  .fundraising-card > img,
+  .shelter-card img,
+  .emergency-card img {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  .example-card-pending {
+    width: 100%; /* Make it full width */
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .fund-comment-card {
+    flex-direction: column;
+    gap: 16px;
+    height: auto;
+    padding: 16px;
+  }
+
+  .animal-slot-card,
+  .dash-emerg-card {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .dash-emerg-left,
+  .dash-emerg-right {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .caretaking-shelterdashboard-confirmed {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .caretaking-info-text {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .delete-caretaking-booking,
+  .confirm-caretaking-booking,
+  .decline-caretaking-booking {
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+  }
+}
