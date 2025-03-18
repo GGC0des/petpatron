@@ -45,13 +45,6 @@
   text-underline-offset: 7px;
 }
 
-/* Navbar Collapse */
-.navbar-collapse {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
 
 /* Navbar items stay inline */
 .navbar-nav {
@@ -65,7 +58,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: auto !important;
+  // margin-left: auto !important;
 }
 
 /* General Button Styling */
@@ -134,24 +127,20 @@
 /* ======== RESPONSIVENESS =========== */
 
 /* Desktop View */
-@media (min-width: 769px) {
-  .container-fluid {
-    padding: 0 3vw;
-  }
+// @media (min-width: 769px) {
+//   .container-fluid {
+//     padding: 0 3vw;
+//   }
 
-  .navbar-toggler {
-    display: none;
-  }
+//   .navbar-toggler {
+//     display: none;
+//   }
 
-  /* Buttons and Avatar stay on the right */
-  .nav-right {
-    margin-left: auto;
-  }
 
-  .nav-btn, .nav-btn-white {
-    font-size: 0.9vw; /* Smaller font for compact screens */
-  }
-}
+//   .nav-btn, .nav-btn-white {
+//     font-size: 0.9vw; /* Smaller font for compact screens */
+//   }
+// }
 
 /* Tablet & Mobile View */
 @media (max-width: 768px) {
