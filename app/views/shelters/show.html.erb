@@ -102,7 +102,6 @@
       </div>
     </div>
     <%# Animals in this Shelter %>
-    <%= @shelter_animals.inspect %>
     <div class="container-bottom">
       <% if @shelter_animals.present? %>
         <% @shelter_animals.each do |animal| %>
@@ -135,6 +134,64 @@
                   <% end %>
                 </div>
               <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%# Emergency Fundraisers in this Shelter %>
+    <%# <%= @shelter_emergencies.inspect %> 
+    <div>
+      <% if @shelter_emergencies.present? %>
+        <% @shelter_emergencies.each do |emergency| %>
+          <div class="fundraising-card">
+            <div class="animal-show-card-image">
+              <%# /////////////////////animals-show-photos start////////////////////////////////// %>
+              <div id="animals-show-photos" class="carousel slide" data-bs-ride="true">
+
+                <div class="carousel-indicators"> <%# switch buttons %>
+                    <% emergency.photos.each_with_index do |photo, index| %>
+                    <button type="button" data-bs-target="#animals-show-photos" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide 1"></button>
+                    <% end %>
+                </div>
+
+                <div class="carousel-inner"> <%# photos %>
+                  <% if emergency.photos.attached? %>
+                    <% emergency.photos.each_with_index do |photo, index| %>
+                      <div class="carousel-item <%= "active" if index == 0 %>">
+                        <%= image_tag photo, class: "d-block w-100" %>
+                      </div>
+                    <% end #each %>
+                  <% else %>
+                    <div class="carousel-item active">
+                      <%= image_tag "pet_icon.jpg", class: "d-block w-100" %>
+                    </div>
+                  <% end #if %>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#animals-show-photos" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#animals-show-photos" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+            <%# //////////////////////animals-show-photos end///////////////////////////////// %>
+
+            <div class="fundraising-card-text">
+              <div class="card-head mb-3"><%= @sum_of_donations %> € of the goal of <%= @fgoal %> €</div>
+              <% progress = (@sum_of_donations.to_f / @fgoal).round(2) * 100 %>
+              <% progress > 100 ? progress = 100 : progress = progress.to_i %>
+              <div class="progress mb-4">
+                <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="card-link mb-2">Help <%= emergency.animal.name %></div>
+              <div class="card-link mb-2">Shelter: <%= emergency.animal.shelter.name %></div>
+              <div class="card-sub mb-5"><%= emergency.description %></div>
+              <%= link_to "Donate money", new_emergency_donation_path(emergency), class: "add-emergency-button2", style: "font-size: 16px;" %>
+            </div>
           </div>
         <% end %>
       <% end %>
