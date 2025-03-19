@@ -6,8 +6,8 @@
       <%= f.input :sex, collection: [ "Female", "Male"] %>
       <%= f.input :size, collection: ["Small", "Medium", "Large"] %>
       <%= f.input :species, collection: ["Dog", "Cat", "Guinea Pig","Rabbit", "Bird", "Reptile", "Horse", "Dragon"] %>
-      <%= f.association :categories, as: :check_boxes, input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
+      <%= f.input :categories, collection: ["Adoption", "Foster Home", "Dog Walking", "Grooming", "Playtime", "Training", "Shelter Care"],
+                      as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
       <%= f.input :append_photos, as: :file, input_html: { multiple: true } %>
 
 
