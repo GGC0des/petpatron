@@ -36,8 +36,15 @@ class SheltersController < ApplicationController
       image_url: "/marker.png"
     }]
 
-    @shelter_animals = Animal.where(shelter_id: @shelter.id)
-    # puts @shelter_animals.inspect for testing
+    @shelter_animals = Animal.where(shelter_id: @shelter.id)  # puts @shelter_animals.inspect for testing
+
+    @shelter_emergencies = Emergency.where(animal_id: @shelter_animals.pluck(:id))
+    puts @shelter_emergencies.inspect
+    # Fundraiser & Donation-logic for all emergencies in this shelter
+    @sum_of_donations = @shelter_emergencies.joins(:donations).sum(:donation_amount)
+    @fgoal = @shelter_emergencies.sum(:fundraising_goal)
+    @donations = Donation.where(emergency_id: @shelter_emergencies.pluck(:id))
+    @donated = params[:donated].present?
   end
 
   def new
