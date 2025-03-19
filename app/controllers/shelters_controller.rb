@@ -35,6 +35,9 @@ class SheltersController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { shelter: @shelter }),
       image_url: "/marker.png"
     }]
+
+    @shelter_animals = Animal.where(shelter_id: @shelter.id)
+    # puts @shelter_animals.inspect for testing
   end
 
   def new
