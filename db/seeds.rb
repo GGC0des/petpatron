@@ -345,27 +345,32 @@ puts "Creating dogs .."
 #   "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg"
 # ]
 
-healthy_dogs = Dir.glob(Rails.root.join("db/sseds/images/*.jpg"))
+# healthy_dogs.each do |img|
+#   dog_file = URI.open(img)
+
+healthy_dogs = Dir.glob(Rails.root.join("db/seeds/images/*.jpg"))
 
 dog_names = ["Fuzzy", "Snuggles", "Bubbles", "Tootsie", "Cuddles", "Wiggles", "Kissy", "Snoopy", "Peanut", "Gizmo", "Cotton", "Muffin", "Trixie", "Buttercup", "Puddles", "Gizmo", "Taco", "Porkchop", "Rufus", "Snickers", "Biscuit"]
 
-# healthy_dogs.each do |img|
-#   dog_file = URI.open(img)
 healthy_dogs.each do |img_path|
   dog_file = File.open(img_path)
 
-    animal = Animal.new(
-      name: dog_names.sample,
-      description: "Timid towards strangers, but once you become friends you'll receive a lot of kisses and licksies.",
-      sex: ["Male", "Female"].sample,
-      size: ["Small", "Medium", "Large"].sample,
-      species: "Dog",
-      shelter_id: Shelter.all.sample.id
-    )
+  animal = Animal.new(
+    name: dog_names.sample,
+    description: "Timid towards strangers, but once you become friends you'll receive a lot of kisses and licksies.",
+    sex: ["Male", "Female"].sample,
+    size: ["Small", "Medium", "Large"].sample,
+    species: "Dog",
+    shelter_id: Shelter.all.sample.id
+  )
 
-    animal.photos.attach(io: dog_file, filename: "animal.jpg")
-    animal.save!
+  animal.photos.attach(io: File.open(img_path), filename: File.basename(img_path))
+
+  if animal.save
     print "x"
+  else
+    puts "Failed to create animal: #{animal.errors.full_messages.join(", ")}"
+  end
 end
 
 puts "#{Animal.all.size} animals created."
@@ -374,17 +379,17 @@ puts "#{Animal.all.size} animals created."
 puts "Creating emergencies"
 
 
-emergency1 = Emergency.create!(
-  title: "Nala needs urgent hip surgery",
-  description: "Nala was found on the side of the road, hours after she was hit by a car. She had to get immediate surgery. She still has an issue with her hip from an old injury and will need a metal plate and physiotherapy in the future.",
-  fundraising_goal: "980",
-  animal_id: Animal.all.sample.id
-)
+# emergency1 = Emergency.create!(
+#   title: "Nala needs urgent hip surgery",
+#   description: "Nala was found on the side of the road, hours after she was hit by a car. She had to get immediate surgery. She still has an issue with her hip from an old injury and will need a metal plate and physiotherapy in the future.",
+#   fundraising_goal: "980",
+#   animal_id: Animal.all.sample.id
+# )
 
-  e_file1 = URI.open("https://www.craigmcginty.com/.a/6a00d8341c7e8653ef02a308dbd3e7200c-600wi")
-  emergency1.photos.attach(io: e_file1, filename: "emergency.jpg", content_type: "image/jpg")
+#   e_file1 = URI.open("https://www.craigmcginty.com/.a/6a00d8341c7e8653ef02a308dbd3e7200c-600wi")
+#   emergency1.photos.attach(io: e_file1, filename: "emergency.jpg", content_type: "image/jpg")
 
-print "x"
+# print "x"
 
 emergency2 = Emergency.create!(
   title: "Help Toffee's recovery - sponsor her surgery & meds ",
@@ -601,5 +606,4 @@ puts "Creating caretakings"
 end
 
 puts "#{Caretaking.all.size} caretakings created."
-
 puts "Seeding done"
