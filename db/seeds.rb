@@ -322,32 +322,37 @@ puts "#{Shelter.all.size} shelters created."
 
 puts "Creating dogs .."
 
-healthy_dogs = [
-  "https://filmdaily.co/wp-content/uploads/2020/05/dog-videos-lede-1300x868.jpg",
-  "http://cdn.akc.org/content/article-body-image/havanesesmalldogs.jpg",
-  "https://dogshome.net/wp-content/uploads/2022/12/318379495_953295968965959_4606654393297871824_n-scaled.jpg",
-  "https://dogshome.net/wp-content/uploads/2022/12/318123781_601851681943653_1658591900367286302_n-scaled.jpg",
-  "https://dogshome.net/wp-content/uploads/2022/11/6ADE9443-F39D-4C62-BA30-E74A3AF4CB2F.jpeg",
-  "https://dogshome.net/wp-content/uploads/2022/11/315434482_1469255270254489_8724683098723830880_n-scaled.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1262504/0686M00000VdWpWQAV.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1259629/0686M00000TPIrTQAX.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1262596/0686M00000VeMGeQAN.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1244920/0686M00000Ui56NQAR.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1238743/0686M00000VeGc2QAF.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1260533/0686M00000VeE4GQAV.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1252234/0686M00000T0PuMQAV.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1259143/0686M00000QkpWQQAZ.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1258018/0686M00000TOli0QAD.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1257403/0686M00000TQ57AQAT.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1151904/0686M00000QkIvNQAV.jpg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1113716/0686M00000QjUsxQAF.jpeg",
-  "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg"
-]
+# 404 inaccessible images issue
+# healthy_dogs = [
+#   "https://filmdaily.co/wp-content/uploads/2020/05/dog-videos-lede-1300x868.jpg",
+#   "http://cdn.akc.org/content/article-body-image/havanesesmalldogs.jpg",
+#   "https://dogshome.net/wp-content/uploads/2022/12/318379495_953295968965959_4606654393297871824_n-scaled.jpg",
+#   "https://dogshome.net/wp-content/uploads/2022/12/318123781_601851681943653_1658591900367286302_n-scaled.jpg",
+#   "https://dogshome.net/wp-content/uploads/2022/11/6ADE9443-F39D-4C62-BA30-E74A3AF4CB2F.jpeg",
+#   "https://dogshome.net/wp-content/uploads/2022/11/315434482_1469255270254489_8724683098723830880_n-scaled.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1262504/0686M00000VdWpWQAV.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1259629/0686M00000TPIrTQAX.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1262596/0686M00000VeMGeQAN.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1244920/0686M00000Ui56NQAR.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1238743/0686M00000VeGc2QAF.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1260533/0686M00000VeE4GQAV.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1252234/0686M00000T0PuMQAV.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1259143/0686M00000QkpWQQAZ.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1258018/0686M00000TOli0QAD.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1257403/0686M00000TQ57AQAT.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1151904/0686M00000QkIvNQAV.jpg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1113716/0686M00000QjUsxQAF.jpeg",
+#   "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg"
+# ]
+
+healthy_dogs = Dir.glob(Rails.root.join("db/sseds/images/*.jpg"))
 
 dog_names = ["Fuzzy", "Snuggles", "Bubbles", "Tootsie", "Cuddles", "Wiggles", "Kissy", "Snoopy", "Peanut", "Gizmo", "Cotton", "Muffin", "Trixie", "Buttercup", "Puddles", "Gizmo", "Taco", "Porkchop", "Rufus", "Snickers", "Biscuit"]
 
-healthy_dogs.each do |img|
-  dog_file = URI.open(img)
+# healthy_dogs.each do |img|
+#   dog_file = URI.open(img)
+healthy_dogs.each do |img_path|
+  dog_file = File.open(img_path)
 
     animal = Animal.new(
       name: dog_names.sample,
