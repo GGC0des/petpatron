@@ -14,14 +14,14 @@ puts "Creating users that are animal lovers .."
 
 User.create!(
   first_name: "Peter",
-  last_name: "Paul",
-  email: "peter@paul.com",
+  last_name: "Lowe",
+  email: "peter@sample.com",
   password: "123456"
 )
 User.create!(
   first_name: "Mary",
-  last_name: "Jane",
-  email: "mary@jane.com",
+  last_name: "Lou",
+  email: "mary@sample.com",
   password: "123456"
 )
 
@@ -49,7 +49,7 @@ print "x"
 
 bailey = User.create!(
   first_name: "Bailey",
-  last_name: "Ahlers",
+  last_name: "Joya",
   email: "bailey@mail.com",
   password: "lewagon"
 )
@@ -82,7 +82,7 @@ print "x"
   shelter2 = Shelter.create!(
     name: "Georgina's Galgo Rescue",
     description: "Approximately 60,000 Spanish Greyhounds (Galgos) are killed and tortured every year due to cruel hunting traditions. Georgina's rescue is trying to save as many as possible.",
-    location: "Dänenstrasse 4, 10439 Berlin",
+    location: "Dänenstrasse 10, 10439 Berlin",
     phone_number: "030 5991 44391",
     email: "info@galgorescue.com",
     user: georgina
