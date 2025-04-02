@@ -19,9 +19,9 @@ User.create!(
   password: "123456"
 )
 User.create!(
-  first_name: "Mary",
-  last_name: "Lou",
-  email: "mary@sample.com",
+  first_name: "Merle",
+  last_name: "Ludwig",
+  email: "merle@sample.com",
   password: "123456"
 )
 
@@ -49,7 +49,7 @@ print "x"
 
 bailey = User.create!(
   first_name: "Bailey",
-  last_name: "Joya",
+  last_name: "Harris",
   email: "bailey@mail.com",
   password: "lewagon"
 )
@@ -74,7 +74,7 @@ print "x"
 
   georgina = User.create!(
     first_name: "Georgina",
-    last_name: "Spieth",
+    last_name: "Smith",
     email: "georgina@mail.com",
     password: "lewagon"
   )
@@ -82,7 +82,7 @@ print "x"
   shelter2 = Shelter.create!(
     name: "Georgina's Galgo Rescue",
     description: "Approximately 60,000 Spanish Greyhounds (Galgos) are killed and tortured every year due to cruel hunting traditions. Georgina's rescue is trying to save as many as possible.",
-    location: "Dänenstrasse 10, 10439 Berlin",
+    location: "Paul-Robeson-Strasse, 10439 Berlin",
     phone_number: "030 5991 44391",
     email: "info@galgorescue.com",
     user: georgina
@@ -121,10 +121,10 @@ shelter5.photos.attach(io: file10, filename: "shelter.png", content_type: "image
 
 print "x"
 
-amar = User.create!(
-  first_name: "Amar",
-  last_name: "Singh",
-  email: "amar@mail.com",
+jess = User.create!(
+  first_name: "Jess",
+  last_name: "Enders",
+  email: "jess@mail.com",
   password: "lewagon"
 )
 
@@ -134,7 +134,7 @@ shelter4 = Shelter.create!(
   location: "Zooallee 1, 39124 Magdeburg",
   phone_number: "040 94521 67390",
   email: "info@puppsters.com",
-  user: amar
+  user: jess
 )
 
   file9 = URI.open("https://images.unsplash.com/photo-1594004844563-536a03a6e532?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
@@ -233,7 +233,7 @@ print "x"
 
 lars = User.create!(
   first_name: "Lars",
-  last_name: "Buffon",
+  last_name: "Beck",
   email: "lars@mail.com",
   password: "lewagon"
 )
@@ -255,7 +255,7 @@ print "x"
 
 kim = User.create!(
   first_name: "Kim",
-  last_name: "Carolina",
+  last_name: "Hummel",
   email: "kim@mail.com",
   password: "lewagon"
 )
@@ -300,7 +300,7 @@ print "x"
 
 rory = User.create!(
   first_name: "Rory",
-  last_name: "Gloves",
+  last_name: "Gutenberg",
   email: "rory@mail.com",
   password: "lewagon"
 )
