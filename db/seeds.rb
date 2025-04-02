@@ -545,11 +545,31 @@ puts "#{Emergency.all.size} emergencies created."
 
 puts "Creating donations"
 
+donor_comments = [
+  "Wishing for a speedy recovery! ❤️",
+  "Happy to help! Get well soon!",
+  "Every life matters. Sending love!",
+  "Hope this helps! Stay strong!",
+  "You got this cutie patotie 💕",
+  "Wishing for a successful surgery!",
+  "Get well soon, sweet baby!",
+  "Thank you for caring for them!",
+  "Sending love and healing vibes 🐾",
+  "Glad to support! Keep fighting!",
+  "Hope this helps! Every bit counts!",
+  "Speedy recovery, little fighter! 💖",
+  "Stay strong, we’re all rooting for you!",
+  "Lots of love from my furry family to yours!",
+  "Hoping for the best outcome! Keep fighting!",
+  "Every animal deserves a chance. Sending love!"
+]
+
+
 Emergency.all.each do |emergency|
   rand(0..7).times do
     Donation.create!(
       donation_amount: rand(5..100),
-      comment: Faker::Lorem.paragraph(sentence_count: rand(1..5)),
+      comment: donor_comment.sample,
       user_id: User.all.sample.id,
       emergency_id: emergency.id
     )
