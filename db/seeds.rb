@@ -569,7 +569,7 @@ Emergency.all.each do |emergency|
   rand(0..7).times do
     Donation.create!(
       donation_amount: rand(5..100),
-      comment: donor_comment.sample,
+      comment: donor_comments.sample,
       user_id: User.all.sample.id,
       emergency_id: emergency.id
     )
