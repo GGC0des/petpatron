@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DisclaimerModalController from "./disclaimer_modal_controller"
+application.register("disclaimer-modal", DisclaimerModalController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
