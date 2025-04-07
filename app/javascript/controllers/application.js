@@ -1,6 +1,5 @@
 import { Application } from "@hotwired/stimulus"
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import { Modal } from 'bootstrap'
 
 
 const application = Application.start()
@@ -8,5 +7,7 @@ const application = Application.start()
 // Configure Stimulus development experience
 application.debug = false
 window.Stimulus   = application
+
+import "controllers"
 
 export { application }

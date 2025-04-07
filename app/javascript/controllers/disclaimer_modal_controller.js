@@ -11,14 +11,15 @@ export default class extends Controller {
       if (modalEl) {
         const modal = new bootstrap.Modal(modalEl)
 
-        // When modal is about to be hidden, check the checkbox state
+        modal.show()
+
+        // Modal is about to be hidden, check the checkbox state
         modalEl.addEventListener("hidden.bs.modal", () => {
           if (this.hasCheckboxTarget && this.checkboxTarget.checked) {
+            // Store the "Don't Show Again" preference in localStorage
             localStorage.setItem("disclaimerOptOut", "true")
           }
         })
-
-        modal.show()
       }
     }
   }
