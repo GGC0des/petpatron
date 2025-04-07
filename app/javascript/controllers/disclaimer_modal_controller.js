@@ -7,16 +7,20 @@ export default class extends Controller {
   connect() {
     console.log("Disclaimer modal controller connected")
 
-    if (modalEl && window.bootstrap) {
-      const modal = new window.bootstrap.Modal(modalEl)
+    if (localStorage.getItem("disclaimerOptOut") !== "true") {
+      const modalEl = document.getElementById("disclaimerModal")
 
-      modalEl.addEventListener("hidden.bs.modal", () => {
-        if (this.hasCheckboxTarget && this.checkboxTarget.checked) {
-          localStorage.setItem("disclaimerOptOut", "true")
-        }
-      })
+      if (modalEl && window.bootstrap) {
+        const modal = new window.bootstrap.Modal(modalEl)
 
-      modal.show()
+        modalEl.addEventListener("hidden.bs.modal", () => {
+          if (this.hasCheckboxTarget && this.checkboxTarget.checked) {
+            localStorage.setItem("disclaimerOptOut", "true")
+          }
+        })
+
+        modal.show()
+      }
     }
   }
 }
