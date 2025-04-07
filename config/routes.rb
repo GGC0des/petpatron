@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get 'impressum', to: 'pages#impressum'
+  get 'about', to: 'pages#about'
 
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :shelters
