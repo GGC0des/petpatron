@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["checkbox"]
 
   connect() {
-    console.log("Disclaimer modal controller connected")
+    // console.log("Disclaimer modal controller connected")
 
     if (localStorage.getItem("disclaimerOptOut") !== "true") {
       const modalEl = document.getElementById("disclaimerModal")
