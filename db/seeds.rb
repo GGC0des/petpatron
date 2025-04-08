@@ -368,7 +368,7 @@ healthy_dogs.each do |img|
     shelter_id: Shelter.all.sample.id
   )
 
-  animal.photos.attach(io: File.open(img_path), filename: File.basename(img_path))
+  animal.photos.attach(io: dog_file, filename: "dog.jpg")
 
   if animal.save
     print "x"
