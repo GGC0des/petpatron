@@ -7,16 +7,8 @@ class AnimalsController < ApplicationController
         animals.species ILIKE :query
         OR shelters.location ILIKE :query
         OR categories.name ILIKE :query
-        OR animals.name ILIKE :query
       "
-      # fixing error happen when selecting category and searching with words having typos
-      if params[:categories]
-        @categories = Category.where(name: params[:categories]).pluck(:id).join(",")
-        sql_query = "(#{sql_query}) AND categories.id IN (#{@categories})"
-      end
-      # to get results from searching by name
-      @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%").distinct
-      # .distinct to avoid repeated result
+      @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%")
       if @items.first.is_a?(Animal)
         @animals = @items
         @shelters = @items.map{|animal|animal.shelter}
@@ -31,6 +23,10 @@ class AnimalsController < ApplicationController
       @animals = Animal.all
     end
 
+    if params[:categories]
+      @categories = Category.where(name: params[:categories])
+      @animals = @animals.joins(animal_categories: :category).where(category: {id: @categories})
+    end
     @markers = @shelters.map do |shelter|
       {
         lat: shelter.latitude,
