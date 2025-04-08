@@ -51,7 +51,7 @@ Any shelter can register and create an administrative account to manage shelter 
 ## **Technologies Used**  
 
 - **Backend**:
-  - [Ruby on Rails 5.2.3](https://rubyonrails.org/): Provides the core framework for application development.
+  - [Ruby on Rails 3.1.2](https://rubyonrails.org/): Provides the core framework for application development.
 - **Frontend**:
   - [JavaScript (ES6)](https://developer.mozilla.org/en-US/docs/Web/JavaScript): Enhances interactivity and user engagement.
   - [Stimulus 1.1.1](https://stimulus.hotwired.dev/): Manages JavaScript behavior in a structured manner.
