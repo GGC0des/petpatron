@@ -322,38 +322,42 @@ puts "#{Shelter.all.size} shelters created."
 
 puts "Creating dogs .."
 
-# 404 inaccessible images issue
-# healthy_dogs = [
-#   "https://filmdaily.co/wp-content/uploads/2020/05/dog-videos-lede-1300x868.jpg",
-#   "http://cdn.akc.org/content/article-body-image/havanesesmalldogs.jpg",
-#   "https://dogshome.net/wp-content/uploads/2022/12/318379495_953295968965959_4606654393297871824_n-scaled.jpg",
-#   "https://dogshome.net/wp-content/uploads/2022/12/318123781_601851681943653_1658591900367286302_n-scaled.jpg",
-#   "https://dogshome.net/wp-content/uploads/2022/11/6ADE9443-F39D-4C62-BA30-E74A3AF4CB2F.jpeg",
-#   "https://dogshome.net/wp-content/uploads/2022/11/315434482_1469255270254489_8724683098723830880_n-scaled.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1262504/0686M00000VdWpWQAV.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1259629/0686M00000TPIrTQAX.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1262596/0686M00000VeMGeQAN.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1244920/0686M00000Ui56NQAR.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1238743/0686M00000VeGc2QAF.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1260533/0686M00000VeE4GQAV.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1252234/0686M00000T0PuMQAV.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1259143/0686M00000QkpWQQAZ.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1258018/0686M00000TOli0QAD.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1257403/0686M00000TQ57AQAT.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1151904/0686M00000QkIvNQAV.jpg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1113716/0686M00000QjUsxQAF.jpeg",
-#   "https://www.dogstrust.org.uk/images/800x600/dogs/1261511/0686M00000TQxWJQA1.jpg"
-# ]
+healthy_dogs = [
+  "https://images.unsplash.com/photo-1705620762642-6c737ba3b63e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1688152591520-f385d059e612?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1733985859275-38a98fcafd5d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1605364699459-28c629cd41fc?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1643786259916-a546902a83bd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1643786262347-c7320a0913d6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1594907259769-fde45d5b7f77?q=80&w=2146&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1643786259439-812762c18d35?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1643786262383-71182213ac13?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1643786258638-ba20cfe7382f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1593991910463-03658d3de800?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1670370752910-1aae175d567f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1598739871560-29dfcd95b823?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1578702162891-739689c99909?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1596838005467-a34b063fc0b5?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1605484649538-98578113d4f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1730211067260-2eeaf1f703b2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1653077701146-bfc3b297d3ef?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1689400119492-e7d13f1a8136?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1687425961065-46efeb465c66?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1583885627072-4823ed115094?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1601542271917-306a64c1a063?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+]
 
-# healthy_dogs.each do |img|
-#   dog_file = URI.open(img)
 
-healthy_dogs = Dir.glob(Rails.root.join("db/seeds/images/*.jpg"))
+dog_names = [
+  "Fuzzy", "Snuggles", "Bubbles", "Tootsie", "Cuddles", "Wiggles", "Kissy", "Snoopy", "Peanut", "Gizmo",
+  "Cotton", "Muffin", "Trixie", "Buttercup", "Puddles", "Gizmo", "Taco", "Pimpim", "Rufus", "Snickers", "Biscuit",
+  "Marshmallow", "Pickles", "Nibbles", "Mocha", "Pumpkin", "Cupcake", "Sprinkles", "Scooter", "Waffles", "Ziggy",
+  "Churro", "Pebbles", "Jellybean", "Mochi", "Fluffy", "Bluey", "Daisy", "Tinker", "Frito", "Cheddar",
+  "Cinnamon", "Wiggy", "Popcorn", "Goober", "Buttons", "Nugget", "Sally", "Taffy", "Bambi", "Juno"
+]
 
-dog_names = ["Fuzzy", "Snuggles", "Bubbles", "Tootsie", "Cuddles", "Wiggles", "Kissy", "Snoopy", "Peanut", "Gizmo", "Cotton", "Muffin", "Trixie", "Buttercup", "Puddles", "Gizmo", "Taco", "Porkchop", "Rufus", "Snickers", "Biscuit"]
-
-healthy_dogs.each do |img_path|
-  dog_file = File.open(img_path)
+healthy_dogs.each do |img|
+  dog_file = URI.open(img)
 
   animal = Animal.new(
     name: dog_names.sample,
@@ -379,17 +383,17 @@ puts "#{Animal.all.size} animals created."
 puts "Creating emergencies"
 
 
-# emergency1 = Emergency.create!(
-#   title: "Nala needs urgent hip surgery",
-#   description: "Nala was found on the side of the road, hours after she was hit by a car. She had to get immediate surgery. She still has an issue with her hip from an old injury and will need a metal plate and physiotherapy in the future.",
-#   fundraising_goal: "980",
-#   animal_id: Animal.all.sample.id
-# )
+emergency1 = Emergency.create!(
+  title: "Nala needs urgent hip surgery",
+  description: "Nala was found on the side of the road, hours after she was hit by a car. She had to get immediate surgery. She still has an issue with her hip from an old injury and will need a metal plate and physiotherapy in the future.",
+  fundraising_goal: "980",
+  animal_id: Animal.all.sample.id
+)
 
-#   e_file1 = URI.open("https://www.craigmcginty.com/.a/6a00d8341c7e8653ef02a308dbd3e7200c-600wi")
-#   emergency1.photos.attach(io: e_file1, filename: "emergency.jpg", content_type: "image/jpg")
+  e_file1 = URI.open("https://images.unsplash.com/photo-1661175099624-c9b9c2318e15?q=80&w=2152&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+  emergency1.photos.attach(io: e_file1, filename: "emergency.jpg", content_type: "image/jpg")
 
-# print "x"
+print "x"
 
 emergency2 = Emergency.create!(
   title: "Help Toffee's recovery - sponsor her surgery & meds ",
@@ -398,7 +402,7 @@ emergency2 = Emergency.create!(
   animal_id: Animal.all.sample.id
 )
 
-  e_file2 = URI.open("https://www.podenco-in-not.de/wp-content/uploads/Tadisa_0918_15.png")
+  e_file2 = URI.open("https://images.unsplash.com/photo-1662128614795-4e87f1b98b23?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   emergency2.photos.attach(io: e_file2, filename: "emergency.jpg", content_type: "image/jpg")
 
 print "x"
@@ -459,25 +463,25 @@ print "x"
 
 emergency7 = Emergency.create!(
   title: "Provide a safe haven for Sasha ",
-  description: "Sasha is a sweet and gentle dog who was found wandering the streets. She was malnourished and injured, but now she is recovering in our shelter. Your donation will help us provide food, shelter, and medical care for Sasha as she recovers and waits for her forever home.",
+  description: "Sasha is a sweet and gentle puppy who was found wandering the streets. She was malnourished and needed special care. Now she is recovering in our shelter. Your donation will help us provide food, shelter, and medical care for Sasha as she recovers and waits for her forever home.",
   fundraising_goal: "350",
   animal_id: Animal.all.sample.id
 )
 
-  e_file7 = URI.open("https://d2g8igdw686xgo.cloudfront.net/68580875_1665065919228655_r.jpeg")
+  e_file7 = URI.open("https://images.unsplash.com/photo-1553688738-a278b9f063e0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   emergency7.photos.attach(io: e_file7, filename: "emergency.jpg", content_type: "image/jpg")
 
 
 print "x"
 
 emergency8 = Emergency.create!(
-  title: "Bella's second chance",
-  description: "Bella was a victim of abuse and neglect before she was rescued by our organization. She is now recovering and ready for a new home, but she needs your help. Your donation will help us provide essential care and support for Bella as she starts her new life in a loving home.",
+  title: "Bella's chance at a better life",
+  description: "Bella was in a puppy mill before she was rescued by our organization. She is now recovering and ready for a new home, but she needs your help. Your donation will help us provide essential care and support for Bella as she starts her new life in a loving home.",
   fundraising_goal: "190",
   animal_id: Animal.all.sample.id
 )
 
-  e_file8 = URI.open("https://d2g8igdw686xgo.cloudfront.net/69645275_1669842582247515_r.jpg")
+  e_file8 = URI.open("https://images.unsplash.com/photo-1644675272883-0c4d582528d8?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   emergency8.photos.attach(io: e_file8, filename: "emergency.jpg", content_type: "image/jpg")
 
 
@@ -486,12 +490,12 @@ print "x"
 
 emergency9 = Emergency.create!(
   title: "Rocky's Rehabilitation",
-  description: "Rocky is a brave and resilient dog who was rescued from a puppy mill. He has been through a lot, but he is now ready to start his new life in a loving home. Your donation will help us provide essential care and support for Rocky as he recovers and learns to trust and love again.",
+  description: "Rocky is a brave and resilient dog who was rescued from neglectful owners that kept him chained in their yard. He has been through a lot, but he is now ready to start his new life in a loving home. Your donation will help us provide essential care and support for Rocky as he recovers and learns to trust and love again.",
   fundraising_goal: "265",
   animal_id: Animal.all.sample.id
 )
 
-  e_file9 = URI.open("https://animal-clinic-of-woodruff.imgix.net/surgery-blog370895757.jpg")
+  e_file9 = URI.open("https://images.unsplash.com/photo-1636750446092-6c0b5f801e75?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   emergency9.photos.attach(io: e_file9, filename: "emergency.jpg", content_type: "image/jpg")
 
 
@@ -505,7 +509,7 @@ emergency10 = Emergency.create!(
   animal_id: Animal.all.sample.id
 )
 
-  e_file10 = URI.open("https://d2g8igdw686xgo.cloudfront.net/68183481_1663502048407073_r.jpeg")
+  e_file10 = URI.open("https://images.unsplash.com/photo-1733210872526-863e2f16cf39?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   emergency10.photos.attach(io: e_file10, filename: "emergency.jpg", content_type: "image/jpg")
 
 
@@ -514,12 +518,12 @@ print "x"
 
 emergency11 = Emergency.create!(
   title: "Daisy's Medical Fund",
-  description: "Daisy was rescued from a neglectful situation and needed a lot of surgeries and medication. She is now safe in our shelter, but she needs urgent medical care. Your donation will help us pay for Daisy's medical bills and give her the chance to recover and find a loving home.",
+  description: "Daisy needed a lot of surgeries and medication which is why she was surrendered. She is now safe in our shelter, but she needs urgent medical care. Your donation will help us pay for Daisy's medical bills and give her the chance to recover and find a loving home.",
   fundraising_goal: "370",
   animal_id: Animal.all.sample.id
 )
 
-  e_file11 = URI.open("https://d2g8igdw686xgo.cloudfront.net/69716583_1670353073258906_r.jpeg")
+  e_file11 = URI.open("https://images.unsplash.com/photo-1722413467474-8290acd91898?q=80&w=2113&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   emergency11.photos.attach(io: e_file11, filename: "emergency.jpg", content_type: "image/jpg")
 
 
@@ -533,7 +537,7 @@ emergency12 = Emergency.create!(
   animal_id: Animal.all.sample.id
 )
 
-  e_file12 = URI.open("https://d2g8igdw686xgo.cloudfront.net/69686357_1670013976397684_r.jpeg")
+  e_file12 = URI.open("https://images.unsplash.com/photo-1725409796872-8b41e8eca929?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   emergency12.photos.attach(io: e_file12, filename: "emergency.jpg", content_type: "image/jpg")
 
 
