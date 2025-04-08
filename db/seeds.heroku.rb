@@ -17,20 +17,20 @@ User.create!(
   first_name: "Peter",
   last_name: "Lowe",
   email: "peter@sample.com",
-  password: "123456"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 User.create!(
   first_name: "Merle",
   last_name: "Ludwig",
   email: "merle@sample.com",
-  password: "123456"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 User.create!(
   first_name: "Nik",
   last_name: "Hero",
   email: "nik@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 puts "#{User.all.size} animal lovers created."
@@ -47,7 +47,7 @@ bailey = User.create!(
   first_name: "Bailey",
   last_name: "Harris",
   email: "bailey@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter1 = Shelter.create!(
@@ -72,7 +72,7 @@ print "x"
     first_name: "Georgina",
     last_name: "Smith",
     email: "georgina@mail.com",
-    password: "lewagon"
+    password: "!le!wfgdfigiuoiagon!3344"
   )
 
   shelter2 = Shelter.create!(
@@ -99,7 +99,7 @@ maxi = User.create!(
   first_name: "Maxi",
   last_name: "Wonder",
   email: "maxi@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter5 = Shelter.create!(
@@ -121,7 +121,7 @@ jess = User.create!(
   first_name: "Jess",
   last_name: "Enders",
   email: "jess@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter4 = Shelter.create!(
@@ -142,7 +142,7 @@ bruna = User.create!(
   first_name: "Bruna",
   last_name: "Noel",
   email: "bruna@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter3 = Shelter.create!(
@@ -166,7 +166,7 @@ itzi = User.create!(
   first_name: "Itziar",
   last_name: "Gomez",
   email: "itzi@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter6 = Shelter.create!(
@@ -188,7 +188,7 @@ shelter6 = Shelter.create!(
     first_name: "Rico",
     last_name: "Torres",
     email: "rico@mail.com",
-    password: "lewagon"
+    password: "!le!wfgdfigiuoiagon!3344"
   )
 
   shelter7 = Shelter.create!(
@@ -209,7 +209,7 @@ shelter6 = Shelter.create!(
     first_name: "Nadia",
     last_name: "Hirsch",
     email: "nadia@mail.com",
-    password: "lewagon"
+    password: "!le!wfgdfigiuoiagon!3344"
    )
 
    shelter8 = Shelter.create!(
@@ -231,7 +231,7 @@ lars = User.create!(
   first_name: "Lars",
   last_name: "Beck",
   email: "lars@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter9 = Shelter.create!(
@@ -253,7 +253,7 @@ kim = User.create!(
   first_name: "Kim",
   last_name: "Hummel",
   email: "kim@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter10 = Shelter.create!(
@@ -275,7 +275,7 @@ patty = User.create!(
   first_name: "Patty",
   last_name: "Drem",
   email: "patty@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter11 = Shelter.create!(
@@ -298,7 +298,7 @@ rory = User.create!(
   first_name: "Rory",
   last_name: "Gutenberg",
   email: "rory@mail.com",
-  password: "lewagon"
+  password: "!le!wfgdfigiuoiagon!3344"
 )
 
 shelter12 = Shelter.create!(
