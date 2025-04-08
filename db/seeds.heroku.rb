@@ -1,5 +1,4 @@
 # production seed data
-
 # Seeding images via cloudinary
 require "open-uri"
 
@@ -567,14 +566,19 @@ donor_comments = [
 
 
 Emergency.all.each do |emergency|
-  rand(0..7).times do
+  users = User.all.shuffle # shuffle so the sample is randomized
+  donation_count = rand(0..[users.count, 7].min) # cap donation count by total users
+  selected_users = users.take(donation_count)
+
+  selected_users.each do |user|
     Donation.create!(
       donation_amount: rand(5..100),
       comment: donor_comments.sample,
-      user_id: User.all.sample.id,
+      user_id: user.id,
       emergency_id: emergency.id
     )
   end
+
   print "x"
 end
 
@@ -628,4 +632,3 @@ end
 
 puts "#{Caretaking.all.size} caretakings created."
 puts "Seeding done"
-
