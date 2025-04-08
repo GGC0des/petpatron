@@ -610,10 +610,11 @@ puts "All categories created!"
 puts "Creating Animal_Categories"
 
 Animal.all.each do |animal|
-  AnimalCategory.create!(
-    animal: animal,
-    category: Category.all.sample
-  )
+  rand_num = rand(1..5)
+  rand_category = Category.all.sample(rand_num)
+  rand_category.each do |category|
+    AnimalCategory.create!(animal: animal, category: category)
+  end
 end
 puts "#{AnimalCategory.all.size} animal categories created
 and connected to both animal-table and category-table through animal_category-table"
