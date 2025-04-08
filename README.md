@@ -1,7 +1,8 @@
 # PetPatron
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.petpatron.help)](https://www.petpatron.help/)
-[![Ruby on Rails](https://img.shields.io/badge/Ruby_on_Rails-5.2.3-red)](https://rubyonrails.org/)
+[![Ruby on Rails](https://img.shields.io/badge/Ruby_on_Rails-3.1.2-red
+)](https://rubyonrails.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Stimulus](https://img.shields.io/badge/Stimulus-1.1.1-blue)](https://stimulus.hotwired.dev/)
 [![Mapbox](https://img.shields.io/badge/Mapbox-GL_JS-brightgreen)](https://www.mapbox.com/)
