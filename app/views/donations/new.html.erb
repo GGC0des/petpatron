@@ -4,6 +4,15 @@
 <% content_for :meta_description, @emergency.animal.description %>
 <% content_for :meta_image, cl_image_path(@emergency.animal.photos[0].key) if @emergency.animal.photos.attached? %>
 
+<!-- ALERT START -->
+<div class="alert-container d-flex justify-content-center">
+  <div class="alert alert-warning mt-3 mb-0 text-center" role="alert">
+    <strong>Use fake data!</strong> This donation function is for simulation purposes only and does not process real transactions.
+    <a href="/about" class="alert-link">Read more</a>.
+  </div>
+</div>
+<!-- ALERT END -->
+
 <div class="create-don-bg p-5">
   <div class="create-don-container  mx-auto" id="booking">
     <div class="bg-white p-4 shadow" style="border-radius: 16px;">
@@ -22,6 +31,7 @@
             <div id="slider-value" class="normal-head">0</div>
           </div>
           <%= f.input :comment, label: "Add a comment to your donation" %>
+
           <div class="d-flex gap-3 my-4">
             <div class="payment-button" data-action="click->toggle-payment-details#toggle1" data-toggle-payment-details-target="button"><%= image_tag("paypal_logo.svg") %></div>
             <div class="payment-button" data-action="click->toggle-payment-details#toggle2" data-toggle-payment-details-target="button"><%= image_tag("creditcard_logo.png") %></div>
@@ -35,7 +45,7 @@
             <%= f.input :account_holder, label: "Name on card" %>
             <%= f.input :iban, label: "Card number" %>
             <%= f.input :expiry_date %>
-            <%= f.input :security_code %>
+            <%# <%= f.input :security_code %>
           </div>
           <div data-toggle-payment-details-target="pinputs1" class="d-none">
             <div class="pp-card">
