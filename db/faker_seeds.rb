@@ -1,3 +1,4 @@
+# old seedfile using Faker
 puts "Removing all existing data .."
 
 Donation.destroy_all
@@ -12,19 +13,19 @@ puts "Creating users that are animal lovers .."
 User.create!(
   first_name: "Peter",
   last_name: "Paul",
-  email: "peter@paul.com",
+  email: "peter@mail.com",
   password: "123456"
 )
 User.create!(
   first_name: "Mary",
   last_name: "Jane",
-  email: "mary@jane.com",
+  email: "mary@mail.com",
   password: "123456"
 )
 User.create!(
   first_name: "Salvatore",
   last_name: "Bianci",
-  email: "salvatore@bianci.com",
+  email: "salvatore@mail.com",
   password: "123456"
 )
 
