@@ -41,4 +41,4 @@
 .DS_Store
 .env*
 db/seeds.local.rb
-# db/seeds.heroku.rb
+db/seeds.heroku.rb
