@@ -8,8 +8,8 @@ export default class extends Controller {
   selectCategory(event) {
     const label = event.target
     const checkbox = label.previousElementSibling
-    console.log(checkbox.checked)
+    // console.log(checkbox.checked)
     checkbox.checked = !checkbox.checked
-    console.log(checkbox.checked)
+    // console.log(checkbox.checked)
   }
 }
