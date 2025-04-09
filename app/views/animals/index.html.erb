@@ -16,7 +16,7 @@
       <p class="normal-sub">Find shelter animals close to you and ways to volunteer to take care of them.  </p>
       <%= form_with url: animals_path, method: :get, class: "input-group right-align container-top-search" do %>
         <div class="d-flex w-100" >
-          <%= text_field_tag :query, params[:query], class:  "form-control", id: "query", placeholder: "Search by city name or animal species" %>
+          <%= text_field_tag :query, params[:query], class:  "form-control", id: "query", placeholder: "Search by city & select filters e.g. Berlin + Adoption " %>
           <button type="submit" class="btn border bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <div style="margin-top: 7px">

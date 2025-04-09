@@ -10,30 +10,29 @@ class AnimalsController < ApplicationController
         OR shelters.location ILIKE :query
         OR categories.name ILIKE :query
       "
-      @animals = Animal
-        .joins(:shelter)
-        .left_outer_joins(:categories)
-        .where(sql_query, query: "%#{params[:query]}%")
-        .distinct
 
-      @shelters = @animals.map(&:shelter).uniq.compact
+      # fixing error happen when selecting category and searching with words having typos
+      if params[:categories]
+        @categories = Category.where(name: params[:categories]).pluck(:id).join(",")
+        sql_query = "(#{sql_query}) AND categories.id IN (#{@categories})"
+      end
+      # to get results from searching by name
+      @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%").distinct # .distinct to avoid repeated result
+      if @items.first.is_a?(Animal)
+        @animals = @items
+        @shelters = @items.map{|animal|animal.shelter}
+      elsif @items.first.is_a?(Category)
+        @animals = @items.map{|category|category.animals}
+        @shelters = @animals.map{|animal|animal.shelter}
+      else
+        @shelters = @items
+      end
     else
       @shelters = Shelter.all
       @animals = Animal.all
     end
 
-    # Filter by selected categories
-    if params[:categories].present?
-      @categories = Category.where(name: params[:categories])
-      @animals = @animals
-        .joins(animal_categories: :category)
-        .where(category: {id: @categories})
-        .distinct
-
-      @shelters = @animals.map(&:shelter).uniq.compact
-    end
-
-    # Markers for map
+    # Mapbox
     @markers = @shelters.map do |shelter|
       {
         lat: shelter.latitude,
