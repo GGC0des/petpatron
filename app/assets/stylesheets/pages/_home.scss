@@ -15,8 +15,8 @@
 
 .hero-content {
   line-height: 1.5;
-  margin: 0px;
-  max-width: 50%;
+  margin: 0px 82px;
+  max-width: 70%;
   padding-right: 20px;
   z-index: 2;
 }
@@ -53,8 +53,23 @@
 
 @media (max-width: 1186px) {
   .hero-img {
-    max-height: 200px;
+    left: 85%;
+    max-height: 320px;
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1067px) {
+  .hero {
+    height: 378px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+  }
+
+  .hero-img {
+    max-height: 280px;
   }
 }
 
@@ -62,6 +77,10 @@
 
   .hero h1 {
     font-size: 48px;
+  }
+
+  .hero-img {
+    max-height: 200px;
   }
 }
 
