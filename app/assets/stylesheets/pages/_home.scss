@@ -129,10 +129,12 @@
     font-size: 16px;
     line-height: 16px;
     letter-spacing: 0px;
+    width: 100%;
   }
 
   .hero-content {
-    max-width: 100%;
+    margin: 0px 0px;
+    width: 100%;
   }
 }
 
@@ -148,10 +150,6 @@
   .hero p {
     font-size: 12px;
     line-height: 16px;
-    width: 100%;
   }
 
-  .hero-content {
-    margin: 0px 0px;
-  }
 }
