@@ -3,33 +3,58 @@ class EmergenciesController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR location ILIKE :query"
-      @all_locations = Shelter.all.pluck(:location).join(",").downcase
-      if @all_locations.include? params[:query].downcase
-        @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
-        @animals = []
-        @shelters.each do |shelter|
-          @animals << shelter.animals
-        end
-        @emergencies = []
-        @animals.flatten.each do |animal|
-          animal.emergencies.each do |e|
-            @emergencies << e if animal.emergencies.any?
-          end
-        end
-      else
-        @shelters = Shelter.all
-        @emergencies = Emergency.all
-      end
+      sql_query = "
+        emergencies.title ILIKE :query
+        OR shelters.location ILIKE :query
+        OR shelters.name ILIKE :query
+        "
+
+
+      # Get shelters and their associated animals and emergencies
+      @shelters = Shelter.joins(animals: :emergencies)
+          .where(sql_query, query: "%#{params[:query]}%")
+          .distinct
+
+      # Fetch all emergencies associated with these shelters
+      @emergencies = Emergency.joins(:animal => :shelter)
+          .where(sql_query, query: "%#{params[:query]}%")
+          .distinct
+
     else
-      @shelters = Shelter.all
-      @emergencies = Emergency.all
+    # If no query fetch all shelters that have animals with emergencies
+      @shelters = Shelter.joins(animals: :emergencies).distinct
+      @emergencies = Emergency.joins(:animal).distinct
     end
-    @markers = @shelters.geocoded.map do |shelter|
+
+    # Collect the locations of the shelters for Mapbox
+    @shelter_locations = @shelters.map do |shelter|
       {
-        lat: shelter.latitude,
-        lng: shelter.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {shelter: shelter}),
+        name: shelter.name,
+        location: shelter.location,
+        latitude: shelter.latitude,
+        longitude: shelter.longitude
+      }
+    end
+
+    # Collect emergency-related information for display
+    @emergency_locations = @emergencies.map do |emergency|
+      shelter = emergency.animal.shelter
+      {
+        emergency_id: emergency.id,
+        title: emergency.title,
+        shelter_name: shelter.name,
+        location: shelter.location,
+        latitude: shelter.latitude,
+        longitude: shelter.longitude
+      }
+    end
+
+    # For Mapbox or any map-related display, fetch locations of all shelters
+    @markers = @shelter_locations.map do |shelter_location|
+      {
+        lat: shelter_location[:latitude],
+        lng: shelter_location[:longitude],
+        info_window: render_to_string(partial: "info_window", locals: { shelter: Shelter.find_by(name: shelter_location[:name]) }),
         image_url: "/marker.png"
       }
     end
