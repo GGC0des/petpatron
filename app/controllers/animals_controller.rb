@@ -4,29 +4,36 @@ class AnimalsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "
-        animals.species ILIKE :query
+        animals.name ILIKE :query
+        OR animals.species ILIKE :query
+        OR shelters.name ILIKE :query
         OR shelters.location ILIKE :query
         OR categories.name ILIKE :query
       "
-      @items = Animal.joins(:shelter, :categories).where(sql_query, query: "%#{params[:query]}%")
-      if @items.first.is_a?(Animal)
-        @animals = @items
-        @shelters = @items.map{|animal|animal.shelter}
-      elsif @items.first.is_a?(Category)
-        @animals = @items.map{|category|category.animals}
-        @shelters = @animals.map{|animal|animal.shelter}
-      else
-        @shelters = @items
-      end
+      @animals = Animal
+        .joins(:shelter)
+        .left_outer_joins(:categories)
+        .where(sql_query, query: "%#{params[:query]}%")
+        .distinct
+
+      @shelters = @animals.map(&:shelter).uniq.compact
     else
       @shelters = Shelter.all
       @animals = Animal.all
     end
 
-    if params[:categories]
+    # Filter by selected categories
+    if params[:categories].present?
       @categories = Category.where(name: params[:categories])
-      @animals = @animals.joins(animal_categories: :category).where(category: {id: @categories})
+      @animals = @animals
+        .joins(animal_categories: :category)
+        .where(category: {id: @categories})
+        .distinct
+
+      @shelters = @animals.map(&:shelter).uniq.compact
     end
+
+    # Markers for map
     @markers = @shelters.map do |shelter|
       {
         lat: shelter.latitude,
