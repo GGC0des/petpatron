@@ -3,29 +3,32 @@ class EmergenciesController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR location ILIKE :query"
+      sql_query = "
+        emergencies.name ILIKE :query
+        OR shelters.location ILIKE :query
+        OR shelters.name ILIKE :query
+        "
+
+      # Check if query matches a location
       @all_locations = Shelter.all.pluck(:location).join(",").downcase
       if @all_locations.include? params[:query].downcase
         @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
-        @animals = []
-        @shelters.each do |shelter|
-          @animals << shelter.animals
-        end
-        @emergencies = []
-        @animals.flatten.each do |animal|
-          animal.emergencies.each do |e|
-            @emergencies << e if animal.emergencies.any?
-          end
-        end
+        @animals = @shelters.includes(:animals).flat_map(&:animals)
+        @emergencies = @animals.flat_map(&:emergencies)
       else
-        @shelters = Shelter.all
-        @emergencies = Emergency.all
+        # Query by emergency or shelter name
+        @shelters = Shelter.where(sql_query, query: "%#{params[:query]}%")
+        @animals = @shelters.includes(:animals).flat_map(&:animals)
+        @emergencies = @animals.flat_map(&:emergencies)
       end
     else
+      #If no query return all emergencies and shelters for Mapbox
       @shelters = Shelter.all
       @emergencies = Emergency.all
     end
-    @markers = @shelters.geocoded.map do |shelter|
+
+
+    @markers = @shelters.map do |shelter|
       {
         lat: shelter.latitude,
         lng: shelter.longitude,
