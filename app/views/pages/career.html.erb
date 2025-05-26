@@ -1,0 +1,20 @@
+<% content_for :meta_url, "#{request.original_url}" %>
+<% content_for :meta_title, "Career" %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Career</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow-sm p-4">
+            <h1 class="text-center">Career Page Demo</h1>
+            <p class="text-muted text-center">This page showcases the Cooper Job Board - a demonstration of its seamless integration.
+              Visit <%= link_to 'Cooper', 'https://cooperhire.io', target: "_blank" %> to learn more.
+            </p>
+        </div>
+        <div id="cooperhire-widget">
+          <script defer type="text/javascript" data-mount-in="#cooperhire-widget" src="https://jobs.cooperhire.io/api/widget/bundle/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2xvcnMiOnsicHJpbWFyeUJyYW5kQ29sb3IiOiIxMjcgMTk0IDE5MSIsInNlY29uZGFyeUJyYW5kQ29sb3IiOiIxMyAxMzggMTUxIn0sImNvbXBhbnkiOnsiaWQiOjIyNywibmFtZSI6IlBldFBhdHJvbiIsInNsdWciOiJwZXRwYXRyb24iLCJ0b2tlbiI6InFkMm5YUFlRU2liT2hJOWsuTUpmN1U3ajNYSG1XcGowcE5xR25lVjhZSHBIalpGeUR5ZjM4T1JtWEJ1U2xMQ000SVhTVXNlcm9TX0M0QXRVblBmal9kQk1oSml6c2tRIiwiam9ic1BlclBhZ2UiOiIyMCJ9LCJpc1Rlc3RQcmV2aWV3IjpmYWxzZX0.NnIysKkVGp0W21BSb4F3sb0pqW15MLw1ptCezjLuLPY"></script>
+        </div>
+    </div>
+</body>

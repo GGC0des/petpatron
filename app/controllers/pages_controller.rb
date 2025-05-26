@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :about ]
+  skip_before_action :authenticate_user!, only: [ :home, :about, :career ]
   # add all the pages [] that we want to see without login
 
   def home
@@ -28,6 +28,9 @@ class PagesController < ApplicationController
   end
 
   def about
+  end
+
+  def career
   end
 
 end
