@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   get 'about', to: 'pages#about'
 
+  get '/career', to: 'pages#career'
+
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :shelters
 
